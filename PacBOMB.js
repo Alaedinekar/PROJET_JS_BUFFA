@@ -2,11 +2,11 @@ window.onload = init;
 let canvas;
 class Player {
   name = "J1";
-  constructor(x,y,dx,dy,taille,ctx){
+  constructor(x,y,taille,ctx){
     this.name = name;
     this.taille = taille;
-    this.dx = 2;
-    this.dy = 2;
+    this.dx = 0;
+    this.dy = 0;
     this.x = x;
     this.y = y;
     this.ctx = ctx;
@@ -16,13 +16,6 @@ class Player {
    
    
    
-
-
-
-      
-        
-
-
 
 
 draw(){
@@ -50,38 +43,63 @@ else {
 }
 
 
-
-
-
 move() {
   	this.x += this.dx;
     this.y += this.dy;
 
-
-  	
   
   if(this.x + this.taille >= canvas.width) {
-      this.dx = -3;
+      
+      this.x -= canvas.width;
+
   }
   if(this.x - this.taille <= 0){
-      this.dx = 3;
+     
+      this.x += canvas.width;
   }
   
   if(this.y + this.taille >= canvas.height) {
-    this.dy = -3;
+    this.y -= canvas.height;
   } 
   
   if(this.y - this.taille <= 0) {
-    this.dy = 3;
+    this.y += canvas.height;
   }
   }
 }
+
+
+class Bomb{
+  constructor(joueur){
+    this.x = joueur.x;
+    this.y = joueur.y;
+    this.timer = 10;
+    this.ctx = ctx;
+    this.color = 'black';
+  }
+
+  draw(){
+
+  ctx.fillStyle = this.color;
+  ctx.beginPath();
+  ctx.arc(this.x,this.y,20,0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fill();
+}
+  changecolor(newcolor){
+    this.color = newcolor;
+  }
+
+}
+
+
+
 let P1;
+
 document.onkeydown = function(event) {
   switch (event.keyCode) {
             case 37:            
-              P1.dx = -5;             
-                 
+              P1.dx = -5; 
                 break;
             case 38:
                 P1.dy = -5;
@@ -92,7 +110,16 @@ document.onkeydown = function(event) {
             case 40:
                 P1.dy = 5;
                 break;
-            
+            case 32:              
+               b = new Bomb(P1);
+               setTimeout(function(){
+                b = undefined; 
+               }, b.timer);
+               
+               console.log(b);
+               
+               
+
 
         }
       }
@@ -115,7 +142,7 @@ document.onkeydown = function(event) {
 
         }
     }
-
+let b;
 function init() {
   
   canvas = document.querySelector("#Canvas");
@@ -125,7 +152,7 @@ function init() {
   canvas.addEventListener('keyup', onkeyup, false);
   //context graphique
   ctx = canvas.getContext("2d");
-  P1 = new Player(100,100,10,10,50,ctx);
+  P1 = new Player(100,100,50,ctx);
  
   requestAnimationFrame(anime60fps);
 }
@@ -133,6 +160,9 @@ function anime60fps() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   P1.draw();
   P1.move();
+  if (b != undefined )
+  b.draw();
+  
   
   requestAnimationFrame(anime60fps);
 }
