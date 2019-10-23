@@ -74,10 +74,13 @@ class Bomb{
   constructor(joueur){
     this.x = joueur.x;
     this.y = joueur.y;
-    this.timer = 10;
+    this.timer = 10000;
     this.ctx = ctx;
     this.color = 'black';
+    this.cligno = 1;
   }
+
+
 
   draw(){
 
@@ -86,10 +89,27 @@ class Bomb{
   ctx.arc(this.x,this.y,20,0, Math.PI * 2);
   ctx.stroke();
   ctx.fill();
+  setTimeout(() => {
+    this.changecolor();
+  }, 500);  
 }
-  changecolor(newcolor){
-    this.color = newcolor;
+  
+changecolor(){
+    if (this.cligno == 1){
+      this.color = "red";
+      this.cligno = 0;
+    }
+    else { 
+      this.color = "yellow";
+      this.cligno = 1;
   }
+
+}
+
+
+explode(){
+
+}
 
 }
 
