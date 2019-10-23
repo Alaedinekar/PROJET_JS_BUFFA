@@ -1,5 +1,6 @@
 window.onload = init;
 let canvas;
+//test modif
 class Player {
   name = "J1";
   constructor(x,y,taille,ctx){
