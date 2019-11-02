@@ -3,7 +3,7 @@ let canvas;
 //test modif
 class Player {
   name = "J1";
-  constructor(x,y,taille,ctx){
+  constructor(x,y,taille,ctx,name){
     this.name = name;
     this.taille = taille;
     this.dx = 0;
@@ -77,6 +77,8 @@ class Bomb{
     this.timer = 10000;
     this.ctx = ctx;
     this.color = 'black';
+    this.posX = 0;
+    this.posY = 0;
     this.cligno = 1;
   }
 
@@ -91,7 +93,9 @@ class Bomb{
   ctx.fill();
   setTimeout(() => {
     this.changecolor();
-  }, 500);  
+  }, 500);
+  //this.explode();
+  
 }
   
 changecolor(){
@@ -105,15 +109,46 @@ changecolor(){
   }
 
 }
-
-
+      //  [posY][posX]
+/*
 explode(){
+  
+     for (let i = 0; i<taille ; i++){
+       if (map[posY][i] == 0){
+         break;
+       }
+       else if (map[posY][i] == 1 ){
+         map[posY][i] = map[posY][2];
+         break;
+       }
+        else{
+          map[posY][i] = 3;
+        }
+       }
+      
+
+       for (let j = posX ; j<taille ; j++){
+         if (map[j][posX] == 0 ){
+          break;
+         }
+         else if (map[j][posX]  == 1){ 
+           map[j][posX] = 2;
+           break;
+         }
+
+         else{ 
+           map[j][posX] = 3;
+         }
+         
+       }
+   
+
+      
+}
+*/
+
 
 }
-
-}
-
-
 
 let P1;
 
@@ -137,8 +172,7 @@ document.onkeydown = function(event) {
                 b = undefined; 
                }, b.timer);
                
-               console.log(b);
-               
+               console.log(b);             
                
 
 
