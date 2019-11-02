@@ -40,7 +40,7 @@ class Case{
                     ctx.FillRect(x,y,longueur,longueur);
                 }
                 if (map[i][j] == 2) {
-                    ctx.fillStyle = "green";  //mur cassable
+                    ctx.fillStyle = "green";  //chemin
                     ctx.FillRect(x,y,longueur,longueur);
                 }
 
