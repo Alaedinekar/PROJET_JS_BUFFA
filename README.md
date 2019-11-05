@@ -14,4 +14,8 @@ Troisème et quatrième semaine : Faire la carte de jeu, dessiner et gerer les c
 
 
 
-A faire: Le pacman se déplace dans la matrice maintenant, il faut le définir dedans et changer les mouvements.
+A faire: 
+Le pacman se déplace dans la matrice maintenant, il faut le définir dans la matrice et changer les mouvements.
+Destruction des murs cassables avec l'explosion de la bombe
+Appartition de la pillule sur la map
+changement d'état l'orsqu'un joueur mange la pillule.
