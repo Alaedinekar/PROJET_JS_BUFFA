@@ -10,7 +10,9 @@ Première semaine : Dessiner le pacman avec l'animation de la bouche.
 
 Deuxième semaine : Bouger le pacman avec les touches du clavier, le faire revenir a l'opposé du canvas quand il sort du canvas.
 
-Troisème et quatrième semaine : Faire la carte de jeu, dessiner et gerer les collisions etc...
+Troisième semaine : Classe de la bombe avec détonation et animation de changement de couleur.
+
+Quatrième semaine : Faire la carte de jeu, dessiner et gerer les collisions etc...
 
 
 
