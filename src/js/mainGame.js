@@ -25,7 +25,7 @@ function init() {
 function anime60fps() {
   clearCanvas();
   drawMap();
-  //drawPlayer();
+  drawPlayer();
   //moveplayer();
 
   //if (b != undefined )
@@ -42,4 +42,9 @@ function clearCanvas() {
 function drawMap() {
   //Map1.draw(ctx);
   Map2.draw(ctx);
+
+}
+
+function drawPlayer(){
+  P1.draw();
 }

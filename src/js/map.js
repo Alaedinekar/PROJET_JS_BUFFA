@@ -23,12 +23,12 @@ class Map {
     this.width = largeurPixels;
     this.height = hauteurPixels;
     this.map = array;
-    this.colors = ["blue", "grey", "yellow", "red"];
+    this.colors = ["blue", "grey", "brown", "red"];
   }
 
-  draw(ctx) {
+  draw() {
     //dessin de la map en fonction de la matrice
-    let x = 0; //On initialise x a - longueur pour arriver à 0 sur le dessin de la première case
+    let x = 0;
     let y = 0;
 
     for (let i = 0; i < this.map[0].length; i++) {
@@ -37,15 +37,11 @@ class Map {
 
       for (let j = 0; j < map[0].length; j++) {
         y = j * this.height;
-        if (this.map[i][j] == 0) {
-          ctx.fillStyle = "grey"; //mur incassable
-          ctx.fillRect(x, y, this.width, this.height);
-          //On incrémente y pour faire la case suivante de la colonne
-        }
 
         ctx.fillStyle = this.colors[this.map[i][j]]; //mur cassable
         ctx.fillRect(x, y, this.width, this.height);
       }
     }
   }
+  
 }
