@@ -8,18 +8,16 @@ let ctx = this.ctx;
 
 //map temporaire
 var map = 
-[[2,2,0,0,2,1,2,2,0,0,2,1],
- [2,0,2,1,0,2,2,2,0,3,2,0],
- [0,1,2,0,0,1,2,1,0,0,2,1],
- [0,0,1,1,0,0,2,1,2,0,2,2],
- [2,0,0,1,0,2,2,2,0,0,2,1],
- [2,2,1,1,2,2,0,2,0,1,2,3],
- [2,0,0,1,0,2,2,1,0,0,2,1],
- [2,0,0,1,0,2,2,2,1,0,2,0],
- [2,0,2,1,0,2,1,2,0,0,2,0],
- [2,0,0,1,0,2,2,3,0,0,2,2],
- [2,1,0,1,0,2,1,2,0,1,2,1],
- [2,0,0,1,0,2,2,1,0,0,2,1]];    // chaque numéro correspond au type de la case (mur,mur casable,chemin etc...)
+[[2,2,2,1,2,2,1,2,2,2],
+ [2,0,1,0,1,0,1,1,0,2],
+ [2,1,1,1,0,1,2,1,1,1],
+ [2,0,1,1,1,1,2,1,1,1],
+ [1,1,1,0,2,0,1,0,1,1],
+ [1,1,1,2,5,2,1,1,1,2],
+ [1,0,1,0,2,0,0,0,1,1],
+ [2,1,1,2,1,1,1,1,1,2],
+ [2,0,1,0,1,0,1,1,0,2],
+ [4,2,1,1,2,2,1,1,2,2]];    // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
 
 var taille = map.length;       //nombre  de lignes
@@ -67,6 +65,18 @@ class Case{
                     
                 }
 
+                if (map[i][j] == 4){ // joueur
+                     P1.draw;
+
+              }
+
+
+              if (map[i][j] == 5){ // BOMBE
+                  continue;
+                //b.draw;
+                
+            }
+
             }
         }
     }
@@ -79,70 +89,46 @@ class Case{
 
 
 class Player {
-  name = "J1";
-  constructor(x,y,taille,ctx,name){
-    this.name = name;
+   name = "J1";
+  constructor(taille,ctx){
+    
+    
     this.taille = taille;
-    this.dx = 0;
-    this.dy = 0;
-    this.x = x;
-    this.y = y;
+    for(let i=0;i<map.length;i++){
+      for(let j=0;j<map[0].length;j++){
+        if(map[i][j] == 4){
+          this.posX = j;
+          this.posY = i;
+        }
+      }
+    }
+    this.pos = [this.posX,this.posY];
     this.ctx = ctx;
     this.sAngle = (Math.PI / 4);
     this.eAngle =  - (Math.PI / 4);
   }
-   
-   
-   
-
-
-draw(){
-
-if (this.eAngle >=  0.4){
-	this.eAngle = - (Math.PI / 4);
-}
-else {
-	this.eAngle += 0.09;
-}
-
- let x1 = this.x+  this.taille * Math.cos( Math.PI / 4);
- let y1 = this.y + this.taille * Math.sin(Math.PI / 4);
-  ctx.fillStyle = 'yellow';
   
-  ctx.beginPath();
-  
-  ctx.arc(this.x, this.y, this.taille, this.sAngle,this.eAngle);
-  
-  ctx.lineTo(this.x,this.y);
-  ctx.lineTo(x1,y1);
-  ctx.stroke();
-  ctx.fill();
-  
-}
-
-
-move() {
-  	this.x += this.dx;
-    this.y += this.dy;
-
-  
-  if(this.x + this.taille >= canvas.width) {
-      
-      this.x -= canvas.width;
-
+  draw(){
+    if (this.eAngle >=  0.4){
+      this.eAngle = - (Math.PI / 4);
   }
-  if(this.x - this.taille <= 0){
-     
-      this.x += canvas.width;
+  else {
+      this.eAngle += 0.09;
   }
   
-  if(this.y + this.taille >= canvas.height) {
-    this.y -= canvas.height;
-  } 
+   let x1 = this.posX * Case.longueur +  this.taille * Math.cos( Math.PI / 4);
+   let y1 = this.posY * Case.longueur + this.taille * Math.sin(Math.PI / 4);
+    ctx.fillStyle = 'yellow';
   
-  if(this.y - this.taille <= 0) {
-    this.y += canvas.height;
-  }
+    ctx.beginPath();
+  
+    ctx.arc(this.posX * Case.longueur, this.posY * Case.longueur, this.taille, this.sAngle,this.eAngle);
+  
+    ctx.lineTo(this.posX * Case.longueur,this.posY * Case.longueur);
+    ctx.lineTo(x1,y1);
+    ctx.stroke();
+    ctx.fill();
+    
   }
 }
 
@@ -234,16 +220,16 @@ let P1;
 document.onkeydown = function(event) {
   switch (event.keyCode) {
             case 37:            
-              P1.dx = -5; 
+              P1.posX -=  1; 
                 break;
             case 38:
-                P1.dy = -5;
+                P1.posY -= 1;
                 break;
             case 39:
-                P1.dx = 5;
+                P1.posX += 1;
                 break;
             case 40:
-                P1.dy = 5;
+                P1.posY += 1;
                 break;
             case 32:              
                b = new Bomb(P1);
@@ -259,16 +245,12 @@ document.onkeydown = function(event) {
   document.onkeyup = function(event) {
         switch (event.keyCode) {
             case 37:              
-                P1.dx = 0;
                 break;
             case 38:
-                P1.dy = 0;
                 break;
             case 39:
-                P1.dx = 0;
                 break;
             case 40:
-                P1.dy = 0;
                 break;
 
         }
@@ -285,18 +267,17 @@ function init() {
   //context graphique
   ctx = canvas.getContext("2d");
   Map1 = new Case(ctx,50);
-  P1 = new Player(100,100,50,ctx);
+  P1 = new Player(25,ctx);
  
   requestAnimationFrame(anime60fps);
 }
 function anime60fps() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   Map1.draw(ctx);
-  P1.draw();
-  P1.move();
-  if (b != undefined )
-  b.draw();
   
+  //if (b != undefined )
+ // b.draw();
   
+  console.log(P1.pos);
   requestAnimationFrame(anime60fps);
 }
