@@ -7,16 +7,21 @@ function addListeners(canvas) {
 document.onkeydown = function (event) {
      switch (event.keyCode) {
           case 37:
-               P1.posX -= 1;
+               if(P1.canMoveL()){
+                    P1.posX -= 1;
+               }
                break;
           case 38:
-               P1.posY -= 1;
+               if(P1.canMoveUp())
+                    P1.posY -= 1;
                break;
           case 39:
-               P1.posX += 1;
+               if(P1.canMoveR())
+                    P1.posX += 1;
                break;
           case 40:
-               P1.posY += 1;
+               if(P1.canMoveD())
+                    P1.posY += 1;
                break;
           case 32:
                b = new Bomb(P1);

@@ -31,7 +31,7 @@ function anime60fps() {
   //if (b != undefined )
   // b.draw();
 
-  console.log(P1.pos);
+  
   requestAnimationFrame(anime60fps);
 }
 
