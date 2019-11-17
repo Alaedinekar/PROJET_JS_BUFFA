@@ -18,6 +18,7 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
+  b = new Bomb(P1);
 
   requestAnimationFrame(anime60fps);
 }
@@ -26,10 +27,7 @@ function anime60fps() {
   clearCanvas();
   drawMap();
   drawPlayer();
-  //moveplayer();
-
-  //if (b != undefined )
-  // b.draw();
+  
 
   
   requestAnimationFrame(anime60fps);

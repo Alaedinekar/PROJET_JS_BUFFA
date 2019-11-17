@@ -1,26 +1,29 @@
 class Bomb {
-    constructor(joueur) {
-        this.x = joueur.x;
-        this.y = joueur.y;
+    constructor(posx,posy) {
+        this.x=posx;
+        this.y = posy;
         this.timer = 3000;
-        this.ctx = ctx;
         this.color = "black";
-        this.posX = 0;
-        this.posY = 0;
         this.cligno = 1;
+        this.cooldown = 5000;
     }
 
     draw() {
+     
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 20, 0, Math.PI * 2);
         ctx.stroke();
         ctx.fill();
-        setTimeout(() => {
-            this.changecolor();
-        }, 500);
+        while(this.timer!= 0){
+        this.changecolor();
+        this.timer -= 1;
+        }
         //this.explode();
-    }
+        this.timer = 3000;      
+      } 
+        
+    
 
     changecolor() {
         if (this.cligno == 1) {

@@ -1,14 +1,14 @@
 //map temporaire
 var map = [
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 4],
-  [2, 0, 1, 0, 1, 0, 1, 1, 0, 2],
-  [2, 1, 1, 1, 0, 1, 2, 1, 1, 1],
-  [2, 0, 1, 1, 1, 1, 2, 1, 1, 1],
+  [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
+  [2, 1, 1, 1, 2, 1, 2, 1, 1, 1],
+  [2, 0, 1, 1, 2, 1, 2, 1, 1, 1],
   [2, 2, 1, 0, 2, 0, 1, 0, 1, 1],
-  [2, 1, 1, 2, 5, 2, 1, 1, 1, 2],
+  [2, 1, 1, 2, 2, 2, 1, 1, 1, 2],
   [2, 0, 1, 0, 2, 0, 0, 0, 1, 1],
-  [2, 1, 1, 2, 1, 1, 1, 1, 1, 2],
-  [2, 0, 1, 0, 1, 0, 1, 1, 0, 2],
+  [2, 1, 1, 2, 2, 1, 1, 1, 1, 2],
+  [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
@@ -23,7 +23,7 @@ class Map {
     this.width = largeurPixels;
     this.height = hauteurPixels;
     this.map = array;
-    this.colors = ["blue", "grey", "brown", "red"];
+    this.colors = ["blue", "grey", "green", "red"];
                 // incassable,cassable,chemin
     
   }

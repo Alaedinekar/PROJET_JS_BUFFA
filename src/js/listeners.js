@@ -24,10 +24,10 @@ document.onkeydown = function (event) {
                     P1.posY += 1;
                break;
           case 32:
-               b = new Bomb(P1);
-               setTimeout(function () {
-                    b = undefined;
-               }, b.timer);
+               b = new Bomb(P1.posX,P1.posY);
+               b.draw();
+               console.log(b);
+               
 
                //console.log(P1.pos);
      }
