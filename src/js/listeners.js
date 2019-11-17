@@ -29,7 +29,7 @@ document.onkeydown = function (event) {
                     b = undefined;
                }, b.timer);
 
-               console.log(P1.pos);
+               //console.log(P1.pos);
      }
 }
 

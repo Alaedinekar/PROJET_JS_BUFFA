@@ -4,9 +4,9 @@ class Player {
   name = "J1";
   constructor(taille, ctx) {
     this.taille = taille;
-    for (let i = 0; i < map.length; i++) {
-      for (let j = 0; j < map[0].length; j++) {
-        if (map[i][j] == 4) {
+    for (let i = 0; i < Map2.map.length; i++) {
+      for (let j = 0; j < Map2.map[0].length; j++) {
+        if (Map2.map[i][j] == 4) {
           this.posX = i;
           this.posY = j;
         }
@@ -17,37 +17,33 @@ class Player {
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);
   }
-  canMoveR(){
-
-   
-      console.log(this.posX);
-    if(this.posX==map[0].length ||map[this.posY][this.posX + 1] == 0 || map[this.posY][this.posX + 1] == 1){
+  canMoveR(){   
+    console.log(this.posX + 1);
+    if(this.posX==Map2.map.length ||Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
       return false;
     }else{
       return true;
     }
   }
   canMoveL(){
-    if(this.posX==0 || map[this.posY][this.posX - 1] == 0 || map[this.posY][this.posX - 1] == 1){
+    console.log(this.posX - 1);
+    if(this.posX==0 || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1){
       return false;
     }else{
       return true;
     }
   }
   canMoveUp(){
-    
-    if(this.PosY==0){
-      
-      return false;
-    }
-    if(this.PosY==0 ||map[this.posY-1][this.posX] == 0 || map[this.posY-1][this.posX] == 1){
+    console.log(this.posY -1);
+    if(this.PosY==0 ||Map2.map[this.posY-1][this.posX] == 0 || Map2.map[this.posY-1][this.posX] == 1){
       return false;
     }else{
       return true;
     }
   }
   canMoveD(){
-    if (this.posY==map.length || [this.posY+1][this.posX] == 0 || map[this.posY+1][this.posX] == 1){
+    console.log(this.posY + 1);
+    if (this.posY==Map2.map.length || Map2.map[this.posY+1][this.posX] == 0 || Map2.map[this.posY+1][this.posX] == 1){
       return false;
     }else{
       return true;
@@ -63,7 +59,7 @@ class Player {
           
 
           ctx.translate(Map2.width/2,Map2.height/2 );
-          console.log(Map2.height);
+          
 
           if (this.eAngle >= 0.4) {
             this.eAngle = -(Math.PI / 4);
