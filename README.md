@@ -15,7 +15,7 @@ Troisième semaine : Classe de la bombe avec détonation et animation de changem
 Quatrième semaine : Faire la carte de jeu, dessiner et gerer les collisions etc... FAIT
 
 
-Le pacman se déplace dans la matrice maintenant, il faut le définir dans la matrice et changer les mouvements.
+Cinquieme semaine:Le pacman se déplace dans la matrice maintenant, il faut le définir dans la matrice et changer les mouvements. FAIT 
 
 A faire: 
 Destruction des murs cassables avec l'explosion de la bombe
