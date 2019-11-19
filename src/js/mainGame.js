@@ -27,6 +27,7 @@ function anime60fps() {
   clearCanvas();
   drawMap();
   drawPlayer();
+  drawBomb();
   
 
   
@@ -45,4 +46,8 @@ function drawMap() {
 
 function drawPlayer(){
   P1.draw();
+}
+
+function drawBomb(){
+  b.draw();
 }

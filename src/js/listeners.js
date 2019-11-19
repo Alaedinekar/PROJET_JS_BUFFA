@@ -5,8 +5,14 @@ function addListeners(canvas) {
 
 
 document.onkeydown = function (event) {
+     
+     
      switch (event.keyCode) {
+
           case 37:
+               //ctx.save();
+               //ctx.rotate(180) //tentative de rotation du perso
+               //ctx.restore();
                if(P1.canMoveL()){
                     P1.posX -= 1;
                }
@@ -16,21 +22,24 @@ document.onkeydown = function (event) {
                     P1.posY -= 1;
                break;
           case 39:
+               
                if(P1.canMoveR())
                     P1.posX += 1;
                break;
           case 40:
+
                if(P1.canMoveD())
                     P1.posY += 1;
                break;
           case 32:
-               b = new Bomb(P1.posX,P1.posY);
-               b.draw();
+               console.log(P1.posX,P1.posY);
+               b = new Bomb(P1.posX,P1.posY);               
                console.log(b);
                
 
-               //console.log(P1.pos);
+               
      }
+     
 }
 
 
@@ -44,5 +53,7 @@ document.onkeyup = function (event) {
                break;
           case 40:
                break;
+          //case 32:
+          //break;
      }
 }
