@@ -1,6 +1,6 @@
 class Bomb {
     constructor(posx,posy) {
-        this.x=posx;
+        this.x= posx;
         this.y = posy;
         this.timer = 3000;
         this.color = "black";
@@ -37,39 +37,83 @@ class Bomb {
 
 
 
-    //  [posY][posX]
-    /*
-  explode(){
+   
     
-       for (let i = 0; i<taille ; i++){
-         if (map[posY][i] == 0){
-           break;
-         }
-         else if (map[posY][i] == 1 ){
-           map[posY][i] = map[posY][2];
-           break;
-         }
-          else{
-            map[posY][i] = 3;
-          }
-         }
-        
-  
-         for (let j = posX ; j<taille ; j++){
-           if (map[j][posX] == 0 ){
-            break;
-           }
-           else if (map[j][posX]  == 1){ 
-             map[j][posX] = 2;
-             break;
-           }
-  
-           else{ 
-             map[j][posX] = 3;
-           }
-           
-         }
-     
-  */
+  explode(){
 
+    
+    let res = this.x;
+    let cpt = this.y;
+    
+    while(res <Map2.map[0].length){ //ligne a droite de la bombe
+
+      switch(Map2.map[res+1][this.y]){
+      case 1:
+        Map2.map[res+1][this.y] = 2;
+        break;
+      
+      case 0:
+        break;
+      case 2:
+          (Map2.map[res+1][this.y] = 3);
+          res+=1;
+          continue;
+    }
+  }
+
+
+    while(res != 0 ){ //ligne a gauche de la bombe
+      
+      switch(Map2.map[res - 1]){
+      case 1:
+        Map2.map[res-1] = 2;
+        break;
+      
+      case 0:
+        break;
+      case 2:
+          (Map2.map[res-1][] = 3);
+          res-=1;
+          continue;
+    }
+  }
+
+    while(cpt > 0 ){ //colonne au dessus de la bombe
+      
+      switch(Map2.map[this.x][cpt - 1]){
+      case 1:
+        Map2.map[this.x][cpt-1] = 2;
+        break;
+      
+      case 0:
+        break;
+      case 2:
+          (Map2.map[this.x][cpt-1] = 3);
+          cpt-=1;
+          continue;
+    }
+  }
+    
+  while(cpt < Map2.map.length ){ //colonne en dessous de la bombe pas fini
+      
+    switch(Map2.map[this.x][cpt - 1]){
+    case 1:
+      Map2.map[this.x][cpt-1] = 2;
+      break;
+    
+    case 0:
+      break;
+    case 2:
+        (Map2.map[this.x][cpt-1] = 3);
+        cpt-=1;
+        continue;
+  }
+}
+    
+       
+           
+
+     
+  
+  }
 }
