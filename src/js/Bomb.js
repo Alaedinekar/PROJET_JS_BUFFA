@@ -1,5 +1,6 @@
 class Bomb {
-  constructor(posx, posy) {
+  constructor(posx, posy, callback) {
+    this.id = undefined;
     this.x = posx;
     this.y = posy;
     this.timer = 3000;
@@ -8,8 +9,14 @@ class Bomb {
     //this.cooldown = 5000;
     this.boo = 0;
     this.ctpcolor =0;
+    this.callbackE = callback;
     setTimeout(this.explode,3000);
+
     
+  }
+
+  setId = (id) => {
+    this.id = id;
   }
 
   draw() {
@@ -64,14 +71,21 @@ class Bomb {
 
 
   explode = () => {
-
-
-
-
-    this.exlodeRow(this.x,this.y);
-
+    var tabB = {
+      nord: false,
+      sud: false,
+      est: false,
+      ouest: false
+    };
+    this.searchRecurs(this.x,this.y,1,tabB);
     
+    this.callbackE(this);
+
+
   }
+
+
+
   
   searchRecurs(x,y,i,tab)  {
     
@@ -135,7 +149,7 @@ class Bomb {
     if(!tab.sud){
       switch (Map2.map[y+i][x]) {
         case 1:
-            console.log(i);
+            console.log(P1.chargeur);
           Map2.map[y+i][x] = 2;
           tab.sud = true;
           break;
@@ -166,17 +180,11 @@ class Bomb {
   }
 
 
-  exlodeRow = (x,y) => {
-    var tabB = {
-      nord: false,
-      sud: false,
-      est: false,
-      ouest: false
-    };
-    this.searchRecurs(x,y,1,tabB);
+  
+    
 
 
-  }
+  
   
   
 

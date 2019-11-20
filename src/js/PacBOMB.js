@@ -16,6 +16,7 @@ class Player {
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);
+    this.chargeur = [undefined,undefined,undefined];
   }
   canMoveR(){   
     

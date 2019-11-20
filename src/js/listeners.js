@@ -3,6 +3,9 @@ function addListeners(canvas) {
      canvas.addEventListener("keyup", onkeyup, false);
 }
 
+callbackExplode = bombe => {
+     P1.chargeur = P1.chargeur.slice(bombe.id,1);
+}
 
 document.onkeydown = function (event) {
      
@@ -33,8 +36,10 @@ document.onkeydown = function (event) {
                break;
           case 32:
                console.log(P1.posX,P1.posY);
-               b = new Bomb(P1.posX,P1.posY);               
-               console.log(b);
+               let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
+               P1.chargeur.push(beubon);  
+               beubon.setId(P1.chargeur.length-1);
+               console.log(P1.chargeur);
                
 
                

@@ -18,7 +18,7 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
-  b = undefined;//new Bomb(P1);
+  
 
   requestAnimationFrame(anime60fps);
 }
@@ -49,5 +49,9 @@ function drawPlayer(){
 }
 
 function drawBomb(){
-  if(b != undefined) b.draw();
+  for (let i = 0; i< P1.chargeur.length;i++){
+    if(P1.chargeur[i] != undefined) P1.chargeur[i].draw();
+  }
 }
+
+
