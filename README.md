@@ -16,9 +16,10 @@ Quatrième semaine : Faire la carte de jeu, dessiner et gerer les collisions etc
 
 
 Cinquieme semaine:Le pacman se déplace dans la matrice maintenant, il faut le définir dans la matrice et changer les mouvements. FAIT 
+ 
+Destruction des murs cassables avec l'explosion de la bombe. FAIT
 
-A faire: 
-Destruction des murs cassables avec l'explosion de la bombe
+ semaine du 01/11: faire les chemins enflammés:
 
 Appartition de la pillule sur la map
 
