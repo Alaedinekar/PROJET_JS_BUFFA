@@ -40,7 +40,12 @@ document.onkeydown = function (event) {
                P1.chargeur.push(beubon);  
                beubon.setId(P1.chargeur.length-1);
                console.log(P1.chargeur);
+               break;
+          
+               case 48:
+               varmenu = 0;
                
+               break;
 
                
      }
@@ -58,7 +63,9 @@ document.onkeyup = function (event) {
                break;
           case 40:
                break;
-          //case 32:
-          //break;
+          case 48:
+               break;
+          case 32:
+               break;
      }
 }

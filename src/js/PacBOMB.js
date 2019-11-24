@@ -13,6 +13,7 @@ class Player {
       }
     }
     this.pos = [this.posX, this.posY];
+    
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);
@@ -50,6 +51,16 @@ class Player {
       return true;
     }
   }
+
+
+  mort(){
+    //console.log("hello");
+    //console.log(Map2.map[this.posY][this.posX]);
+    if (Map2.map[this.posY][this.posX] == 3){
+      return true;
+    }
+  }
+
   draw() {
     
     for (let i = 0; i <Map2.map.length; i++) {

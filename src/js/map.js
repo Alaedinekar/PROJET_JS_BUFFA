@@ -26,6 +26,7 @@ class Map {
     this.colors = ["blue", "grey", "green", "red"];
                 // incassable,cassable,chemin
     
+    
   }
 
   draw() {
@@ -42,6 +43,10 @@ class Map {
 
         ctx.fillStyle = this.colors[this.map[i][j]]; 
         ctx.fillRect(x, y, this.width, this.height);
+        /*if (this.map[i][j]==3){ //remettre une case enflammée en case normal apres 2s
+
+
+        }*/
       }
     }
   }

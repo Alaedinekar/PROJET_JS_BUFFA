@@ -31,7 +31,7 @@ class Bomb {
     ctx.stroke();
     ctx.fill();
     ctx.restore();
-    console.log(this.x);
+    
 
     /*
     while (this.timer != 0) {
@@ -59,7 +59,7 @@ class Bomb {
         this.cligno = 0;
       } else {
         
-        this.color = "Purple";
+        this.color = "orange";
         this.cligno = 1;
       }
       this.ctpcolor = 0;
@@ -71,6 +71,7 @@ class Bomb {
 
 
   explode = () => {
+    
     var tabB = {
       nord: false,
       sud: false,
@@ -88,7 +89,7 @@ class Bomb {
 
   
   searchRecurs(x,y,i,tab)  {
-    
+    Map2.map[y][x] = 3;
     let tail = Map2.map.length;
   
     
@@ -99,7 +100,7 @@ class Bomb {
 
     
     if(!tab.est){
-      console.log(i);
+      
       switch (Map2.map[y][x+i]) {
         case 1:
           Map2.map[y][x+i] = 2;
@@ -115,7 +116,7 @@ class Bomb {
 
     }
     if(!tab.ouest){
-      console.log(i);
+      
       switch (Map2.map[y][x-i]) {
         case 1:
           Map2.map[y][x-i] = 2;
@@ -131,7 +132,7 @@ class Bomb {
 
     }
     if(!tab.nord){
-      console.log(i);
+      
       switch (Map2.map[y-i][x]) {
         case 1:
           Map2.map[y-i][x] = 2;
@@ -155,7 +156,7 @@ class Bomb {
           break;
         
         case 2:
-            console.log(i);
+            
           (Map2.map[y+i][x] = 3);
           
           break;
@@ -170,12 +171,12 @@ class Bomb {
       return;
     }
     else {
-      console.log(tab);
+      
       
       i++;
       return this.searchRecurs(x,y,i,tab);
     }
-    //console.log(tab);
+   
     
   }
 

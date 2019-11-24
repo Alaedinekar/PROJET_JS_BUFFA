@@ -7,6 +7,8 @@ let ctx = this.ctx;
 // DOCUMENTER
 let Map1, P1;
 let Map2;
+var varmenu = 0;
+var final = 0;
 
 function init() {
   canvas = document.querySelector("#Canvas");
@@ -24,10 +26,19 @@ function init() {
 }
 
 function anime60fps() {
-  clearCanvas();
+  console.log(varmenu);
+
+  
+  //menu()
+  
+  clearCanvas();  
+
   drawMap();
   drawPlayer();
   drawBomb();
+  death();
+  
+  
   
 
   
@@ -38,11 +49,26 @@ function clearCanvas() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function menu(){
+  if (varmenu == 0){
+    
+  var test = "SHREK5 HYPE  PRESS P  ";
+  ctx.fillStyle ="white"; 
+  ctx.fillRect(0,0,canvas.width, canvas.height);
+  document.write(test.fontsize(25));
+  varmenu++;
+  
+  }
+  
+
+}
 function drawMap() {
   //Map1.draw(ctx);
   Map2.draw(ctx);
 
 }
+
+
 
 function drawPlayer(){
   P1.draw();
@@ -53,5 +79,23 @@ function drawBomb(){
     if(P1.chargeur[i] != undefined) P1.chargeur[i].draw();
   }
 }
+
+function death(){
+  if (P1.mort() && final ==0) {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0,0,canvas.width, canvas.height);
+    var fin = "GAMEOVER";
+    document.write(fin.fontsize(100));
+    console.log("MORT");
+    final++;
+    varmenu=0; 
+    setTimeout(reset(),3000);  
+  }
+  }
+
+  function reset(){
+    clearCanvas();
+    setTimeout(menu(), 3000);
+  }
 
 
