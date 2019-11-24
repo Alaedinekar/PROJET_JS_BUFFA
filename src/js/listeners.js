@@ -35,14 +35,19 @@ document.onkeydown = function (event) {
                     P1.posY += 1;
                break;
           case 32:
-               console.log(P1.posX,P1.posY);
+               console.log(P1.compteurbomb);
+               console.log(P1.nbMaxBomb);
+               if(P1.compteurbomb < P1.nbMaxBomb){
                let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
+               console.log("bombe+1");
                P1.chargeur.push(beubon);  
                beubon.setId(P1.chargeur.length-1);
-               console.log(P1.chargeur);
+               
+               }
                break;
           
                case 48:
+               console.log("ppppp");
                varmenu = 0;
                
                break;

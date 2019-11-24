@@ -9,6 +9,7 @@ class Bomb {
     //this.cooldown = 5000;
     this.boo = 0;
     this.ctpcolor =0;
+    
     this.callbackE = callback;
     setTimeout(this.explode,3000);
 
@@ -85,11 +86,15 @@ class Bomb {
 
   }
 
-
+feueteins(x,y){
+Map2.map[y][x] = 2;
+}
 
   
   searchRecurs(x,y,i,tab)  {
     Map2.map[y][x] = 3;
+    
+    
     let tail = Map2.map.length;
   
     
@@ -109,6 +114,7 @@ class Bomb {
         
         case 2:
           (Map2.map[y][x+i] = 3);
+          
           
           break;
           //Map2.cdflamme;
@@ -142,6 +148,7 @@ class Bomb {
         case 2:
           (Map2.map[y-i][x] = 3);
           
+          
           break;
           //Map2.cdflamme;
       }
@@ -158,6 +165,7 @@ class Bomb {
         case 2:
             
           (Map2.map[y+i][x] = 3);
+         
           
           break;
           //Map2.cdflamme;

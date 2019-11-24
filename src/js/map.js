@@ -25,6 +25,7 @@ class Map {
     this.map = array;
     this.colors = ["blue", "grey", "green", "red"];
                 // incassable,cassable,chemin
+    this.timerFeu = 6000;
     
     
   }
@@ -43,10 +44,15 @@ class Map {
 
         ctx.fillStyle = this.colors[this.map[i][j]]; 
         ctx.fillRect(x, y, this.width, this.height);
-        /*if (this.map[i][j]==3){ //remettre une case enflammée en case normal apres 2s
+        if (this.map[i][j]==3){ //remettre une case enflammée en case normal apres 2s
+          this.timerFeu--;
+          if(this.timerFeu == 0 ){
+            this.map[i][j] = 2;
+            this.timerFeu = 600;
 
+          }
 
-        }*/
+        }
       }
     }
   }

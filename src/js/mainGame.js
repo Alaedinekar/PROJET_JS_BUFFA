@@ -26,13 +26,13 @@ function init() {
 }
 
 function anime60fps() {
-  console.log(varmenu);
+  /*console.log(varmenu);
 
-  
-  //menu()
+  if (!varmenu){
+  menu();} */
   
   clearCanvas();  
-
+  console.log(P1.compteurbomb,P1.nbMaxBomb);
   drawMap();
   drawPlayer();
   drawBomb();
@@ -50,8 +50,9 @@ function clearCanvas() {
 }
 
 function menu(){
+  console.log("menu");
   if (varmenu == 0){
-    
+    console.log("AAAAAAA");    
   var test = "SHREK5 HYPE  PRESS P  ";
   ctx.fillStyle ="white"; 
   ctx.fillRect(0,0,canvas.width, canvas.height);

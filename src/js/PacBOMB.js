@@ -12,12 +12,13 @@ class Player {
         }
       }
     }
-    this.pos = [this.posX, this.posY];
+    this.compteurbomb= 0;
+    this.nbMaxBomb = 3;
     
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);
-    this.chargeur = [undefined,undefined,undefined];
+    this.chargeur = [];
   }
   canMoveR(){   
     
