@@ -54,8 +54,7 @@ class Player {
 
 
   mort(){
-    //console.log("hello");
-    //console.log(Map2.map[this.posY][this.posX]);
+   
     if (Map2.map[this.posY][this.posX] == 3){
       return true;
     }

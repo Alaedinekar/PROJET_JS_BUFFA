@@ -27,10 +27,6 @@ function init() {
 }
 
 function anime60fps() {
-  /*console.log(varmenu);
-
-  if (!varmenu){
-  menu();} */
   
   clearCanvas();  
   
@@ -47,17 +43,10 @@ function clearCanvas() {
 }
 
 function menu(){
- /* console.log("menu");
-  if (varmenu == 0){
-    console.log("AAAAAAA");    
-  var test = "SHREK5 HYPE  PRESS P  ";
-  ctx.fillStyle ="white"; 
-  ctx.fillRect(0,0,canvas.width, canvas.height);
-  document.write(test.fontsize(25));
-  varmenu++;
-  }*/
- 
+  document.getElementById("menu").setAttribute("hidden",true);
+  document.getElementById("Canvas").style.display="block";
 }
+
 function drawMap() {
   //Map1.draw(ctx);
   Map2.draw(ctx);
