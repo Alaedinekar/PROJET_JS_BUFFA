@@ -19,7 +19,7 @@ Cinquieme semaine:Le pacman se déplace dans la matrice maintenant, il faut le d
  
 Destruction des murs cassables avec l'explosion de la bombe. FAIT
 
- semaine du 01/11: faire les chemins enflammés:
+ semaine du 01/11: faire les chemins enflammés: Fait le 24/11.
 
 Appartition de la pillule sur la map
 
