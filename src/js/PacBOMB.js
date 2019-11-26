@@ -12,8 +12,7 @@ class Player {
         }
       }
     }
-    this.compteurbomb= 0;
-    this.nbMaxBomb = 3;
+    
     
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;

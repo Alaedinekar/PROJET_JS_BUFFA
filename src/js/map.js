@@ -1,6 +1,6 @@
 //map temporaire
 var map = [
-  [2, 2, 2, 2, 2, 2, 2, 2, 2, 4],
+  [4, 2, 2, 2, 2, 2, 2, 2, 2, 0],
   [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
   [2, 1, 1, 1, 2, 1, 2, 1, 1, 1],
   [2, 0, 1, 1, 2, 1, 2, 1, 1, 1],
@@ -9,7 +9,7 @@ var map = [
   [2, 0, 1, 0, 2, 0, 0, 0, 1, 1],
   [2, 1, 1, 2, 2, 1, 1, 1, 1, 2],
   [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
-  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  [2 ,2, 2, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
 var taille = map.length; //nombre  de lignes
@@ -25,7 +25,7 @@ class Map {
     this.map = array;
     this.colors = ["blue", "grey", "green", "red"];
                 // incassable,cassable,chemin
-    this.timerFeu = 6000;
+    this.timerFeu = 60;
     
     
   }
@@ -48,7 +48,7 @@ class Map {
           this.timerFeu--;
           if(this.timerFeu == 0 ){
             this.map[i][j] = 2;
-            this.timerFeu = 600;
+            this.timerFeu = 60;
 
           }
 

@@ -1,14 +1,21 @@
+
+var cpt = 0;
+
 function addListeners(canvas) {
      canvas.addEventListener("keydown", onkeydown, false);
      canvas.addEventListener("keyup", onkeyup, false);
 }
 
 callbackExplode = bombe => {
-     P1.chargeur = P1.chargeur.slice(bombe.id,1);
+     console.log(bombe.id)
+     let index = P1.chargeur.findIndex((element) => {console.log(element);
+     return element.id == bombe.id});
+     console.log("index :",index);
+    
+     if(index >= 0)  P1.chargeur.splice(index,1); 
 }
 
 document.onkeydown = function (event) {
-     
      
      switch (event.keyCode) {
 
@@ -35,15 +42,19 @@ document.onkeydown = function (event) {
                     P1.posY += 1;
                break;
           case 32:
-               console.log(P1.compteurbomb);
-               console.log(P1.nbMaxBomb);
-               if(P1.compteurbomb < P1.nbMaxBomb){
-               let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
-               console.log("bombe+1");
-               P1.chargeur.push(beubon);  
-               beubon.setId(P1.chargeur.length-1);
+               console.log(P1.chargeur);
                
-               }
+               //let index = P1.chargeur.findIndex((element) => {
+                 //   return element.x == P1.posX && element.y == P1.posY});
+               //if(index < 0) { 
+                    let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
+                    let size = P1.chargeur.push(beubon);  
+                    beubon.setId(cpt);
+                    cpt++;
+                    console.log(P1.chargeur)
+               
+              
+              // }
                break;
           
                case 48:

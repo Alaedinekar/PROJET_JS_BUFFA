@@ -32,21 +32,6 @@ class Bomb {
     ctx.stroke();
     ctx.fill();
     ctx.restore();
-    
-
-    /*
-    while (this.timer != 0) {
-      
-      this.timer -= 1;
-    }*/
-   
-    
-   /*if (this.boo==0){  //pour faire l'explosion
-    this.explode();
-    this.boo ++;
-
-   }
-*/
   }
 
 
@@ -72,6 +57,7 @@ class Bomb {
 
 
   explode = () => {
+    //posEnf = [];
     
     var tabB = {
       nord: false,
@@ -165,6 +151,7 @@ Map2.map[y][x] = 2;
         case 2:
             
           (Map2.map[y+i][x] = 3);
+          //posEnf.push(Map2.map[y+i][x])
          
           
           break;
