@@ -8,12 +8,12 @@ class Bomb {
     this.cligno = 1;
     //this.cooldown = 5000;
     this.boo = 0;
-    this.ctpcolor =0;
-    
-    this.callbackE = callback;
-    setTimeout(this.explode,3000);
+    this.ctpcolor = 0;
 
-    
+    this.callbackE = callback;
+    setTimeout(this.explode, 3000);
+
+
   }
 
   setId = (id) => {
@@ -21,11 +21,11 @@ class Bomb {
   }
 
   draw() {
-    
+
     ctx.save();
     this.changecolor();
     //console.log(this.color);
-    ctx.translate(Map2.width/2, Map2.height/2);
+    ctx.translate(Map2.width / 2, Map2.height / 2);
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x * Map2.width, this.y * Map2.height, 25, 0, Math.PI * 2);
@@ -37,14 +37,14 @@ class Bomb {
 
 
   changecolor = () => {
-    
-    if(this.ctpcolor == 30){
+
+    if (this.ctpcolor == 30) {
       if (this.cligno == 1) {
-      
+
         this.color = "red";
         this.cligno = 0;
       } else {
-        
+
         this.color = "orange";
         this.cligno = 1;
       }
@@ -58,15 +58,15 @@ class Bomb {
 
   explode = () => {
     //posEnf = [];
-    
+
     var tabB = {
       nord: false,
       sud: false,
       est: false,
       ouest: false
     };
-    this.searchRecurs(this.x,this.y,1,tabB);
-    
+    this.searchRecurs(this.x, this.y, 1, tabB);
+
     this.callbackE(this);
 
 
@@ -77,112 +77,121 @@ feueteins(tabenf[]){
 Map2.map[y][x] = 2;
 }*/
 
-  
-  searchRecurs(x,y,i,tab)  {
-    Map2.map[y][x] = 3;
-    
-    
-    let tail = Map2.map.length;
-  
-    
-    if(x+i >= tail || Map2.map[y][x+i] == 0) tab.est = true;
-    if(y+i >= tail || Map2.map[y+i][x] == 0) tab.sud = true;
-    if(x-i < 0 || Map2.map[y][x-i] == 0) tab.ouest = true;
-    if(y-i < 0 || Map2.map[y-i][x] == 0) tab.nord = true;
 
-    
-    if(!tab.est){
-      
-      switch (Map2.map[y][x+i]) {
+  searchRecurs(x, y, i, tab) {
+    Map2.map[y][x] = 3;
+
+
+    let tail = Map2.map.length;
+
+
+    if (x + i >= tail || Map2.map[y][x + i] == 0) tab.est = true;
+    if (y + i >= tail || Map2.map[y + i][x] == 0) tab.sud = true;
+    if (x - i < 0 || Map2.map[y][x - i] == 0) tab.ouest = true;
+    if (y - i < 0 || Map2.map[y - i][x] == 0) tab.nord = true;
+
+
+    if (!tab.est) {
+
+      switch (Map2.map[y][x + i]) {
         case 1:
-          Map2.map[y][x+i] = 2;
+          Map2.map[y][x + i] = 2;
           tab.est = true;
           break;
-        
+
         case 2:
-          (Map2.map[y][x+i] = 3);
-          
-          
+          (Map2.map[y][x + i] = 3);
+
+
           break;
-          //Map2.cdflamme;
-      } 
+        case 4:
+          death();
+        //Map2.cdflamme;
+      }
 
     }
-    if(!tab.ouest){
-      
-      switch (Map2.map[y][x-i]) {
+    if (!tab.ouest) {
+
+      switch (Map2.map[y][x - i]) {
         case 1:
-          Map2.map[y][x-i] = 2;
+          Map2.map[y][x - i] = 2;
           tab.ouest = true;
           break;
-        
+
         case 2:
-          (Map2.map[y][x-i] = 3);
-          
+          (Map2.map[y][x - i] = 3);
+
           break;
-          //Map2.cdflamme;
-      } 
+        case 4:
+          death();
+        //Map2.cdflamme;
+      }
 
     }
-    if(!tab.nord){
-      
-      switch (Map2.map[y-i][x]) {
+    if (!tab.nord) {
+
+      switch (Map2.map[y - i][x]) {
         case 1:
-          Map2.map[y-i][x] = 2;
+          Map2.map[y - i][x] = 2;
           tab.nord = true;
           break;
-        
+
         case 2:
-          (Map2.map[y-i][x] = 3);
-          
-          
+          (Map2.map[y - i][x] = 3);
+
+
           break;
-          //Map2.cdflamme;
+
+        case 4:
+          death();
+        //Map2.cdflamme;
       }
 
     }
-    if(!tab.sud){
-      switch (Map2.map[y+i][x]) {
+    if (!tab.sud) {
+      switch (Map2.map[y + i][x]) {
         case 1:
-            console.log(P1.chargeur);
-          Map2.map[y+i][x] = 2;
+          console.log(P1.chargeur);
+          Map2.map[y + i][x] = 2;
           tab.sud = true;
           break;
-        
+
         case 2:
-            
-          (Map2.map[y+i][x] = 3);
+
+          (Map2.map[y + i][x] = 3);
           //posEnf.push(Map2.map[y+i][x])
-         
-          
+
+
           break;
-          //Map2.cdflamme;
+        case 4:
+          death();
+        //Map2.cdflamme;
       }
-      
+
 
     }
 
-    if(tab.est && tab.ouest && tab.sud && tab.nord) {
-      
+    if (tab.est && tab.ouest && tab.sud && tab.nord) {
+
       return;
     }
     else {
-      
-      
+
+
       i++;
-      return this.searchRecurs(x,y,i,tab);
+      return this.searchRecurs(x, y, i, tab);
     }
-   
-    
+
+
   }
 
 
-  
-    
 
 
-  
-  
-  
+
+
+
+
+
 
 }
