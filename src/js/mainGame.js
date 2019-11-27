@@ -27,6 +27,7 @@ function init() {
 }
 
 function anime60fps() {
+  console.log(Map2.map);
   
   clearCanvas();  
   

@@ -72,9 +72,10 @@ class Bomb {
 
   }
 
-feueteins(x,y){
+  /*
+feueteins(tabenf[]){
 Map2.map[y][x] = 2;
-}
+}*/
 
   
   searchRecurs(x,y,i,tab)  {

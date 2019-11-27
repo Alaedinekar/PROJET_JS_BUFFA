@@ -23,7 +23,7 @@ class Map {
     this.width = largeurPixels;
     this.height = hauteurPixels;
     this.map = array;
-    this.colors = ["blue", "grey", "green", "red"];
+    this.colors = ["blue", "grey", "green", "red","green"];
                 // incassable,cassable,chemin
     this.timerFeu = 60;
     
