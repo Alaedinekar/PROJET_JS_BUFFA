@@ -28,12 +28,13 @@ function init() {
 
 function anime60fps() {
   
+  
   clearCanvas();  
   
   drawMap();
   drawPlayer();
   drawBomb();
-  death();
+  
   
   request = requestAnimationFrame(anime60fps);
 }
@@ -66,7 +67,7 @@ function drawBomb(){
 }
 
 function death(){
-  if (P1.mort() && final ==0) {
+  
     ctx.fillStyle = "white";
     ctx.fillRect(0,0,canvas.width, canvas.height);
     document.getElementById("gameover").removeAttribute("hidden");
@@ -74,7 +75,7 @@ function death(){
    
     setTimeout(reset(),3000);  
   }
-  }
+  
 
   function reset(){
     clearCanvas();

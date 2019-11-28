@@ -20,26 +20,34 @@ document.onkeydown = function (event) {
      switch (event.keyCode) {
 
           case 37:
-               //ctx.save();
-               //ctx.rotate(180) //tentative de rotation du perso
-               //ctx.restore();
+               ctx.save();
+               ctx.rotate(Math.PI) //tentative de rotation du perso
+               ctx.restore();
                if(P1.canMoveL()){
+                    Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
+                    Map2.map[P1.posY][P1.posX] = 4;
                }
                break;
           case 38:
-               if(P1.canMoveUp())
+               if(P1.canMoveUp()){
+                    Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
+                    Map2.map[P1.posY][P1.posX] = 4;}
                break;
           case 39:
                
-               if(P1.canMoveR())
+               if(P1.canMoveR()){
+                    Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
+                    Map2.map[P1.posY][P1.posX] = 4;}
                break;
           case 40:
 
-               if(P1.canMoveD())
+               if(P1.canMoveD()){
+                    Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
+                    Map2.map[P1.posY][P1.posX] = 4;}
                break;
           case 32:
                console.log(P1.chargeur);
