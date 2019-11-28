@@ -1,5 +1,4 @@
-window.onload = init;
-let canvas;
+
 
 class Ghosts{
 	constructor(taille,ctx){
@@ -96,22 +95,9 @@ class Ghosts{
   	}
 }
 
-
-
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function init(){
-  canvas = document.querySelector("#Canvas");
-  ctx = canvas.getContext("2d");
-  ghost = new Ghosts(100,100,25,ctx);
-  requestAnimationFrame(anime60fps);
-}
 
 
-function anime60fps(){
-	ghost.draw();
-	ghost.draweye(); 
-	requestAnimationFrame(anime60fps);
-}

@@ -1,17 +1,20 @@
+var posEnf = [];
+
 class Bomb {
   constructor(posx, posy, callback) {
     this.id = undefined;
     this.x = posx;
     this.y = posy;
-    this.timer = 3000;
     this.color = "black";
     this.cligno = 1;
-    //this.cooldown = 5000;
-    this.boo = 0;
     this.ctpcolor = 0;
 
     this.callbackE = callback;
     setTimeout(this.explode, 3000);
+    
+            
+    setTimeout(extinction(posEnf),1500);
+    
 
 
   }
@@ -24,7 +27,7 @@ class Bomb {
 
     ctx.save();
     this.changecolor();
-    //console.log(this.color);
+    
     ctx.translate(Map2.width / 2, Map2.height / 2);
     ctx.fillStyle = this.color;
     ctx.beginPath();
@@ -57,8 +60,8 @@ class Bomb {
 
 
   explode = () => {
-    //posEnf = [];
-
+    
+    console.log(posEnf);
     var tabB = {
       nord: false,
       sud: false,
@@ -72,16 +75,12 @@ class Bomb {
 
   }
 
-  /*
-feueteins(tabenf[]){
-Map2.map[y][x] = 2;
-}*/
+ 
 
 
   searchRecurs(x, y, i, tab) {
     Map2.map[y][x] = 3;
-
-
+    var res;
     let tail = Map2.map.length;
 
 
@@ -101,6 +100,8 @@ Map2.map[y][x] = 2;
 
         case 2:
           (Map2.map[y][x + i] = 3);
+          res = [y, x+i];
+          posEnf.push(res);
 
 
           break;
@@ -120,6 +121,8 @@ Map2.map[y][x] = 2;
 
         case 2:
           (Map2.map[y][x - i] = 3);
+          res = [y, x-i];
+          posEnf.push(res);
 
           break;
         case 4:
@@ -138,6 +141,8 @@ Map2.map[y][x] = 2;
 
         case 2:
           (Map2.map[y - i][x] = 3);
+          res = [y-i,x];
+          posEnf.push(res);
 
 
           break;
@@ -159,7 +164,8 @@ Map2.map[y][x] = 2;
         case 2:
 
           (Map2.map[y + i][x] = 3);
-          //posEnf.push(Map2.map[y+i][x])
+          res = [y+i, x];
+          posEnf.push(res);
 
 
           break;
@@ -167,8 +173,6 @@ Map2.map[y][x] = 2;
           death();
         //Map2.cdflamme;
       }
-
-
     }
 
     if (tab.est && tab.ouest && tab.sud && tab.nord) {
@@ -181,17 +185,15 @@ Map2.map[y][x] = 2;
       i++;
       return this.searchRecurs(x, y, i, tab);
     }
-
-
   }
+}
 
 
+function extinction(tab) {
 
-
-
-
-
-
-
-
+  for (let i = 0; i < tab.length; i++) {
+    Map2.map[tab[i][0]][tab[i][1]] = 2;
+  }
+  posEnf= [];
+  console.log("SHREK_6_HYPE");
 }

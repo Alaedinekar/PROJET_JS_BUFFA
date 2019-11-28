@@ -51,25 +51,25 @@ document.onkeydown = function (event) {
                break;
           case 32:
                console.log(P1.chargeur);
+                    if (P1.chargeur.length < P1.cptbomb){
                
-               //let index = P1.chargeur.findIndex((element) => {
-                 //   return element.x == P1.posX && element.y == P1.posY});
-               //if(index < 0) { 
+               
                     let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
+                    
+                    let res = [P1.posX,P1.posY];
+                    console.log(res);
+                    posEnf.push(res);
                     let size = P1.chargeur.push(beubon);  
                     beubon.setId(cpt);
                     cpt++;
-                    console.log(P1.chargeur)
+                    console.log(P1.chargeur);
+                    }
                
               
               // }
                break;
           
-               case 48:
-               console.log("ppppp");
-               varmenu = 0;
                
-               break;
 
                
      }
@@ -86,8 +86,6 @@ document.onkeyup = function (event) {
           case 39:
                break;
           case 40:
-               break;
-          case 48:
                break;
           case 32:
                break;
