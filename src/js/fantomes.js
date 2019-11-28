@@ -15,6 +15,7 @@ class Ghosts{
     	this.ctx = ctx;
     	this.sAngle = 2 * Math.PI ;
     	this.eAngle = - Math.PI;
+    	this.movement = [];
 	}
 
   	draw(){
@@ -56,20 +57,26 @@ class Ghosts{
     	if(this.posX==Map2.map[0].length - 1 ||Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
       		return false;
     	}else{
+    		let res = [this.posY,this.posX + 1];
+    		this.movement.push(res);
       		return true;
-    }
-  }
+    	}
+  	}
   	canMoveL(){
     	if(this.posX==0 || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1){
-      	return false;
+      		return false;
     	}else{
-      	return true;
+    		let res = [this.posY,this.posX - 1];
+    		this.movement.push(res);
+      		return true;
     	}
  	}
   	canMoveUp(){
     	if(this.PosY==0 ||Map2.map[this.posY-1][this.posX] == 0 || Map2.map[this.posY-1][this.posX] == 1){
       		return false;
     	}else{
+    		let res = [this.posY - 1,this.posX];
+    		this.movement.push(res);
       		return true;
     	}
   	}
@@ -77,9 +84,22 @@ class Ghosts{
   		if (this.posY==Map2.map.length -1|| Map2.map[this.posY+1][this.posX] == 0 || Map2.map[this.posY+1][this.posX] == 1){
     		return false;
     	}else{
+    		let res = [this.posY + 1,this.posX];
+    		this.movement.push(res);
       		return true;
     	}
   	}
+  	move(){
+  		let rand = getRandomInt(this.movement - 1);
+  		this.posY = this.movement[rand][0];
+  		this.posX = this.movement[rand][1];
+  	}
+}
+
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }
 
 function init(){
