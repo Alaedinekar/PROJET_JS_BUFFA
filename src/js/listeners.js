@@ -7,15 +7,16 @@ function addListeners(canvas) {
 }
 
 callbackExplode = bombe => {
-     console.log(bombe.id)
+     
      let index = P1.chargeur.findIndex((element) => {console.log(element);
      return element.id == bombe.id});
-     console.log("index :",index);
+     
     
      if(index >= 0)  P1.chargeur.splice(index,1); 
 }
-
+var time = 30;
 document.onkeydown = function (event) {
+    
      
      switch (event.keyCode) {
 
@@ -50,19 +51,20 @@ document.onkeydown = function (event) {
                     Map2.map[P1.posY][P1.posX] = 4;}
                break;
           case 32:
-               console.log(P1.chargeur);
-                    if (P1.chargeur.length < P1.cptbomb){
                
+                    if ((P1.chargeur.length < P1.cptbomb) ){
                
+                    
                     let beubon = new Bomb(P1.posX,P1.posY,callbackExplode);
+                   
                     
                     let res = [P1.posX,P1.posY];
-                    console.log(res);
+                    
                     posEnf.push(res);
                     let size = P1.chargeur.push(beubon);  
                     beubon.setId(cpt);
                     cpt++;
-                    console.log(P1.chargeur);
+                    
                     }
                
               

@@ -9,7 +9,7 @@ var map = [
   [2, 0, 1, 0, 2, 0, 0, 0, 1, 1],
   [2, 1, 1, 2, 2, 1, 1, 1, 1, 2],
   [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
-  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  [2, 2, 2, 2, 2, 2, 2, 2, 2, 5]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
 var taille = map.length; //nombre  de lignes
@@ -25,7 +25,7 @@ class Map {
     this.map = array;
     this.colors = ["blue", "grey", "green", "red", "green"];
     // incassable,cassable,chemin
-    this.timerFeu = 60;
+    
 
 
   }
@@ -42,6 +42,7 @@ class Map {
 
       for (let j = 0; j < this.map[0].length; j++) {
         x = j * this.width;
+
 
         ctx.fillStyle = this.colors[this.map[i][j]];
         ctx.fillRect(x, y, this.width, this.height);

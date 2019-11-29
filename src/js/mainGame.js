@@ -10,9 +10,16 @@ let Map2;
 
 var final = 0;
 let request = undefined;
+var mort = 0;
+var score = 0;
+
+
+
+  
+
+
 
 var player = document.querySelector('#audioPlayer');
-var mortsound = document.querySelector('#audioMortPlayer');
 
 function init() {
   canvas = document.querySelector("#Canvas");
@@ -24,7 +31,8 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
-  ghost = new Ghosts(100,100,25,ctx);
+  ghost = new Ghosts(25,ctx);
+  
   
 
   request = requestAnimationFrame(anime60fps);
@@ -38,8 +46,9 @@ function anime60fps() {
   drawMap();
   drawPlayer();
   drawBomb();
+  setTimeout(extinction(posEnf),1000000);
   ghost.draw();
-	ghost.draweye(); 
+	
   
   
   request = requestAnimationFrame(anime60fps);
@@ -65,6 +74,7 @@ function drawMap() {
 
 
 
+
 function drawPlayer(){
   P1.draw();
 }
@@ -76,10 +86,11 @@ function drawBomb(){
 }
 
 function death(){
-  player.pause();
-  
+  mort +=1;
+  var mortsound = document.querySelector('#audioMortPlayer');
+
   mortsound.play();
-  mortsound.pause();
+  player.pause();
 
     ctx.fillStyle = "white";
     ctx.fillRect(0,0,canvas.width, canvas.height);

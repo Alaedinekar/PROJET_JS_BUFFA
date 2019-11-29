@@ -13,7 +13,7 @@ class Bomb {
     setTimeout(this.explode, 3000);
     
             
-    setTimeout(extinction(posEnf),1500);
+    
     
 
 
@@ -24,7 +24,7 @@ class Bomb {
   }
 
   draw() {
-
+    
     ctx.save();
     this.changecolor();
     
@@ -60,7 +60,12 @@ class Bomb {
 
 
   explode = () => {
-    
+    if (Map2.map[this.y][this.x] == 4){
+      death();
+           }
+           var base;
+           base = [this.y, this.x];
+           posEnf.push(base);
     console.log(posEnf);
     var tabB = {
       nord: false,
@@ -69,6 +74,7 @@ class Bomb {
       ouest: false
     };
     this.searchRecurs(this.x, this.y, 1, tabB);
+    
 
     this.callbackE(this);
 
@@ -79,6 +85,7 @@ class Bomb {
 
 
   searchRecurs(x, y, i, tab) {
+    console.log(Map2.map[y][x]);
     Map2.map[y][x] = 3;
     var res;
     let tail = Map2.map.length;
@@ -88,6 +95,7 @@ class Bomb {
     if (y + i >= tail || Map2.map[y + i][x] == 0) tab.sud = true;
     if (x - i < 0 || Map2.map[y][x - i] == 0) tab.ouest = true;
     if (y - i < 0 || Map2.map[y - i][x] == 0) tab.nord = true;
+
 
 
     if (!tab.est) {
@@ -176,7 +184,6 @@ class Bomb {
     }
 
     if (tab.est && tab.ouest && tab.sud && tab.nord) {
-
       return;
     }
     else {
@@ -190,10 +197,12 @@ class Bomb {
 
 
 function extinction(tab) {
+  if(tab != []){
 
   for (let i = 0; i < tab.length; i++) {
     Map2.map[tab[i][0]][tab[i][1]] = 2;
   }
   posEnf= [];
-  console.log("SHREK_6_HYPE");
+  
+}
 }

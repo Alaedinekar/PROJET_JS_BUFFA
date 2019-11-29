@@ -38,7 +38,8 @@ class Ghosts{
   		ctx.arc(this.x + 10,this.y + 10,10,0,2 * Math.PI);
   		ctx.stroke();
   		ctx.fill();
-  		ctx.restore();
+		  ctx.restore();
+		  this.draweye();
   	}
 
   	draweye(){
@@ -80,7 +81,7 @@ class Ghosts{
     	}
   	}
   	canMoveD(){
-  		if (this.posY==Map2.map.length -1|| Map2.map[this.posY+1][this.posX] == 0 || Map2.map[this.posY+1][this.posX] == 1){
+  		if (this.posY==Map2.map.length - 1|| Map2.map[this.posY+1][this.posX] == 0 || Map2.map[this.posY+1][this.posX] == 1){
     		return false;
     	}else{
     		let res = [this.posY + 1,this.posX];
@@ -98,6 +99,28 @@ class Ghosts{
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
+
+function spawnFantome(){
+	let x,y;
+	if (score%100 >= 50){
+	  f = new Ghosts(25,ctx);  
+	  
+	  var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
+	  y = pos / Map2.map.length;
+	  x = pos % Map2.map.length;  
+	  while (Map2.map[y][x] != 2){	  
+	   if (x == Map2.map[0].length){
+		y+=1;
+	  }
+	  if ((y == Map2.map.length) && (x == Map2.map[0].length)){
+		y=0;
+		x=0;
+	  }
+  
+	  Map2.map[y][x] = 5;
+	}
+  }
+  }
 
 
 
