@@ -12,7 +12,7 @@ var final = 0;
 let request = undefined;
 var mort = 0;
 var score = 0;
-
+var idGhost = 0;
 
 
   
@@ -47,7 +47,9 @@ function anime60fps() {
   drawPlayer();
   drawBomb();
   setTimeout(extinction(posEnf),1000000);
-  ghost.draw();
+  spawnFantome();
+  console.log(score);
+  ghost.drawbody();
 	
   
   

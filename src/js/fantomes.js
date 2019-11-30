@@ -1,57 +1,57 @@
-
-
 class Ghosts{
-	constructor(taille,ctx){
-    	for (let i = 0; i < Map2.map.length; i++) {
-      		for (let j = 0; j < Map2.map[0].length; j++) {
-        		if (Map2.map[i][j] == 5) {
-          			this.posX = i;
-          			this.posY = j;
-        		}
-      		}
-    	}
-		this.taille = taille;
-    	this.ctx = ctx;
-    	this.sAngle = 2 * Math.PI ;
-    	this.eAngle = - Math.PI;
-    	this.movement = [];
-	}
+  constructor(id,taille,ctx){
+      for (let i = 0; i < Map2.map.length; i++) {
+          for (let j = 0; j < Map2.map[0].length; j++) {
+            if (Map2.map[i][j] == 5) {
+                this.posY = i;
+                this.posX = j;
+            }
+          }
+      }
+    this.taille = taille;
+      this.ctx = ctx;
+      this.sAngle = 2 * Math.PI ;
+      this.eAngle = - Math.PI;
+      this.movement = [];
+      this.id = id;
+  }
 
-  	draw(){
-  		ctx.save();
-  		ctx.fillStyle = "yellow";
-  		ctx.beginPath();
-  		ctx.translate(this.x + 100,this.y + 100);
-  		ctx.rotate(180 * Math.PI / 180);
-  		ctx.arc(
-  			this.x,
-            this.y,
+    drawbody(){
+      ctx.save();
+      ctx.fillStyle = "yellow";
+      ctx.beginPath();
+      ctx.translate(this.posX * Map2.width + (Map2.width / 2) + 5,this.posY * Map2.height + (Map2.width / 2) + 7);
+      ctx.rotate(180 * Math.PI / 180);
+      ctx.arc(
+        this.posX,
+            this.posY,
             this.taille,
             this.sAngle,
             this.eAngle);
-  		ctx.lineTo(this.x - this.taille,this.y - this.taille);
-  		ctx.lineTo(this.x - 10,this.y - 10);
-  		ctx.lineTo(this.x,this.y - this.taille);
-  		ctx.lineTo(this.x + 10,this.y - 10);
-  		ctx.lineTo(this.x + this.taille,this.y - this.taille);
-  		ctx.lineTo(this.x + this.taille,this.y);
-  		ctx.arc(this.x + 10,this.y + 10,10,0,2 * Math.PI);
-  		ctx.stroke();
-  		ctx.fill();
-		  ctx.restore();
-		  this.draweye();
-  	}
+      ctx.lineTo(this.posX - this.taille,this.posY - this.taille);
+      ctx.lineTo(this.posX - 10,this.posY - 10);
+      ctx.lineTo(this.posX,this.posY - this.taille);
+      ctx.lineTo(this.posX + 10,this.posY - 10);
+      ctx.lineTo(this.posX + this.taille,this.posY - this.taille);
+      ctx.lineTo(this.posX + this.taille,this.posY);
+      ctx.arc(this.posX + 10,this.posY + 10,10,0,2 * Math.PI);
+      ctx.stroke();
+      ctx.fill();
+      ctx.restore();
+      this.draweye();
+    }
 
-  	draweye(){
-  		ctx.save();
-  		ctx.fillStyle = "black";
-  		ctx.beginPath();
-  		ctx.arc(this.x - 10,this.y - 10,5,0,2 * Math.PI);
-  		ctx.arc(this.x + 10,this.y - 10,5,0,2 * Math.PI);
-  		ctx.stroke();
-  		ctx.fill();
-  		ctx.restore();
-  	}
+    draweye(){
+      ctx.save();
+      ctx.fillStyle = "black";
+      ctx.beginPath();
+      ctx.arc(this.posX * Map2.width + (Map2.width / 2) -7,this.posY * Map2.height + (Map2.width / 2) - 10,5,0,2 * Math.PI);
+      ctx.arc(this.posX * Map2.width + (Map2.width / 2) + 10,this.posY * Map2.height + (Map2.width / 2) - 10,5,0,2 * Math.PI);
+      ctx.stroke();
+      ctx.fill();
+      ctx.restore();
+    }
+
 
   	canMoveR(){   
     	if(this.posX==Map2.map[0].length - 1 ||Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
@@ -94,6 +94,9 @@ class Ghosts{
   		this.posY = this.movement[rand][0];
   		this.posX = this.movement[rand][1];
   	}
+    mort(){
+
+    }
 }
 
 function getRandomInt(max) {
@@ -102,7 +105,7 @@ function getRandomInt(max) {
 
 function spawnFantome(){
 	let x,y;
-	if (score%100 >= 50){
+	if (score %100 >= 50){
 	  f = new Ghosts(25,ctx);  
 	  
 	  var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
