@@ -1,21 +1,21 @@
 class Ghosts{
-	constructor(id, taille, ctx){
-		for (let i = 0; i < Map2.map.length; i++) {
-			for (let j = 0; j < Map2.map[0].length; j++) {
-			  if (Map2.map[i][j] == 5) {
-				  this.posY = i;
-				  this.posX = j;
-			  }
-			}
-		}
-	  this.taille = taille;
-		this.ctx = ctx;
-		this.sAngle = 2 * Math.PI ;
-		this.eAngle = - Math.PI;
-		this.movement = [];
-		this.id = id;
-	}
-	
+  constructor(id,taille,ctx){
+      for (let i = 0; i < Map2.map.length; i++) {
+          for (let j = 0; j < Map2.map[0].length; j++) {
+            if (Map2.map[i][j] == 5) {
+                this.posY = i;
+                this.posX = j;
+            }
+          }
+      }
+    this.taille = taille;
+      this.ctx = ctx;
+      this.sAngle = 0 ;
+      this.eAngle = - Math.PI;
+      this.movement = [];
+      this.id = id;
+  }
+
 	drawfantome(){
 
 		let x;
@@ -23,34 +23,33 @@ class Ghosts{
 
 		for (let i = 0; i <Map2.map.length; i++) {
 			for (let j = 0; j < Map2.map[0].length; j++) {
-			  if (Map2.map[i][j] == 5) {
-		
-		
-		ctx.save();
-		ctx.beginPath();
-		ctx.lineWidth = '2';
-		ctx.fillStyle = '#48C';
-		ctx.arc(this.posX * Map2.width,this.posY*Map2.height,this.taille,Math.PI,2*Math.PI);
-		ctx.lineTo(this.posX *Map2.width  + this.taille,this.posY + this.taille);
-		ctx.lineTo(this.posX *Map2.width  + this.taille,130);
-		ctx.lineTo(200,150);
-		ctx.lineTo(180,130);
-		ctx.lineTo(150,150);
-		ctx.fill();
-		ctx.closePath();
-		ctx.moveTo(180,80);
-		
-		
-		ctx.fillStyle = "black";
-		ctx.beginPath();   //les yeux
-		ctx.arc(this.posX*Map2.width + this.taille/3,this.posX*Map2.width + (2*this.taille/3),10,0,2*Math.PI);
-		ctx.arc(220,80,10,0,2*Math.PI);
-		ctx.fill();
-		ctx.restore();
-	}
-}
+			  if (Map2.map[i][j] == 5){
+			      ctx.save();
+				  ctx.beginPath();
+			      ctx.fillStyle = '#48C';
+			      ctx.arc(this.posX * Map2.width ,this.posY * Map2.width,this.taille,this.sAngle,this.eAngle);
+			      ctx.lineTo(this.posX * Map2.width + this.taille,this.posY * Map2.width + this.taille);
+			      ctx.lineTo(this.posX * Map2.width + 20,this.posY * Map2.width + 30);
+			      ctx.lineTo(this.posX * Map2.width,this.posY * Map2.width + this.taille);
+			      ctx.lineTo(this.posX * Map2.width - 20,this.posY * Map2.width + 30);
+			      ctx.lineTo(this.posX * Map2.width - this.taille,this.posY * Map2.width + this.taille);
+			      ctx.fill();
+			      ctx.closePath();
+			      ctx.moveTo(this.posX * Map2.width - 20 ,this.posY * Map2.width - 20);
+			      ctx.fillStyle = "black";
+			      ctx.beginPath();
+			      ctx.arc(this.posX * Map2.width + 35,this.posY * Map2.width + 13,5,0,2*Math.PI);
+			      ctx.arc(this.posX * Map2.width + 13,this.posY * Map2.width + 13,5,0,2*Math.PI);
+			      ctx.fill();
+			      ctx.restore();
+			  }
+			}
 		}
 	}
+
+		
+	
+
 
 
 	  
