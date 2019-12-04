@@ -24,22 +24,23 @@ class Ghosts{
 		for (let i = 0; i <Map2.map.length; i++) {
 			for (let j = 0; j < Map2.map[0].length; j++) {
 			  if (Map2.map[i][j] == 5){
-			      ctx.save();
+				  ctx.save();
+				  ctx.fillStyle = 'yellow';
+				  ctx.translate(this.posX * Map2.width + (Map2.width / 2),this.posY * Map2.width + (Map2.width / 2));
 				  ctx.beginPath();
-			      ctx.fillStyle = '#48C';
-			      ctx.arc(this.posX * Map2.width ,this.posY * Map2.width,this.taille,this.sAngle,this.eAngle);
-			      ctx.lineTo(this.posX * Map2.width + this.taille,this.posY * Map2.width + this.taille);
-			      ctx.lineTo(this.posX * Map2.width + 20,this.posY * Map2.width + 30);
-			      ctx.lineTo(this.posX * Map2.width,this.posY * Map2.width + this.taille);
-			      ctx.lineTo(this.posX * Map2.width - 20,this.posY * Map2.width + 30);
-			      ctx.lineTo(this.posX * Map2.width - this.taille,this.posY * Map2.width + this.taille);
+			      ctx.arc(this.posX,this.posY,this.taille,this.sAngle,this.eAngle);
+			      ctx.lineTo(this.posX + this.taille,this.posY + this.taille);
+			      ctx.lineTo(this.posX + 20,this.posY + 30);
+			      ctx.lineTo(this.posX,this.posY + this.taille);
+			      ctx.lineTo(this.posX - 20,this.posY + 30);
+			      ctx.lineTo(this.posX - this.taille,this.posY + this.taille);
 			      ctx.fill();
 			      ctx.closePath();
-			      ctx.moveTo(this.posX * Map2.width - 20 ,this.posY * Map2.width - 20);
+			      ctx.moveTo(this.posX - 20 ,this.posY - 20);
 			      ctx.fillStyle = "black";
 			      ctx.beginPath();
-			      ctx.arc(this.posX * Map2.width + 35,this.posY * Map2.width + 13,5,0,2*Math.PI);
-			      ctx.arc(this.posX * Map2.width + 13,this.posY * Map2.width + 13,5,0,2*Math.PI);
+			      ctx.arc(this.posX + 35,this.posY + 13,5,0,2*Math.PI);
+			      ctx.arc(this.posX + 13,this.posY + 13,5,0,2*Math.PI);
 			      ctx.fill();
 			      ctx.restore();
 			  }
