@@ -21,10 +21,11 @@ document.onkeydown = function (event) {
      switch (event.keyCode) {
 
           case 37:
-               ctx.save();
-               ctx.rotate(Math.PI) //tentative de rotation du perso
-               ctx.restore();
+               
                if(P1.canMoveL()){
+                    if (Map2.map[P1.posY][P1.posX - 1] == 6){
+                         P1.color = "red";
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
                     Map2.map[P1.posY][P1.posX] = 4;
@@ -32,6 +33,9 @@ document.onkeydown = function (event) {
                break;
           case 38:
                if(P1.canMoveUp()){
+                    if (Map2.map[P1.posY - 1][P1.posX ] == 6){
+                         P1.color = "red";
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
                     Map2.map[P1.posY][P1.posX] = 4;}
@@ -39,6 +43,9 @@ document.onkeydown = function (event) {
           case 39:
                
                if(P1.canMoveR()){
+                    if (Map2.map[P1.posY][P1.posX + 1] == 6){
+                         P1.color = "red";
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
                     Map2.map[P1.posY][P1.posX] = 4;}
@@ -46,6 +53,9 @@ document.onkeydown = function (event) {
           case 40:
 
                if(P1.canMoveD()){
+                    if (Map2.map[P1.posY + 1][P1.posX ] == 6){
+                         P1.color = "red";
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
                     Map2.map[P1.posY][P1.posX] = 4;}

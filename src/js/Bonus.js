@@ -15,9 +15,15 @@ class Bonus{
 }
 
 draw(){
+
     for (let i = 0; i <Map2.map.length; i++) {
         for (let j = 0; j < Map2.map[0].length; j++) {
           if (Map2.map[i][j] == 6) {
+
+            ctx.save();
+                 
+
+          ctx.translate(Map2.width/2,Map2.height/2 );
     
         
         

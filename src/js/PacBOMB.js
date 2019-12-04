@@ -12,6 +12,7 @@ class Player {
         }
       }
     }
+    this.color = "purple";
     
     
     this.ctx = ctx;
@@ -82,7 +83,7 @@ class Player {
 
           let x1 = this.posX * Map2.width + this.taille * Math.cos(Math.PI / 4);
           let y1 = this.posY * Map2.height+ this.taille * Math.sin(Math.PI / 4);
-          ctx.fillStyle = "yellow";
+          ctx.fillStyle = this.color;
 
           ctx.beginPath();
 

@@ -6,10 +6,10 @@ var map = [
   [2, 0, 1, 1, 2, 1, 2, 1, 1, 1],
   [2, 2, 1, 0, 5, 0, 1, 0, 1, 1],
   [2, 1, 1, 2, 2, 2, 1, 1, 1, 2],
-  [2, 0, 1, 0, 2, 0, 0, 0, 1, 6],
+  [2, 0, 1, 0, 2, 0, 0, 0, 1,1],
   [2, 1, 1, 2, 2, 1, 1, 1, 1, 2],
   [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
-  [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+  [2, 2, 6, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
 /*function createMap(taille){
@@ -42,7 +42,7 @@ class Map {
     this.width = largeurPixels;
     this.height = hauteurPixels;
     this.map = array;
-    this.colors = ["blue", "grey", "green", "red", "green","green"];
+    this.colors = ["blue", "grey", "green","red","green" , "green","green"];
     // incassable,cassable,chemin
     
     console.log(window.innerHeight);
