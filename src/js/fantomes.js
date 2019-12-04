@@ -17,39 +17,25 @@ class Ghosts{
   }
 
     drawbody(){
-      ctx.save();
-      ctx.fillStyle = "yellow";
-      ctx.beginPath();
-      ctx.translate(this.posX * Map2.width + (Map2.width / 2) + 5,this.posY * Map2.height + (Map2.width / 2) + 7);
-      ctx.rotate(180 * Math.PI / 180);
-      ctx.arc(
-        this.posX,
-            this.posY,
-            this.taille,
-            this.sAngle,
-            this.eAngle);
-      ctx.lineTo(this.posX - this.taille,this.posY - this.taille);
-      ctx.lineTo(this.posX - 10,this.posY - 10);
-      ctx.lineTo(this.posX,this.posY - this.taille);
-      ctx.lineTo(this.posX + 10,this.posY - 10);
-      ctx.lineTo(this.posX + this.taille,this.posY - this.taille);
-      ctx.lineTo(this.posX + this.taille,this.posY);
-      ctx.arc(this.posX + 10,this.posY + 10,10,0,2 * Math.PI);
-      ctx.stroke();
-      ctx.fill();
-      ctx.restore();
-      this.draweye();
-    }
-
-    draweye(){
-      ctx.save();
-      ctx.fillStyle = "black";
-      ctx.beginPath();
-      ctx.arc(this.posX * Map2.width + (Map2.width / 2) -7,this.posY * Map2.height + (Map2.width / 2) - 10,5,0,2 * Math.PI);
-      ctx.arc(this.posX * Map2.width + (Map2.width / 2) + 10,this.posY * Map2.height + (Map2.width / 2) - 10,5,0,2 * Math.PI);
-      ctx.stroke();
-      ctx.fill();
-      ctx.restore();
+	    ctx.save();
+            ctx.beginPath();
+            ctx.lineWidth = '2';
+            ctx.fillStyle = '#48C';
+            ctx.arc(this.posX,this.posY,this.taille,this.sAngle,this.eAngle);
+            ctx.lineTo(this.posX + this.taille,this.posY+this.taille);
+            ctx.lineTo(this.posX + 20,this.posY + 30);
+            ctx.lineTo(this.posX,this.posY + this.taille);
+            ctx.lineTo(this.posX - 20,this.posY + 30);
+            ctx.lineTo(this.posX - this.taille,this.posY + this.taille);
+            ctx.fill();
+            ctx.closePath();
+            ctx.moveTo(this.posX - 20 ,this.posY - 20);
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(this.posX - 20,this.posY - 20,10,0,2*Math.PI);
+            ctx.arc(this.posX + 20,this.posY + 20,10,0,2*Math.PI);
+            ctx.fill();
+            ctx.restore();
     }
 
 
