@@ -6,15 +6,34 @@ var map = [
   [2, 0, 1, 1, 2, 1, 2, 1, 1, 1],
   [2, 2, 1, 0, 5, 0, 1, 0, 1, 1],
   [2, 1, 1, 2, 2, 2, 1, 1, 1, 2],
-  [2, 0, 1, 0, 2, 0, 0, 0, 1, 1],
+  [2, 0, 1, 0, 2, 0, 0, 0, 1, 6],
   [2, 1, 1, 2, 2, 1, 1, 1, 1, 2],
   [2, 0, 1, 0, 2, 0, 1, 1, 0, 2],
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
-var taille = map.length; //nombre  de lignes
-var taille2 = map[0].length; // nombre de colonnes
-var nbElem = taille * taille2; // nombre d'elements
+/*function createMap(taille){
+  res=[];
+  tmp = [];
+  let etape = 0;
+  for (let j=0;j<taille;j++){
+  for (let i =0;i<taille;i++){
+    tmp.push(getRandomInt(3));
+  }
+  res.push(tmp);
+  tmp = [];
+  }
+  apparition(res);
+ return res;
+}
+function  apparition(carte){
+
+
+}
+*/
+
+
+
 
 class Map {
   constructor(array, largeurPixels, hauteurPixels) {
@@ -26,7 +45,8 @@ class Map {
     this.colors = ["blue", "grey", "green", "red", "green","green"];
     // incassable,cassable,chemin
     
-
+    console.log(window.innerHeight);
+    console.log(window.innerWidth);
 
   }
 

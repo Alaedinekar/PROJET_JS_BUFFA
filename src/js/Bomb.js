@@ -11,10 +11,6 @@ class Bomb {
 
     this.callbackE = callback;
     setTimeout(this.explode, 3000);
-    
-            
-    
-    
 
 
   }

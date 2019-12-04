@@ -5,23 +5,24 @@ let canvas;
 let ctx = this.ctx;
 
 // DOCUMENTER
-let Map1, P1;
+let Map1, P1,ghost;
 let Map2;
 
 var final = 0;
 let request = undefined;
 var mort = 0;
 var score = 0;
-var idGhost = 0;
+
 
 
   
 
 
-
 var player = document.querySelector('#audioPlayer');
 
 function init() {
+  
+
   canvas = document.querySelector("#Canvas");
 
   addListeners(canvas);
@@ -32,6 +33,7 @@ function init() {
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
   ghost = new Ghosts(25,ctx);
+  bounus = new Bonus();
   
   
 
@@ -41,15 +43,17 @@ function init() {
 function anime60fps() {
   
   
+  
   clearCanvas();  
   
   drawMap();
   drawPlayer();
   drawBomb();
+  bounus.draw()
+  drawfantome();
   setTimeout(extinction(posEnf),1000000);
-  spawnFantome();
-  console.log(score);
-  ghost.drawbody();
+  affscore();
+  
 	
   
   
@@ -64,17 +68,25 @@ function clearCanvas() {
 function menu(){
   document.getElementById("menu").setAttribute("hidden",true);
   document.getElementById("Canvas").style.display="block";
-  
   player.play();
 }
 
+function drawfantome(){
+  ghost.drawfantome();
+}
+
 function drawMap() {
-  
-  Map2.draw(ctx);
+    Map2.draw(ctx);
 
 }
 
+function affscore(){
+  ctx.strokeStyle = 'red';
+document.lineWidth = 1;
+document.font = '36px arial';
+ctx.strokeText(''+ score,50, 800);
 
+}
 
 
 function drawPlayer(){
