@@ -17,45 +17,33 @@ class Ghosts{
   }
 
 	drawfantome(){
-
-		let x;
-		let y;
-
+		let x = this.posX * Map2.width + (Map2.width / 2);
+		let y = this.posY * Map2.width + (Map2.width / 2);
 		for (let i = 0; i <Map2.map.length; i++) {
 			for (let j = 0; j < Map2.map[0].length; j++) {
 			  if (Map2.map[i][j] == 5){
 				  ctx.save();
 				  ctx.fillStyle = 'yellow';
-				  ctx.translate(this.posX * Map2.width + (Map2.width / 2),this.posY * Map2.width + (Map2.width / 2));
 				  ctx.beginPath();
-			      ctx.arc(this.posX,this.posY,this.taille,this.sAngle,this.eAngle);
-			      ctx.lineTo(this.posX + this.taille,this.posY + this.taille);
-			      ctx.lineTo(this.posX + 20,this.posY + 30);
-			      ctx.lineTo(this.posX,this.posY + this.taille);
-			      ctx.lineTo(this.posX - 20,this.posY + 30);
-			      ctx.lineTo(this.posX - this.taille,this.posY + this.taille);
+			      ctx.arc(x,y,this.taille,this.sAngle,this.eAngle);
+			      ctx.lineTo(x + this.taille,y + this.taille);
+			      ctx.lineTo(x + 20,y + 30);
+			      ctx.lineTo(x,y + this.taille);
+			      ctx.lineTo(x - 20,y + 30);
+			      ctx.lineTo(x - this.taille,y + this.taille);
 			      ctx.fill();
 			      ctx.closePath();
-			      ctx.moveTo(this.posX - 20 ,this.posY - 20);
 			      ctx.fillStyle = "black";
 			      ctx.beginPath();
-			      ctx.arc(this.posX + 35,this.posY + 13,5,0,2*Math.PI);
-			      ctx.arc(this.posX + 13,this.posY + 13,5,0,2*Math.PI);
+			      ctx.arc(x - 10,y - 10,5,0,2*Math.PI);
+			      ctx.arc(x + 10,y - 10,5,0,2*Math.PI);
 			      ctx.fill();
 			      ctx.restore();
 			  }
 			}
 		}
 	}
-
-		
-	
-
-
-
-	  
-  
-  
+ 
 		canMoveR(){   
 		  if(this.posX==Map2.map[0].length - 1 ||Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
 				return false;
