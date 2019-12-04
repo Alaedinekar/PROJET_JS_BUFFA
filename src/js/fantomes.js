@@ -48,8 +48,8 @@ class Ghosts{
 		ctx.restore();
 	}
 }
-		}
-	}
+
+
 	  
   
   

@@ -68,7 +68,6 @@ function clearCanvas() {
 function menu(){
   document.getElementById("menu").setAttribute("hidden",true);
   document.getElementById("Canvas").style.display="block";
-  
   player.play();
 }
 
