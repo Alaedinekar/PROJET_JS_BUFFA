@@ -15,6 +15,7 @@ class Ghosts{
 		this.movement = [];
 		this.id = id;
 	}
+	
 	drawfantome(){
 
 		let x;
@@ -29,7 +30,7 @@ class Ghosts{
 		ctx.beginPath();
 		ctx.lineWidth = '2';
 		ctx.fillStyle = '#48C';
-		ctx.arc(this.posX*Map2.width,this.posY*Map2.height,this.taille,Math.PI,2*Math.PI);
+		ctx.arc(this.posX * Map2.width,this.posY*Map2.height,this.taille,Math.PI,2*Math.PI);
 		ctx.lineTo(this.posX *Map2.width  + this.taille,this.posY + this.taille);
 		ctx.lineTo(this.posX *Map2.width  + this.taille,130);
 		ctx.lineTo(200,150);
@@ -48,6 +49,8 @@ class Ghosts{
 		ctx.restore();
 	}
 }
+		}
+	}
 
 
 	  
