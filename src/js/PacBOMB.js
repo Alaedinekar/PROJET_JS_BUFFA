@@ -58,7 +58,7 @@ class Player {
 
   mort(){
    
-    if (Map2.map[this.posY][this.posX] == 3){
+    if (Map2.map[this.posY][this.posX] == 3 && Map2.map[this.posY][this.posX] == 5){
       return true;
     }
   }

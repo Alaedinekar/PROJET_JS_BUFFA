@@ -112,6 +112,8 @@ class Bomb {
         case 4:
           death();
         //Map2.cdflamme;
+        case 5:
+          death();
       }
 
     }

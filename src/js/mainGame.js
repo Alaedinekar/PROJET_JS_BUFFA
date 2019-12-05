@@ -32,7 +32,7 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
-  ghost = new Ghosts(25,ctx);
+  ghost = new Ghosts(0,ctx);
   bounus = new Bonus();
   
   
