@@ -54,9 +54,10 @@ function anime60fps() {
   //spawnFantome(score);
   extinction(posEnf);//posEnf liste des cases enflammés
   //affscore();
-  /*if (abouge == 1){
+  if (abouge == 1){
   setInterval(GhostL.forEach(element =>{
-    element.move();}),2500);}*/
+    element.move();}),2500);
+  }
   
 	
   

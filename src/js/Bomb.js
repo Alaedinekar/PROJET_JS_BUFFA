@@ -62,7 +62,6 @@ class Bomb {
            var base;
            base = [this.y, this.x];
            posEnf.push(base);
-    console.log(posEnf);
     var tabB = {
       nord: false,
       sud: false,

@@ -77,7 +77,6 @@ class Ghosts {
 		
 		let distanceX = this.posX - P1.posX;
 		let distanceY = this.posY - P1.posY;
-		console.log(distanceX,distanceY);
 		let rand = getRandomInt(this.movement.length - 1);
 		
 		if(distanceX < 0 && this.canMoveR){
@@ -96,6 +95,7 @@ class Ghosts {
 			Map2.map[this.posY + 1][this.posX] = 5;
 			this.posY -= 1;
 		}else{
+			console.log(this.movement[rand]);
 			this.posX = this.movement[rand][0];
 			this.posY = this.movement[rand][1];
 		}
