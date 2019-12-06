@@ -51,7 +51,8 @@ function anime60fps() {
   drawBomb();
   bounus.draw()
   drawfantome();
-  //spawnFantome(score);
+  spawnFantome(score);
+  spawnBonus(score);
   extinction(posEnf);//posEnf liste des cases enflammés
   //affscore();
   /*if (abouge == 1){
