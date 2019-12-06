@@ -12,7 +12,7 @@ var final = 0;
 let request = undefined;
 var mort = 0;
 var score = 0;
-
+var GhostL = [];
 
 
   
@@ -32,7 +32,7 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
-  ghost = new Ghosts(0,ctx);
+  GhostL.push(new Ghosts(ctx));
   bounus = new Bonus();
   
   
@@ -53,7 +53,9 @@ function anime60fps() {
   drawfantome();
   setTimeout(extinction(posEnf),1000000);
   affscore();
-  
+  GhostL.forEach(element =>{
+    element.move();
+  })
 	
   
   
@@ -72,7 +74,9 @@ function menu(){
 }
 
 function drawfantome(){
-  ghost.drawfantome();
+  GhostL.forEach(element => {
+    element.draw();
+  });
 }
 
 function drawMap() {
@@ -99,7 +103,7 @@ function drawBomb(){
   }
 }
 
-function death(){
+function deathPlayer(){
   mort +=1;
   var mortsound = document.querySelector('#audioMortPlayer');
 
@@ -114,10 +118,7 @@ function death(){
     setTimeout(reset(),6000);  
   }
   
-
   function reset(){
     clearCanvas();
   
   }
-
-

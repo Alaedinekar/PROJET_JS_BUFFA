@@ -81,7 +81,6 @@ class Bomb {
 
 
   searchRecurs(x, y, i, tab) {
-    console.log(Map2.map[y][x]);
     Map2.map[y][x] = 3;
     var res;
     let tail = Map2.map.length;
@@ -110,10 +109,10 @@ class Bomb {
 
           break;
         case 4:
-          death();
+          deathPlayer();
         //Map2.cdflamme;
         case 5:
-          death();
+          deathGhost();
       }
 
     }

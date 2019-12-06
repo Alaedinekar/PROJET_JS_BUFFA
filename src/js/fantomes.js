@@ -1,5 +1,5 @@
 class Ghosts {
-	constructor(id, ctx) {
+	constructor(ctx) {
 		for (let i = 0; i < Map2.map.length; i++) {
 			for (let j = 0; j < Map2.map[0].length; j++) {
 				if (Map2.map[i][j] == 5) {
@@ -13,12 +13,12 @@ class Ghosts {
 		this.sAngle = 0;
 		this.eAngle = - Math.PI;
 		this.movement = [];
-		this.id = id;
+		this.id = GhostL.indexOf(this);
 		this.image = new Image();
 		this.image.src = "./images/ghost.png";
 	}
 
-	drawfantome() {
+	draw() {
 		let x = this.posX * Map2.width;
 		let y = this.posY * Map2.width;
 		for (let i = 0; i < Map2.map.length; i++) {
@@ -73,16 +73,31 @@ class Ghosts {
 		}
 	}
 	move() {
-		let rand = getRandomInt(this.movement - 1);
-		this.posY = this.movement[rand][0];
-		this.posX = this.movement[rand][1];
-	}
-	mort(){
-		if(Map2.map[this.posY][this.posX] == 3){
-			return true;
+		let distanceX = this.posX - P1.posX;
+		let distanceY = this.posY - P1.posY;
+		let rand = getRandomInt(this.movement.length - 1);
+		if(distanceX < 0 && this.canMoveL){
+			this.posX -= 1;
+		}
+		if(distanceX > 0 && this.canMoveR){
+			this.posX += 1;
+		}
+		if(distanceY < 0 && this.canMoveUp){
+			this.posY -= 1;
+		}
+		if(distanceY > 0 && this.canMoveD){
+			this.posY += 1;
+		}else{
+			this.posX = this.movement[rand][0];
+			this.posY = this.movement[rand][1];
 		}
 	}
+
+	mort() {
+		GhostL.splice(indexOf(this), 1);
+	}
 }
+
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
@@ -104,7 +119,6 @@ function spawnFantome() {
 				y = 0;
 				x = 0;
 			}
-
 			Map2.map[y][x] = 5;
 		}
 	}
