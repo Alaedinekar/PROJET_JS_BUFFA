@@ -1,4 +1,4 @@
-window.onload = init;
+//window.onload = init;
 let canvas;
 //test modif
 
@@ -51,11 +51,13 @@ function anime60fps() {
   drawBomb();
   bounus.draw()
   drawfantome();
-  setTimeout(extinction(posEnf),1000000);
-  affscore();
-  GhostL.forEach(element =>{
-    setInterval(element.move(),100000000);
-  })
+  //spawnFantome(score);
+  extinction(posEnf);//posEnf liste des cases enflammés
+  //affscore();
+  /*if (abouge == 1){
+  setInterval(GhostL.forEach(element =>{
+    element.move();}),2500);}*/
+  
 	
   
   
@@ -68,9 +70,12 @@ function clearCanvas() {
 
 
 function menu(){
+  player.play();
+  
   document.getElementById("menu").setAttribute("hidden",true);
   document.getElementById("Canvas").style.display="block";
-  player.play();
+  init();
+  
 }
 
 function drawfantome(){
@@ -85,6 +90,8 @@ function drawMap() {
 }
 
 function affscore(){
+  score++;
+  
   ctx.strokeStyle = 'red';
 document.lineWidth = 1;
 document.font = '36px arial';
@@ -116,6 +123,17 @@ function deathPlayer(){
     cancelAnimationFrame(request);
    
     setTimeout(reset(),6000);  
+  }
+
+
+  function deathGhost(y,x){
+    for (let i = 0; i<GhostL.length;i++){
+      if (GhostL[i].posY== y && GhostL[i].posX==x){
+        GhostL.splice(i,1);
+          }
+    }
+  (Map2.map[y][x] = 2);
+
   }
   
   function reset(){

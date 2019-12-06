@@ -14,13 +14,13 @@ class Player {
     }
     this.color = "purple";
     
-    
+    this.vitesse = 3000;
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);
     this.chargeur = [];
     this.cptbomb = 3;
-    
+    this.immortal = 0;
   }
   canMoveR(){   
     
@@ -40,7 +40,7 @@ class Player {
   }
   canMoveUp(){
     
-    if(this.PosY==0 ||Map2.map[this.posY-1][this.posX] == 0 || Map2.map[this.posY-1][this.posX] == 1){
+    if(this.PosY==0 || Map2.map[this.posY-1][this.posX] == 0 || Map2.map[this.posY-1][this.posX] == 1){
       return false;
     }else{
       return true;

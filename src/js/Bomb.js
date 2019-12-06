@@ -69,7 +69,7 @@ class Bomb {
       est: false,
       ouest: false
     };
-    this.searchRecurs(this.x, this.y, 1, tabB);
+    this.searchRecurs( this.x,this.y, 1, tabB);
     
 
     this.callbackE(this);
@@ -110,9 +110,11 @@ class Bomb {
           break;
         case 4:
           deathPlayer();
+          break;
         //Map2.cdflamme;
         case 5:
-          deathGhost();
+          deathGhost(y,x+i);
+          break;
       }
 
     }
@@ -133,6 +135,9 @@ class Bomb {
         case 4:
           death();
         //Map2.cdflamme;
+        case 5:
+            deathGhost(y,x-i);
+            break;
       }
 
     }
@@ -155,6 +160,9 @@ class Bomb {
         case 4:
           death();
         //Map2.cdflamme;
+        case 5:
+            deathGhost(y-i,x);
+            break;
       }
 
     }
@@ -177,6 +185,10 @@ class Bomb {
         case 4:
           death();
         //Map2.cdflamme;
+        case 5:
+            deathGhost(y + i,x);
+            sss
+            break;
       }
     }
 
@@ -193,7 +205,7 @@ class Bomb {
 }
 
 
-function extinction(tab) {
+function extinction(tab) { 
   if(tab != []){
 
   for (let i = 0; i < tab.length; i++) {

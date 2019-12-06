@@ -8,6 +8,7 @@ class Ghosts {
 				}
 			}
 		}
+		this.vitesse = 25;
 		this.taille = Map2.width;
 		this.ctx = ctx;
 		this.sAngle = 0;
@@ -73,10 +74,12 @@ class Ghosts {
 		}
 	}
 	move() {
+		
 		let distanceX = this.posX - P1.posX;
 		let distanceY = this.posY - P1.posY;
 		console.log(distanceX,distanceY);
 		let rand = getRandomInt(this.movement.length - 1);
+		
 		if(distanceX < 0 && this.canMoveR){
 			Map2.map[this.posY][this.posX - 1] = 5;
 			this.posX += 1;
@@ -108,14 +111,14 @@ function getRandomInt(max) {
 	return Math.floor(Math.random() * Math.floor(max));
 }
 
-function spawnFantome() {
+function spawnFantome(score) {
 	let x, y;
-	if (score % 100 >= 50) {
-		f = new Ghosts(25, ctx);
+	if (score % 300 >= 250) {
+		f = new Ghosts(ctx);
 
 		var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
-		y = pos / Map2.map.length;
-		x = pos % Map2.map.length;
+		y = Math.floor(pos / Map2.map.length);
+		x = Math.floor( pos % Map2.map.length);
 		while (Map2.map[y][x] != 2) {
 			if (x == Map2.map[0].length) {
 				y += 1;

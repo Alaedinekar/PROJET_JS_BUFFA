@@ -1,7 +1,12 @@
 
 var cpt = 0;
 
+/*function sleep(ms) { //stackoverflow
+     return new Promise(resolve => setTimeout(resolve, ms));
+   }*/
+
 function addListeners(canvas) {
+     
      canvas.addEventListener("keydown", onkeydown, false);
      canvas.addEventListener("keyup", onkeyup, false);
 }
@@ -14,9 +19,10 @@ callbackExplode = bombe => {
     
      if(index >= 0)  P1.chargeur.splice(index,1); 
 }
-var time = 30;
+
+
 document.onkeydown = function (event) {
-    
+         
      
      switch (event.keyCode) {
 
@@ -24,18 +30,25 @@ document.onkeydown = function (event) {
                
                if(P1.canMoveL()){
                     if (Map2.map[P1.posY][P1.posX - 1] == 6){
-                         P1.color = "red";
+                         effetBonus();
                     }
+                    if (Map2.map[P1.posY ][P1.posX - 1] == 5 && P1.immortal ==0){
+                         deathPlayer();                         
+               }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
                     Map2.map[P1.posY][P1.posX] = 4;
                }
+               
                break;
           case 38:
                if(P1.canMoveUp()){
                     if (Map2.map[P1.posY - 1][P1.posX ] == 6){
-                         P1.color = "red";
+                         effetBonus();
                     }
+                    if (Map2.map[P1.posY - 1][P1.posX ] == 5 && P1.immortal ==0){
+                         deathPlayer();                         
+               }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
                     Map2.map[P1.posY][P1.posX] = 4;}
@@ -44,8 +57,11 @@ document.onkeydown = function (event) {
                
                if(P1.canMoveR()){
                     if (Map2.map[P1.posY][P1.posX + 1] == 6){
-                         P1.color = "red";
+                         effetBonus();
                     }
+                    if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal ==0){
+                         deathPlayer();                         
+               }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
                     Map2.map[P1.posY][P1.posX] = 4;}
@@ -54,8 +70,12 @@ document.onkeydown = function (event) {
 
                if(P1.canMoveD()){
                     if (Map2.map[P1.posY + 1][P1.posX ] == 6){
-                         P1.color = "red";
-                    }
+                         effetBonus();                         
+     }
+     if (Map2.map[P1.posY + 1][P1.posX ] == 5 && P1.immortal ==0){
+          deathPlayer();                         
+}
+
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
                     Map2.map[P1.posY][P1.posX] = 4;}
@@ -88,7 +108,7 @@ document.onkeydown = function (event) {
      
 }
 
-
+ var abouge = 0;
 document.onkeyup = function (event) {
      switch (event.keyCode) {
           case 37:
@@ -102,4 +122,6 @@ document.onkeyup = function (event) {
           case 32:
                break;
      }
+     abouge = 1;
+    
 }
