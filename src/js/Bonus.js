@@ -13,7 +13,7 @@ class Bonus{
                   }
                 }
               }
-              BonusL.push(this);
+              
               console.log(BonusL);
     
 }
@@ -45,29 +45,53 @@ draw(){
   }
 }
 
-function effetBonus(y,x){
+function effetBonus(){
   
-  for (let i = 0;i<=BonusL.length;i++){     
+       
     
-  if (BonusL[i].y == y &&  BonusL[i].x == x){
   
-  switch(BonusL[i].color){
+  
+  switch(bounus.type){
 
-  case("red") :
+  case 0 :
     
   P1.cptbomb = 5;
   P1.color = "red";
   break;
 
-  case "blue":
+  case 2:
     console.log("freeze");
-    P1.color = "turquoize";
+    P1.color = "turquoise";
     break;
 
-  case "black":
+  case 1:
     P1.immortal = 1;
     P1.color = "black";
   }
 }
-}
+
+
+
+function spawnBonus(score) {
+  let x, y;
+	if (score % 2000 >= 1000 && BonusL == [])  {
+    f = new Bonus();
+    BonusL.push(f);
+    
+
+		var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
+		y = Math.trunc(pos / Map2.map.length);
+		x = Math.trunc( pos % Map2.map.length);
+		while (Map2.map[y][x] != 2) {
+			if (x == Map2.map[0].length) {
+				y += 1;
+			}
+			if ((y == Map2.map.length) && (x == Map2.map[0].length)) {
+				y = 0;
+				x = 0;
+      }
+    }
+			Map2.map[y][x] = 6;
+		
+	}
 }

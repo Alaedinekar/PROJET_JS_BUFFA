@@ -186,7 +186,7 @@ class Bomb {
         //Map2.cdflamme;
         case 5:
             deathGhost(y + i,x);
-            sss
+            
             break;
       }
     }

@@ -127,7 +127,8 @@ function spawnFantome(score) {
 				y = 0;
 				x = 0;
 			}
-			Map2.map[y][x] = 5;
+			
 		}
+		Map2.map[y][x] = 5;
 	}
 }
