@@ -54,7 +54,7 @@ function anime60fps() {
   setTimeout(extinction(posEnf),1000000);
   affscore();
   GhostL.forEach(element =>{
-    element.move();
+    setInterval(element.move(),100000000);
   })
 	
   
