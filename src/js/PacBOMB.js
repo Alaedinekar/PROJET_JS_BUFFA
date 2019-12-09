@@ -7,8 +7,8 @@ class Player {
     for (let i = 0; i < Map2.map.length; i++) {
       for (let j = 0; j < Map2.map[0].length; j++) {
         if (Map2.map[i][j] == 4) {
-          this.posX = i;
-          this.posY = j;
+          this.posX = j;
+          this.posY = i;
         }
       }
     }

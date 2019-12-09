@@ -1,3 +1,8 @@
+
+
+
+
+
 //window.onload = init;
 let canvas;
 //test modif
@@ -12,6 +17,7 @@ var final = 0;
 let request = undefined;
 var mort = 0;
 var score = 0;
+var canSpawnBonus = true;
 var GhostL = [];
 
 
@@ -33,8 +39,10 @@ function init() {
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
   GhostL.push(new Ghosts(ctx));
-  bounus = new Bonus();
   
+  setInterval(() => {
+    canSpawnBonus = true;
+  }, 3000);
   
 
   request = requestAnimationFrame(anime60fps);
@@ -43,19 +51,31 @@ function init() {
 function anime60fps() {
   
   
-  
   clearCanvas();  
   
   drawMap();
   drawPlayer();
   drawBomb();
-  bounus.draw()
+ 
   drawfantome();
-  spawnFantome(score);
-  spawnBonus(score);
-  extinction(posEnf);             //posEnf liste des cases enflammés
-  //affscore();
-  if (abouge == 1){
+  //spawnFantome(score);
+  if(canSpawnBonus) {
+    canSpawnBonus = false;    
+    spawnBonus(500);    
+  }
+
+  BonusL = BonusL.filter(b => b !== undefined);
+  
+  if (BonusL != []){
+    for(let i= 0; i< BonusL.length;i++){
+      if(BonusL[i] !== undefined)
+        BonusL[i].draw();
+    }
+  }
+  
+  extinction(posEnf);//posEnf liste des cases enflammés
+  affscore();
+  /*if (abouge == 1){
   GhostL.forEach(element =>{
     if(element.cooldown == 0){
       element.move();
@@ -96,8 +116,8 @@ function drawMap() {
 }
 
 function affscore(){
-  score++;
-  
+  score += 0.2;
+  //console.log(score)
   ctx.strokeStyle = 'red';
 document.lineWidth = 1;
 document.font = '36px arial';

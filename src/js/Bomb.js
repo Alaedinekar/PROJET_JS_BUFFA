@@ -56,12 +56,13 @@ class Bomb {
 
 
   explode = () => {
-    if (Map2.map[this.y][this.x] == 4){
-      death();
+    if (Map2.map[this.y][this.x] == 4 && P1.immortal ==0){
+      deathPlayer();
            }
            var base;
            base = [this.y, this.x];
            posEnf.push(base);
+    
     var tabB = {
       nord: false,
       sud: false,
@@ -108,7 +109,8 @@ class Bomb {
 
           break;
         case 4:
-          deathPlayer();
+          if( P1.immortal ==0){
+          deathPlayer();}
           break;
         //Map2.cdflamme;
         case 5:
@@ -131,8 +133,8 @@ class Bomb {
           posEnf.push(res);
 
           break;
-        case 4:
-          death();
+        case 4:if( P1.immortal ==0){
+          deathPlayer();}
         //Map2.cdflamme;
         case 5:
             deathGhost(y,x-i);
@@ -157,7 +159,8 @@ class Bomb {
           break;
 
         case 4:
-          death();
+          if( P1.immortal ==0){
+          deathPlayer();}
         //Map2.cdflamme;
         case 5:
             deathGhost(y-i,x);
@@ -182,7 +185,8 @@ class Bomb {
 
           break;
         case 4:
-          death();
+            if( P1.immortal ==0){
+              deathPlayer();}
         //Map2.cdflamme;
         case 5:
             deathGhost(y + i,x);
