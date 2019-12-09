@@ -95,7 +95,7 @@ class Ghosts {
 			Map2.map[this.posY + 1][this.posX] = 5;
 			this.posY -= 1;
 		}else{
-			console.log(this.movement[rand]);
+			console.log(this.movement);
 			this.posX = this.movement[rand][0];
 			this.posY = this.movement[rand][1];
 		}

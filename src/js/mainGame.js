@@ -55,11 +55,11 @@ function anime60fps() {
   spawnBonus(score);
   extinction(posEnf);//posEnf liste des cases enflammés
   //affscore();
-  if (abouge == 1){
+  /*if (abouge == 1){
   GhostL.forEach(element =>{
     element.move();});
   }
-  
+  */
 	
   
   
