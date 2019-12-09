@@ -53,15 +53,19 @@ function anime60fps() {
   drawfantome();
   spawnFantome(score);
   spawnBonus(score);
-  extinction(posEnf);//posEnf liste des cases enflammés
+  extinction(posEnf);             //posEnf liste des cases enflammés
   //affscore();
-  /*if (abouge == 1){
+  if (abouge == 1){
   GhostL.forEach(element =>{
-    element.move();});
+    if(element.cooldown == 0){
+      element.move();
+      element.cooldown = 200;
+    }else{
+      element.cooldown -= 1;
+    }});
   }
-  */
-	
   
+	
   
   request = requestAnimationFrame(anime60fps);
 }

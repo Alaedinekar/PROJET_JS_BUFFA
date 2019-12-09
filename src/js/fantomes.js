@@ -14,6 +14,7 @@ class Ghosts {
 		this.sAngle = 0;
 		this.eAngle = - Math.PI;
 		this.movement = [];
+		this.cooldown = 200;
 		this.id = GhostL.indexOf(this);
 		this.image = new Image();
 		this.image.src = "./images/ghost.png";
@@ -98,6 +99,7 @@ class Ghosts {
 			console.log(this.movement);
 			this.posX = this.movement[rand][0];
 			this.posY = this.movement[rand][1];
+			Map2.map[this.posY + 1][this.posX] = 5;
 		}
 	}
 
