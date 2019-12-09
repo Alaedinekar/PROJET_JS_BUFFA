@@ -78,7 +78,7 @@ document.onkeydown = function (event) {
                     }
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 0) {
                          deathPlayer();
-                    }
+                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
                     Map2.map[P1.posY][P1.posX] = 4;
