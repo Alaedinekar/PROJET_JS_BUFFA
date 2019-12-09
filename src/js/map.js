@@ -56,7 +56,7 @@ class Map {
     
 
     for (let i = 0; i < this.map[0].length; i++) {
-      x = 0; //Quand on fini une colone on repart de 0
+      x = 0;                 //Quand on fini une colone on repart de 0
       y = this.height * i; //A chaque fois qu'on fini une colonne on se décale de la longueur de la case
 
       for (let j = 0; j < this.map[0].length; j++) {

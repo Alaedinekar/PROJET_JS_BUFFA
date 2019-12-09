@@ -31,11 +31,15 @@ document.onkeydown = function (event) {
           case 37:
 
                if (P1.canMoveL()) {
+                    
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
+                    if (Map2.map[P1.posY][P1.posX - 1] == 6) {
+                         effetBonus(BonusL,P1.posX-1,P1.posY);
+                    }
 
                     Map2.map[P1.posY][P1.posX] = 4;
                }
@@ -49,7 +53,7 @@ document.onkeydown = function (event) {
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
                     if (Map2.map[P1.posY - 1][P1.posX] == 6) {
-                         effetBonus(BonusL);
+                         effetBonus(BonusL,P1.posX,P1.posY - 1);
 
                     }
                     Map2.map[P1.posY][P1.posX] = 4;
@@ -58,35 +62,37 @@ document.onkeydown = function (event) {
           case 39:
 
                if (P1.canMoveR()) {
-                    if (Map2.map[P1.posY][P1.posX + 1] == 6) {
-                         effetBonus(BonusL);
 
-                    }
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
+                    if (Map2.map[P1.posY][P1.posX + 1] == 6) {
+                         effetBonus(BonusL,P1.posX + 1,P1.posY);
+
+                    }
                     Map2.map[P1.posY][P1.posX] = 4;
                }
                break;
           case 40:
 
                if (P1.canMoveD()) {
-                    if (Map2.map[P1.posY + 1][P1.posX] == 6) {
-                         effetBonus(BonusL);
 
-                    }
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
 
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
+                    if (Map2.map[P1.posY + 1][P1.posX] == 6) {
+                         effetBonus(BonusL, P1.posX, P1.posY + 1);
+
+                    }
                     Map2.map[P1.posY][P1.posX] = 4;
                }
                break;
-          case 32: //pose de la bombe ESPACE
+          case 32:
 
                if ((P1.chargeur.length < P1.cptbomb)) {
 
@@ -94,7 +100,7 @@ document.onkeydown = function (event) {
                     let beubon = new Bomb(P1.posX, P1.posY, callbackExplode);
 
 
-                    let res = [P1.posX, P1.posY];
+                    let res = [P1.posY, P1.posX];
 
                     posEnf.push(res);
                     let size = P1.chargeur.push(beubon);
@@ -104,7 +110,7 @@ document.onkeydown = function (event) {
                }
 
 
-               // }
+
                break;
 
 

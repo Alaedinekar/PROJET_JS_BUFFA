@@ -76,9 +76,10 @@ function anime60fps() {
   extinction(posEnf);//posEnf liste des cases enflammés
   affscore();
   /*if (abouge == 1){
-  setInterval(GhostL.forEach(element =>{
-    element.move();}),2500);}*/
-  
+  GhostL.forEach(element =>{
+    element.move();});
+  }
+  */
 	
   
   
