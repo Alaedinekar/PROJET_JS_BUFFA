@@ -83,7 +83,7 @@ function anime60fps() {
     }else{
       element.cooldown -= 1;
     }});
-  }
+  }*/
   
 	
   
