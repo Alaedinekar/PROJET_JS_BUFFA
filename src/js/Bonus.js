@@ -29,11 +29,11 @@ class Bonus {
 
 
 
-function effetBonus(listeBonus,x,y) {
-   
+function effetBonus(listeBonus, x, y) {
+
   for (let i = 0; i < listeBonus.length; i++) {
     console.log(listeBonus[i].x, listeBonus[i].y, P1.posX, P1.posY)
-    if(listeBonus[i].x == x && listeBonus[i].y == y){
+    if (listeBonus[i].x == x && listeBonus[i].y == y) {
       switch (listeBonus[i].type) {
 
         case 0:
@@ -53,44 +53,44 @@ function effetBonus(listeBonus,x,y) {
       }
       listeBonus[i] = undefined;
     }
-  }  
+  }
 }
 
 
 
-function spawnBonus(score) {
+function spawnBonus() {
 
   let x, y;
-  if (score % 1000 >= 500) {
+
+
+
+  BonusL.push(new Bonus());
+
+
+
+  var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
+  y = Math.trunc(pos / Map2.map.length);
+  x = Math.trunc(pos % Map2.map.length);
+  
+  while (Map2.map[y][x] != 2) {
     
+    if (x == Map2.map[0].length && y < Map2.map.length) {
+      y += 1;
+      x = 0;
 
-    BonusL.push(new Bonus());
-    
-
-
-    var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
-    y = Math.trunc(pos / Map2.map.length);
-    x = Math.trunc(pos % Map2.map.length);
-    console.log(x,y);
-    while (Map2.map[y][x] != 2) {
-      console.log("bbbbbbbbbbbb");
-      if (x == Map2.map[0].length && y<Map2.map.length ) {
-        y += 1;
-        x=0;
-
-      }
-      if ((y == Map2.map.length) && (x == Map2.map[0].length)) {
-        y = 0;
-        x = 0;
-      }
-      x++;
     }
-    BonusL[BonusL.length - 1].x = x;
-    BonusL[BonusL.length - 1].y = y;
-    Map2.map[y][x] = 6;
-
-
+    if ((y == Map2.map.length) && (x == Map2.map[0].length)) {
+      y = 0;
+      x = 0;
+    }
+    x++;
   }
+  BonusL[BonusL.length - 1].x = x;
+  BonusL[BonusL.length - 1].y = y;
+  Map2.map[y][x] = 6;
+
+
+
 
 
 }

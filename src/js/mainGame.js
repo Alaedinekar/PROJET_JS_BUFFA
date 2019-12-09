@@ -18,6 +18,7 @@ let request = undefined;
 var mort = 0;
 var score = 0;
 var canSpawnBonus = true;
+var canSpawnGhost = true;
 var GhostL = [];
 
 
@@ -38,12 +39,15 @@ function init() {
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
   P1 = new Player(25, ctx);
-  GhostL.push(new Ghosts(ctx));
+  
   
   setInterval(() => {
     canSpawnBonus = true;
-  }, 3000);
+  }, 5000);
   
+  setInterval(() => {
+  canSpawnGhost = true;
+}, 5000);
 
   request = requestAnimationFrame(anime60fps);
 }
@@ -57,14 +61,21 @@ function anime60fps() {
   drawPlayer();
   drawBomb();
  
-  drawfantome();
+  
   //spawnFantome(score);
   if(canSpawnBonus) {
     canSpawnBonus = false;    
-    spawnBonus(500);    
+    spawnBonus(); 
+       
+  }
+  
+  if(canSpawnGhost){
+    canSpawnGhost = false;
+    spawnFantome();
   }
 
-  BonusL = BonusL.filter(b => b !== undefined);
+BonusL = BonusL.filter(b => b !== undefined);
+ GhostL =GhostL.filter(b => b !== undefined);
   
   if (BonusL != []){
     for(let i= 0; i< BonusL.length;i++){
@@ -72,16 +83,24 @@ function anime60fps() {
         BonusL[i].draw();
     }
   }
+
+  if (GhostL != []){
+    for(let i= 0; i< GhostL.length;i++){
+      if(GhostL[i] !== undefined)
+        GhostL[i].draw();
+    }
+  }
   
   extinction(posEnf);//posEnf liste des cases enflammés
-  affscore();
-  /*if (abouge == 1){
+  //affscore();
+ 
+ /* if (abouge == 1){
   GhostL.forEach(element =>{
     if(element.cooldown == 0){
       element.move();
       element.cooldown = 200;
     }else{
-      element.cooldown -= 1;
+      element.cooldown -= 0,2;
     }});
   }*/
   
@@ -96,7 +115,7 @@ function clearCanvas() {
 
 
 function menu(){
-  player.play();
+ // player.play();
   
   document.getElementById("menu").setAttribute("hidden",true);
   document.getElementById("Canvas").style.display="block";
@@ -104,20 +123,20 @@ function menu(){
   
 }
 
-function drawfantome(){
+/*function drawfantome(){
   GhostL.forEach(element => {
     element.draw();
   });
 }
-
+*/
 function drawMap() {
     Map2.draw(ctx);
 
 }
 
 function affscore(){
-  score += 0.2;
-  //console.log(score)
+  
+  
   ctx.strokeStyle = 'red';
 document.lineWidth = 1;
 document.font = '36px arial';
@@ -155,7 +174,7 @@ function deathPlayer(){
   function deathGhost(y,x){
     for (let i = 0; i<GhostL.length;i++){
       if (GhostL[i].posY== y && GhostL[i].posX==x){
-        GhostL.splice(i,1);
+        GhostL[i] = undefined
           }
     }
   (Map2.map[y][x] = 2);
