@@ -92,7 +92,7 @@ document.onkeydown = function (event) {
                     let beubon = new Bomb(P1.posX, P1.posY, callbackExplode);
 
 
-                    let res = [P1.posX, P1.posY];
+                    let res = [P1.posY, P1.posX];
 
                     posEnf.push(res);
                     let size = P1.chargeur.push(beubon);
