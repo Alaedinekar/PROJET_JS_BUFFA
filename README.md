@@ -23,8 +23,10 @@ Ajout de sons ingame  28/11 FAIT.
 
  Pour la semaine du 01/11: faire les chemins enflammés: Fait le 24/11.
  
- Faire la classe ennemis et ses methodes.Pour 06/12
+ Faire la classe ennemis et ses methodes.Fait le 3/12.
 
-Appartition de la pillule sur la map changement d'état lorsqu'un joueur mange la pillule. Pour 6/12
+Appartition de la pillule sur la map changement d'état lorsqu'un joueur mange la pillule. FAIT le 09/12.
+
+Gestion du score et rajouter des details esthetiques. A FAIRE AVANT LA DATE FINALE.
 
 
