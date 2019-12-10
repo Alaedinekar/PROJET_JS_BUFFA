@@ -29,11 +29,11 @@ class Bonus {
 
 
 
-function effetBonus(listeBonus, x, y) {
+function effetBonus(listeBonus, a, b) {
 
   for (let i = 0; i < listeBonus.length; i++) {
     console.log(listeBonus[i].x, listeBonus[i].y, P1.posX, P1.posY)
-    if (listeBonus[i].x == x && listeBonus[i].y == y) {
+    if (listeBonus[i].x == a && listeBonus[i].y == b) {
       switch (listeBonus[i].type) {
 
         case 0:

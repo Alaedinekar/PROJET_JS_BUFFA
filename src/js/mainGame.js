@@ -47,7 +47,7 @@ function init() {
   
   setInterval(() => {
   canSpawnGhost = true;
-}, 5000);
+}, 4000);
 
   request = requestAnimationFrame(anime60fps);
 }
@@ -69,10 +69,10 @@ function anime60fps() {
        
   }
   
-  if(canSpawnGhost){
+  /*if(canSpawnGhost){
     canSpawnGhost = false;
     spawnFantome();
-  }
+  }*/
 
 BonusL = BonusL.filter(b => b !== undefined);
  GhostL =GhostL.filter(b => b !== undefined);
@@ -92,6 +92,7 @@ BonusL = BonusL.filter(b => b !== undefined);
   }
   
   extinction(posEnf);//posEnf liste des cases enflammés
+  
   //affscore();
  
  /* if (abouge == 1){
