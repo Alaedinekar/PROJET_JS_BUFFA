@@ -12,9 +12,9 @@ class Player {
         }
       }
     }
-    this.color = "purple";
+    this.color = "yellow";
     
-    this.vitesse = 3000;
+   // this.vitesse = 3000;
     this.ctx = ctx;
     this.sAngle = Math.PI / 4;
     this.eAngle = -(Math.PI / 4);

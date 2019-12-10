@@ -9,7 +9,7 @@ class Bonus {
     this.x = undefined;
     this.y = undefined;
 
-    console.log(BonusL);
+    
 
   }
 
@@ -40,11 +40,13 @@ function effetBonus(listeBonus, a, b) {
 
           P1.cptbomb = 5;
           P1.color = "red";
+          P1.immortal=0;
           break;
 
         case 2:
           console.log("freeze");
           P1.color = "turquoise";
+          P1.immortal=0;
           break;
 
         case 1:

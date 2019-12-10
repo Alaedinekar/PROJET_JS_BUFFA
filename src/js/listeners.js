@@ -1,12 +1,12 @@
 
-var cpt = 0;
+//var cptmouv = 0;
 
 /*function sleep(ms) { //stackoverflow
      return new Promise(resolve => setTimeout(resolve, ms));
    }*/
 
 function addListeners(canvas) {
-
+     //cptmouv++;
      canvas.addEventListener("keydown", onkeydown, false);
      canvas.addEventListener("keyup", onkeyup, false);
 }
@@ -35,6 +35,9 @@ document.onkeydown = function (event) {
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
+                    if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 1) {
+                         deathGhost(P1.posY,P1.posX - 1);
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
                     if (Map2.map[P1.posY][P1.posX] == 6) {
@@ -49,6 +52,9 @@ document.onkeydown = function (event) {
                if (P1.canMoveUp()) {
                     if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 0) {
                          deathPlayer();
+                    }
+                    if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 1) {
+                         deathGhost(P1.posY - 1,P1.posX);
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
@@ -68,6 +74,9 @@ document.onkeydown = function (event) {
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
+                    if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 1) {
+                         deathGhost(P1.posY,P1.posX+1);
+                    }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
                     if (Map2.map[P1.posY][P1.posX] == 6) {
@@ -85,6 +94,9 @@ document.onkeydown = function (event) {
 
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 0) {
                          deathPlayer();
+                    }
+                    if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 1) {
+                         deathGhost(P1.posY + 1,P1.posX);
                     }
 
                     Map2.map[P1.posY][P1.posX] = 2;
