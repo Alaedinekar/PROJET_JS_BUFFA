@@ -37,8 +37,8 @@ document.onkeydown = function (event) {
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
-                    if (Map2.map[P1.posY][P1.posX ] == 6) {
-                         effetBonus(BonusL, P1.posX , P1.posY);
+                    if (Map2.map[P1.posY][P1.posX] == 6) {
+                         effetBonus(BonusL, P1.posX, P1.posY);
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
@@ -52,13 +52,13 @@ document.onkeydown = function (event) {
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
-                    if (Map2.map[P1.posY ][P1.posX] == 6) {
-                         effetBonus(BonusL, P1.posX, P1.posY );
+                    if (Map2.map[P1.posY][P1.posX] == 6) {
+                         effetBonus(BonusL, P1.posX, P1.posY);
 
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
-                    
+
                }
                break;
           case 39:
@@ -70,13 +70,13 @@ document.onkeydown = function (event) {
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
-                    if (Map2.map[P1.posY][P1.posX ] == 6) {
+                    if (Map2.map[P1.posY][P1.posX] == 6) {
                          effetBonus(BonusL, P1.posX, P1.posY);
 
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
-                    
+
                }
                break;
           case 40:
@@ -89,12 +89,12 @@ document.onkeydown = function (event) {
 
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY += 1;
-                    if (Map2.map[P1.posY ][P1.posX] == 6) {
-                         effetBonus(BonusL, P1.posX, P1.posY );
+                    if (Map2.map[P1.posY][P1.posX] == 6) {
+                         effetBonus(BonusL, P1.posX, P1.posY);
 
                     }
                     Map2.map[P1.posY][P1.posX] = 4;
-                    
+
                }
                break;
           case 32:

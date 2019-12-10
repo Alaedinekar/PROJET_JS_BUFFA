@@ -20,10 +20,10 @@ class Bomb {
   }
 
   draw() {
-    
+
     ctx.save();
     this.changecolor();
-    
+
     ctx.translate(Map2.width / 2, Map2.height / 2);
     ctx.fillStyle = this.color;
     ctx.beginPath();
@@ -56,28 +56,28 @@ class Bomb {
 
 
   explode = () => {
-    if (Map2.map[this.y][this.x] == 4 && P1.immortal ==0){
+    if (Map2.map[this.y][this.x] == 4 && P1.immortal == 0) {
       deathPlayer();
-           }
-           var base;
-           base = [this.y, this.x];
-           posEnf.push(base);
-    
+    }
+    var base;
+    base = [this.y, this.x];
+    posEnf.push(base);
+
     var tabB = {
       nord: false,
       sud: false,
       est: false,
       ouest: false
     };
-    this.searchRecurs( this.x,this.y, 1, tabB);
-    
+    this.searchRecurs(this.x, this.y, 1, tabB);
+
 
     this.callbackE(this);
 
 
   }
 
- 
+
 
 
   searchRecurs(x, y, i, tab) {
@@ -103,18 +103,19 @@ class Bomb {
 
         case 2:
           (Map2.map[y][x + i] = 3);
-          res = [y, x+i];
+          res = [y, x + i];
           posEnf.push(res);
 
 
           break;
         case 4:
-          if( P1.immortal ==0){
-          deathPlayer();}
+          if (P1.immortal == 0) {
+            deathPlayer();
+          }
           break;
         //Map2.cdflamme;
         case 5:
-          deathGhost(y,x+i);
+          deathGhost(y, x + i);
           break;
       }
 
@@ -129,16 +130,17 @@ class Bomb {
 
         case 2:
           (Map2.map[y][x - i] = 3);
-          res = [y, x-i];
+          res = [y, x - i];
           posEnf.push(res);
 
           break;
-        case 4:if( P1.immortal ==0){
-          deathPlayer();}
+        case 4: if (P1.immortal == 0) {
+          deathPlayer();
+        }
         //Map2.cdflamme;
         case 5:
-            deathGhost(y,x-i);
-            break;
+          deathGhost(y, x - i);
+          break;
       }
 
     }
@@ -152,19 +154,20 @@ class Bomb {
 
         case 2:
           (Map2.map[y - i][x] = 3);
-          res = [y-i,x];
+          res = [y - i, x];
           posEnf.push(res);
 
 
           break;
 
         case 4:
-          if( P1.immortal ==0){
-          deathPlayer();}
+          if (P1.immortal == 0) {
+            deathPlayer();
+          }
         //Map2.cdflamme;
         case 5:
-            deathGhost(y-i,x);
-            break;
+          deathGhost(y - i, x);
+          break;
       }
 
     }
@@ -179,19 +182,20 @@ class Bomb {
         case 2:
 
           (Map2.map[y + i][x] = 3);
-          res = [y+i, x];
+          res = [y + i, x];
           posEnf.push(res);
 
 
           break;
         case 4:
-            if( P1.immortal ==0){
-              deathPlayer();}
+          if (P1.immortal == 0) {
+            deathPlayer();
+          }
         //Map2.cdflamme;
         case 5:
-            deathGhost(y + i,x);
-            
-            break;
+          deathGhost(y + i, x);
+
+          break;
       }
     }
 
@@ -208,13 +212,13 @@ class Bomb {
 }
 
 
-function extinction(tab) { 
-  if(tab != []){
+function extinction(tab) {
+  if (tab != []) {
 
-  for (let i = 0; i < tab.length; i++) {
-    Map2.map[tab[i][0]][tab[i][1]] = 2;
+    for (let i = 0; i < tab.length; i++) {
+      Map2.map[tab[i][0]][tab[i][1]] = 2;
+    }
+    posEnf = [];
+
   }
-  posEnf= [];
-  
-}
 }

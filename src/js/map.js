@@ -42,10 +42,10 @@ class Map {
     this.width = largeurPixels;
     this.height = hauteurPixels;
     this.map = array;
-    this.colors = ["blue", "grey", "green","red","green" , "green","green"];
+    this.colors = ["blue", "grey", "green", "red", "green", "green", "green"];
     // incassable,cassable,chemin
-    
-    
+
+
 
   }
 
@@ -53,7 +53,7 @@ class Map {
     //dessin de la map en fonction de la matrice
     let x = 0;
     let y = 0;
-    
+
 
     for (let i = 0; i < this.map[0].length; i++) {
       x = 0;                 //Quand on fini une colone on repart de 0
@@ -65,8 +65,8 @@ class Map {
 
         ctx.fillStyle = this.colors[this.map[i][j]];
         ctx.fillRect(x, y, this.width, this.height);
-        
-        
+
+
       }
     }
   }

@@ -107,7 +107,6 @@ function getRandomInt(max) {
 
 function spawnFantome() {
 	let x, y;
-	console.log(GhostL);
 
 	GhostL.push(new Ghosts(ctx));
 
