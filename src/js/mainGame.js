@@ -69,13 +69,13 @@ function anime60fps() {
        
   }
   
-  /*if(canSpawnGhost){
+  if(canSpawnGhost){
     canSpawnGhost = false;
     spawnFantome();
-  }*/
+  }
 
 BonusL = BonusL.filter(b => b !== undefined);
- GhostL =GhostL.filter(b => b !== undefined);
+GhostL =GhostL.filter(b => b !== undefined);
   
   if (BonusL != []){
     for(let i= 0; i< BonusL.length;i++){

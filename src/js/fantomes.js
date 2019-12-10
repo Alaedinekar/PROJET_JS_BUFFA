@@ -123,7 +123,7 @@ function spawnFantome() {
 			y = 0;
 			x = 0;
 		}
-
+		x++;
 	}
 	GhostL[GhostL.length - 1].posX = x;
 	GhostL[GhostL.length - 1].posY = y;
