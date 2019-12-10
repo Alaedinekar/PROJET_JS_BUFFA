@@ -113,7 +113,6 @@ document.onkeydown = function (event) {
 
                if ((P1.chargeur.length < P1.cptbomb)) {
 
-
                     let beubon = new Bomb(P1.posX, P1.posY, callbackExplode);
 
 
@@ -121,6 +120,7 @@ document.onkeydown = function (event) {
 
                     posEnf.push(res);
                     let size = P1.chargeur.push(beubon);
+                    let cpt = P1.chargeur.length - 1;
                     beubon.setId(cpt);
                     cpt++;
 

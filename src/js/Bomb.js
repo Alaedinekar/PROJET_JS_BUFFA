@@ -15,7 +15,7 @@ class Bomb {
 
   }
 
-  setId = (id) => {
+  setId(id) {
     this.id = id;
   }
 

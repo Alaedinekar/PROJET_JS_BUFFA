@@ -21,6 +21,7 @@ class Player {
     this.chargeur = [];
     this.cptbomb = 3;
     this.immortal = 0;
+    this.cpt = 0;
   }
   canMoveR(){   
     
