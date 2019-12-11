@@ -73,8 +73,8 @@ class Bomb {
 
 
     this.callbackE(this);
-
-
+    P1.cpt--;
+    console.log(P1.cpt);
   }
 
 

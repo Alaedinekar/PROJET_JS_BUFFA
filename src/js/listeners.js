@@ -120,9 +120,9 @@ document.onkeydown = function (event) {
 
                     posEnf.push(res);
                     let size = P1.chargeur.push(beubon);
-                    let cpt = P1.chargeur.length - 1;
-                    beubon.setId(cpt);
-                    cpt++;
+                    P1.cpt = P1.chargeur.length - 1;
+                    beubon.setId(P1.cpt);
+                    P1.cpt++;
 
                }
 

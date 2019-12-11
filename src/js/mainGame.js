@@ -174,8 +174,8 @@ function deathPlayer() {
 
 function deathGhost(y, x) {
   for (let i = 0; i < GhostL.length; i++) {
-    if (GhostL[i].posY == y && GhostL[i].posX == x) {
-      (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
+    if (GhostL[i].y == y && GhostL[i].x == x) {
+      (Map2.map[GhostL[i].y][GhostL[i].x] = 2);
       GhostL[i] = undefined;
     }
   }
