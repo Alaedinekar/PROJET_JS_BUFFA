@@ -4,14 +4,10 @@ class Player {
   name = "J1";
   constructor(taille, ctx) {
     this.taille = taille;
-    for (let i = 0; i < Map2.map.length; i++) {
-      for (let j = 0; j < Map2.map[0].length; j++) {
-        if (Map2.map[i][j] == 4) {
-          this.posX = j;
-          this.posY = i;
-        }
-      }
-    }
+    
+          this.posX = undefined;
+          this.posY = undefined;
+       
     this.color = "yellow";
     
    // this.vitesse = 3000;
@@ -67,14 +63,12 @@ class Player {
 
   draw() {
     
-    for (let i = 0; i <Map2.map.length; i++) {
-      for (let j = 0; j < Map2.map[0].length; j++) {
-        if (Map2.map[i][j] == 4) {
+
           ctx.save();
-          switch(P1.face){
+          /*switch(P1.face){
             case "west":
               this.ctx.rotate(20);
-          }
+          }*/
           ctx.translate(this.posX,this.posY);
           
 
@@ -89,7 +83,13 @@ class Player {
 
           let x1 = this.posX * Map2.width + this.taille * Math.cos(Math.PI / 4);
           let y1 = this.posY * Map2.height+ this.taille * Math.sin(Math.PI / 4);
+
+          
           ctx.fillStyle = this.color;
+         
+          
+          
+          fragile(this);
 
           ctx.beginPath();
 
@@ -108,6 +108,39 @@ class Player {
           ctx.restore();
         }
       }
+   
+
+function spawnJoueur(joueur){
+  let x = 0;
+  let y = 0;
+
+  while (Map2.map[y][x] != 2) {
+    
+    if (x == Map2.map[0].length && y < Map2.map.length) {
+      y += 1;
+      x = 0;
+
     }
+    if ((y == Map2.map.length) && (x == Map2.map[0].length)) {
+      y = 0;
+      x = 0;
+    }
+    x++;
+  }
+  joueur.posX = x;
+  joueur.posY= y;
+  Map2.map[y][x] = 4;
+}
+
+
+function fragile(joueur){
+ 
+  if (joueur.color == "black" && timerinvincible == 3000){
+    joueur.color = "yellow";
+    joueur.immortal = 0;
+    timerinvincible = 0;      
+  }
+  if (joueur.color == "black" && timerinvincible < 3000){
+      timerinvincible++;
   }
 }

@@ -112,8 +112,11 @@ class Bomb {
           if (P1.immortal == 0) {
             deathPlayer();
           }
+          else {
+            tab.est= true;
+          }
           break;
-        //Map2.cdflamme;
+        
         case 5:
           deathGhost(y, x + i);
           break;
@@ -134,10 +137,14 @@ class Bomb {
           posEnf.push(res);
 
           break;
-        case 4: if (P1.immortal == 0) {
+        case 4: 
+        if (P1.immortal == 0) {
           deathPlayer();
         }
-        //Map2.cdflamme;
+        else {
+          tab.ouest= true;
+        }
+        
         case 5:
           deathGhost(y, x - i);
           break;
@@ -164,7 +171,10 @@ class Bomb {
           if (P1.immortal == 0) {
             deathPlayer();
           }
-        //Map2.cdflamme;
+          else {
+            tab.nord= true;
+          }
+        
         case 5:
           deathGhost(y - i, x);
           break;
@@ -191,7 +201,10 @@ class Bomb {
           if (P1.immortal == 0) {
             deathPlayer();
           }
-        //Map2.cdflamme;
+          else {
+            tab.sud = true;
+          }
+        
         case 5:
           deathGhost(y + i, x);
 

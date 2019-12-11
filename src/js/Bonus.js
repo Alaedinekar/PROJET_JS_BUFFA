@@ -1,4 +1,5 @@
 var BonusL = [];
+var timerinvincible = 0;
 class Bonus {
   constructor() {
 
@@ -12,8 +13,9 @@ class Bonus {
     
 
   }
-
+  
   draw() {
+    
     ctx.save();
     ctx.translate(Map2.width / 2, Map2.height / 2);
     ctx.fillStyle = this.color[this.type];

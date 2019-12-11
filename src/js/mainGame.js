@@ -38,16 +38,18 @@ function init() {
   ctx = canvas.getContext("2d");
   //Map1 = new Case(ctx, 50);
   Map2 = new Map(map, 50, 50);
+  //Map2 = new Map(createMap(10), 50, 50);
   P1 = new Player(25, ctx);
+  spawnJoueur(P1);
 
 
   setInterval(() => {
     canSpawnBonus = true;
-  }, 5000);
+  }, 10000);
 
   setInterval(() => {
     canSpawnGhost = true;
-  }, 4000);
+  }, 16000);
 
   request = requestAnimationFrame(anime60fps);
 }
@@ -173,13 +175,14 @@ function deathPlayer() {
 
 
 function deathGhost(y, x) {
+  
   for (let i = 0; i < GhostL.length; i++) {
-    if (GhostL[i].y == y && GhostL[i].x == x) {
-      (Map2.map[GhostL[i].y][GhostL[i].x] = 2);
+    if (GhostL[i].posY == y && GhostL[i].posX == x) {
+      (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
       GhostL[i] = undefined;
     }
   }
-  console.log(Map2.map);
+  
 
 }
 

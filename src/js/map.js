@@ -12,7 +12,7 @@ var map = [
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
-/*function createMap(taille){
+function createMap(taille){
   res=[];
   tmp = [];
   let etape = 0;
@@ -23,14 +23,10 @@ var map = [
   res.push(tmp);
   tmp = [];
   }
-  apparition(res);
+ 
  return res;
 }
-function  apparition(carte){
 
-
-}
-*/
 
 
 
