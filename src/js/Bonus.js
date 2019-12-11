@@ -48,12 +48,14 @@ function effetBonus(listeBonus, a, b) {
         case 2:
           console.log("freeze");
           P1.color = "turquoise";
+          P1.cptbomb = 3;
           P1.immortal=0;
           break;
 
         case 1:
           P1.immortal = 1;
           P1.color = "black";
+          P1.cptbomb = 3;
       }
       listeBonus[i] = undefined;
     }
