@@ -22,7 +22,6 @@ class Player {
     this.cptbomb = 3;
     this.immortal = 0;
     this.cpt = 0;
-    this.face = "east";
   }
   canMoveR(){   
     
@@ -71,10 +70,6 @@ class Player {
       for (let j = 0; j < Map2.map[0].length; j++) {
         if (Map2.map[i][j] == 4) {
           ctx.save();
-          switch(P1.face){
-            case "west":
-              this.ctx.rotate(20);
-          }
           ctx.translate(this.posX,this.posY);
           
 
@@ -90,7 +85,6 @@ class Player {
           let x1 = this.posX * Map2.width + this.taille * Math.cos(Math.PI / 4);
           let y1 = this.posY * Map2.height+ this.taille * Math.sin(Math.PI / 4);
           ctx.fillStyle = this.color;
-
           ctx.beginPath();
 
           ctx.arc(
@@ -105,6 +99,7 @@ class Player {
           ctx.lineTo(x1, y1);
           ctx.stroke();
           ctx.fill();
+          
           ctx.restore();
         }
       }
