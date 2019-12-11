@@ -45,6 +45,7 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "west";
                }
 
                break;
@@ -64,6 +65,7 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "north";
 
                }
                break;
@@ -85,13 +87,12 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "east";
 
                }
                break;
           case 40:
-
                if (P1.canMoveD()) {
-
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 0) {
                          deathPlayer();
                     }
@@ -106,6 +107,7 @@ document.onkeydown = function (event) {
 
                     }
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "south";
 
                }
                break;

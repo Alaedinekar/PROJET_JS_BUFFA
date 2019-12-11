@@ -22,6 +22,7 @@ class Player {
     this.cptbomb = 3;
     this.immortal = 0;
     this.cpt = 0;
+    this.face = "east";
   }
   canMoveR(){   
     
@@ -70,6 +71,10 @@ class Player {
       for (let j = 0; j < Map2.map[0].length; j++) {
         if (Map2.map[i][j] == 4) {
           ctx.save();
+          switch(P1.face){
+            case "west":
+              this.ctx.rotate(20);
+          }
           ctx.translate(this.posX,this.posY);
           
 
