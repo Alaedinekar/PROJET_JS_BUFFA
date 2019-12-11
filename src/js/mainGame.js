@@ -61,6 +61,7 @@ function anime60fps() {
 
   drawMap();
   drawPlayer();
+  console.log(timerinvincible);
   drawBomb();
 
 

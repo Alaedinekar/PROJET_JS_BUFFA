@@ -18,6 +18,7 @@ class Player {
     this.cptbomb = 3;
     this.immortal = 0;
     this.cpt = 0;
+    this.face = "east";
   }
   canMoveR(){   
     
@@ -79,14 +80,30 @@ class Player {
           let x1 = this.posX * Map2.width + this.taille * Math.cos(Math.PI / 4);
           let y1 = this.posY * Map2.height+ this.taille * Math.sin(Math.PI / 4);
 
-          
           ctx.fillStyle = this.color;
-         
-          
-          
+          switch(P1.face){
+            
+            case "north":
+              this.ctx.rotate(-Math.Pi/2);
+              this.ctx.moveTo(this.posY * Map2.width,this.posX * Map2.height);
+              break;
+            case "south":
+              this.ctx.rotate(Math.Pi/2);
+              this.ctx.moveTo(this.posY * Map2.width,this.posX * Map2.height);
+              break;
+            case "east":
+              this.ctx.rotate(2 * Math.Pi);
+              this.ctx.moveTo(this.posY * Map2.width,this.posX * Map2.height);
+              break;
+            case "west":
+              this.ctx.rotate(Math.Pi);
+              this.ctx.moveTo(this.posY * Map2.width,this.posX * Map2.height);
+              break;
+          }
           fragile(this);
 
           ctx.beginPath();
+          
 
           ctx.arc(
             this.posX * Map2.width,
@@ -100,7 +117,6 @@ class Player {
           ctx.lineTo(x1, y1);
           ctx.stroke();
           ctx.fill();
-          
           ctx.restore();
         }
       }
@@ -128,15 +144,14 @@ function spawnJoueur(joueur){
   Map2.map[y][x] = 4;
 }
 
-
 function fragile(joueur){
  
-  if (joueur.color == "black" && timerinvincible == 3000){
+  if (joueur.color == "black" && timerinvincible == 200){
     joueur.color = "yellow";
     joueur.immortal = 0;
     timerinvincible = 0;      
   }
-  if (joueur.color == "black" && timerinvincible < 3000){
+  if (joueur.color == "black" && timerinvincible < 200){
       timerinvincible++;
   }
 }

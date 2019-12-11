@@ -45,6 +45,7 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "west";
                }
 
                break;
@@ -64,6 +65,7 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "north";
 
                }
                break;
@@ -85,6 +87,7 @@ document.onkeydown = function (event) {
                     }
 
                     Map2.map[P1.posY][P1.posX] = 4;
+                    P1.face = "east";
                     
 
                }
@@ -105,7 +108,7 @@ document.onkeydown = function (event) {
 
                     }
                     Map2.map[P1.posY][P1.posX] = 4;
-
+                    P1.face = "south";
                }
                break;
           case 32:
