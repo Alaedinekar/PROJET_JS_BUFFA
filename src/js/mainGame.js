@@ -97,8 +97,7 @@ function anime60fps() {
 
   //affscore();
 
-   if (abouge == 1){
-     console.log(GhostL[0].cooldown);
+   if (abouge == 1 && GhostL != []){
    GhostL.forEach(element =>{
      if(element.cooldown == 0){
        element.move();
