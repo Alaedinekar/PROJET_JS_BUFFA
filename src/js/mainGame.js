@@ -61,7 +61,6 @@ function anime60fps() {
 
   drawMap();
   drawPlayer();
-  console.log(timerinvincible);
   drawBomb();
 
 
@@ -98,15 +97,16 @@ function anime60fps() {
 
   //affscore();
 
-  /* if (abouge == 1){
+   if (abouge == 1){
+     console.log(GhostL[0].cooldown);
    GhostL.forEach(element =>{
      if(element.cooldown == 0){
        element.move();
        element.cooldown = 200;
      }else{
-       element.cooldown -= 0,2;
+       element.cooldown -= 1;
      }});
-   }*/
+   }
 
 
 
