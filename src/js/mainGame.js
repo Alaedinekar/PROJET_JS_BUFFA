@@ -102,7 +102,7 @@ function anime60fps() {
    GhostL.forEach(element =>{
      if(element.cooldown == 0){
        element.move();
-       element.cooldown = 200;
+       element.cooldown = 100;
      }else{
        element.cooldown -= 1;
      }});
