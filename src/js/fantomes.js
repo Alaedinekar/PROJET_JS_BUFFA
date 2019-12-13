@@ -31,7 +31,7 @@ class Ghosts {
 
 
 	canMoveR() {
-		if (this.posX == Map2.map[0].length - 1 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1) {
+		if (this.posX == 9 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
 			return false;
 		} else {
 			let res = [this.posY, this.posX + 1];
@@ -40,7 +40,7 @@ class Ghosts {
 		}
 	}
 	canMoveL() {
-		if (this.posX - 1 == undefined || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1) {
+		if (this.posX == 0 || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1) {
 			return false;
 		} else {
 			let res = [this.posY, this.posX - 1];
@@ -49,7 +49,7 @@ class Ghosts {
 		}
 	}
 	canMoveUp() {
-		if (this.PosY - 1 == undefined || Map2.map[this.posY - 1][this.posX] == 0 || Map2.map[this.posY - 1][this.posX] == 1) {
+		if (this.posY == 0 || Map2.map[this.posY - 1][this.posX] == 1 || Map2.map[this.posY - 1][this.posX] == 0) {
 			return false;
 		} else {
 			let res = [this.posY - 1, this.posX];
@@ -58,7 +58,7 @@ class Ghosts {
 		}
 	}
 	canMoveD() {
-		if (this.posY == Map2.map.length - 1 || Map2.map[this.posY + 1][this.posX] == 0 || Map2.map[this.posY + 1][this.posX] == 1) {
+		if (this.posY == 9 || Map2.map[this.posY + 1][this.posX] == 0 || Map2.map[this.posY + 1][this.posX] == 1) {
 			return false;
 		} else {
 			let res = [this.posY + 1, this.posX];
