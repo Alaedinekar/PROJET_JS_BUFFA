@@ -6,13 +6,13 @@ KAROUIA Alaedine et GARNIER Corentin
 DESCRIPTION:
 
 Notre projet consiste à réaliser un jeu video s'inspirant à la fois de pac man et de Bomber-man.
-Notre jeu consiste à survivre dans des labyrintes aleatoire et definis face à des fantomes qui nous poursuive.
-Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinte car certain portion de mur de celui ci sont cassables.
+Notre jeu consiste à survivre dans des labyrinthes aleatoire et definis face à des fantomes qui nous poursuive.
+Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certain portion de mur de celui ci sont cassables.
 
 EVENEMENTS:
-Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinte.
+Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinthe.
 
-Des Bonus apparaissent dans le labyrinte de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3:
+Des Bonus apparaissent dans le labyrinthe de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3:
 -rouge -> augmentation du nombre de bombe posé 3->5;
 -noir -> invincibilité durant une courte periode;
 -bleu -> fantome qui sont ralenti dans leur deplacement.
