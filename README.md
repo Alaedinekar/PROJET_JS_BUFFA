@@ -3,8 +3,29 @@ projet buffa 2019-2020
 
 KAROUIA Alaedine et GARNIER Corentin
 
+DESCRIPTION:
+
 Notre projet consiste à réaliser un jeu video s'inspirant à la fois de pac man et de Bomber-man.
-Notre jeu est un duel entre 2 pacmans qui doivent s'entretuer en posant des bombes et de bonus temporaires.
+Notre jeu consiste à survivre dans des labyrintes aleatoire et definis face à des fantomes qui nous poursuive.
+Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinte car certain portion de mur de celui ci sont cassables.
+
+EVENEMENTS:
+Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinte.
+
+Des Bonus apparaissent dans le labyrinte de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3:
+-rouge -> augmentation du nombre de bombe posé 3->5;
+-noir -> invincibilité durant une courte periode;
+-bleu -> fantome qui sont ralenti dans leur deplacement.
+
+
+CONTROLES:
+
+Le joueur se deplace a l'aide des fleche directionnelles.
+La bombe se pose avec la touche espace.
+
+
+
+PLANNING:
 
 Première semaine : Dessiner le pacman avec l'animation de la bouche.FAIT
 
