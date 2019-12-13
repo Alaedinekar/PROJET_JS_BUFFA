@@ -113,10 +113,10 @@ class Bomb {
             deathPlayer();
           }
           else {
-            tab.est= true;
+            tab.est = true;
           }
           break;
-        
+
         case 5:
           deathGhost(y, x + i);
           break;
@@ -137,14 +137,14 @@ class Bomb {
           posEnf.push(res);
 
           break;
-        case 4: 
-        if (P1.immortal == 0) {
-          deathPlayer();
-        }
-        else {
-          tab.ouest= true;
-        }
-        
+        case 4:
+          if (P1.immortal == 0) {
+            deathPlayer();
+          }
+          else {
+            tab.ouest = true;
+          }
+
         case 5:
           deathGhost(y, x - i);
           break;
@@ -172,9 +172,9 @@ class Bomb {
             deathPlayer();
           }
           else {
-            tab.nord= true;
+            tab.nord = true;
           }
-        
+
         case 5:
           deathGhost(y - i, x);
           break;
@@ -204,7 +204,7 @@ class Bomb {
           else {
             tab.sud = true;
           }
-        
+
         case 5:
           deathGhost(y + i, x);
 

@@ -31,7 +31,7 @@ class Ghosts {
 
 
 	canMoveR() {
-		if (this.posX == 9 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1){
+		if (this.posX == 9 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1) {
 			return false;
 		} else {
 			let res = [this.posY, this.posX + 1];
@@ -76,13 +76,20 @@ class Ghosts {
 		this.canMoveL();
 		this.canMoveR();
 		this.canMoveUp();
-		if(distanceX == 0 && this.movement[rand]){
+		if((distanceX = 1 && distanceY == 0) || (distanceX == 0 && distanceY == 1)){
+			Map2.map[this.posY][this.posX] = 2;
+			this.posX = P1.posX;
+			this.posY = P1.posY;
+		}
+		if (distanceX == 0 && this.movement[rand]) {
+			Map2.map[this.posY][this.posX] = 2;
 			this.posX = this.movement[rand][1];
 			this.posY = this.movement[rand][0];
 			this.movement = [];
 			Map2.map[this.posY][this.posX] = 5;
 		}
-		if(distanceY == 0 && this.movement[rand]){
+		if (distanceY == 0 && this.movement[rand]) {
+			Map2.map[this.posY][this.posX] = 2;
 			this.posX = this.movement[rand][1];
 			this.posY = this.movement[rand][0];
 			this.movement = [];
@@ -107,8 +114,8 @@ class Ghosts {
 			Map2.map[this.posY - 1][this.posX] = 5;
 			this.posY -= 1;
 			this.movement = [];
-		}else {
-			if(this.movement[rand]){
+		} else {
+			if (this.movement[rand]) {
 				this.posX = this.movement[rand][1];
 				this.posY = this.movement[rand][0];
 				this.movement = [];

@@ -10,12 +10,12 @@ class Bonus {
     this.x = undefined;
     this.y = undefined;
 
-    
+
 
   }
-  
+
   draw() {
-    
+
     ctx.save();
     ctx.translate(Map2.width / 2, Map2.height / 2);
     ctx.fillStyle = this.color[this.type];
@@ -42,14 +42,14 @@ function effetBonus(listeBonus, a, b) {
 
           P1.cptbomb = 5;
           P1.color = "red";
-          P1.immortal=0;
+          P1.immortal = 0;
           break;
 
         case 2:
           console.log("freeze");
           P1.color = "turquoise";
           P1.cptbomb = 3;
-          P1.immortal=0;
+          P1.immortal = 0;
           break;
 
         case 1:
@@ -77,9 +77,9 @@ function spawnBonus() {
   var pos = getRandomInt(Map2.map[0].length * Map2.map.length);
   y = Math.trunc(pos / Map2.map.length);
   x = Math.trunc(pos % Map2.map.length);
-  
+
   while (Map2.map[y][x] != 2) {
-    
+
     if (x == Map2.map[0].length && y < Map2.map.length) {
       y += 1;
       x = 0;

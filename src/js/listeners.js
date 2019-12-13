@@ -36,7 +36,7 @@ document.onkeydown = function (event) {
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 1) {
-                         deathGhost(P1.posY,P1.posX - 1);
+                         deathGhost(P1.posY, P1.posX - 1);
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
@@ -55,7 +55,7 @@ document.onkeydown = function (event) {
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 1) {
-                         deathGhost(P1.posY - 1,P1.posX);
+                         deathGhost(P1.posY - 1, P1.posX);
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
@@ -77,7 +77,7 @@ document.onkeydown = function (event) {
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 1) {
-                         deathGhost(P1.posY,P1.posX+1);
+                         deathGhost(P1.posY, P1.posX + 1);
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
@@ -88,7 +88,7 @@ document.onkeydown = function (event) {
 
                     Map2.map[P1.posY][P1.posX] = 4;
                     P1.face = "east";
-                    
+
 
                }
                break;
@@ -98,7 +98,7 @@ document.onkeydown = function (event) {
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 1) {
-                         deathGhost(P1.posY + 1,P1.posX);
+                         deathGhost(P1.posY + 1, P1.posX);
                     }
 
                     Map2.map[P1.posY][P1.posX] = 2;

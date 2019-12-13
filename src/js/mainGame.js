@@ -97,15 +97,19 @@ function anime60fps() {
 
   //affscore();
 
-   if (abouge == 1 && GhostL != []){
-   GhostL.forEach(element =>{
-     if(element.cooldown == 0){
-       element.move();
-       element.cooldown = 100;
-     }else{
-       element.cooldown -= 1;
-     }});
-   }
+  if (abouge == 1 && GhostL != []) {
+    GhostL.forEach(element => {
+      if (element.cooldown == 0) {
+        element.move();
+        element.cooldown = 100;
+        if(element.posX == P1.posX && element.posY == P1.posY){
+          deathPlayer();
+        }
+      } else {
+        element.cooldown -= 1;
+      }
+    });
+  }
 
 
 
@@ -175,14 +179,14 @@ function deathPlayer() {
 
 
 function deathGhost(y, x) {
-  
+
   for (let i = 0; i < GhostL.length; i++) {
     if (GhostL[i].posY == y && GhostL[i].posX == x) {
       (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
       GhostL[i] = undefined;
     }
   }
-  
+
 
 }
 

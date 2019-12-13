@@ -12,19 +12,19 @@ var map = [
   [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
 ]; // chaque numéro correspond au type de la case (mur,mur cassable,chemin etc...)
 
-function createMap(taille){
-  res=[];
+function createMap(taille) {
+  res = [];
   tmp = [];
   let etape = 0;
-  for (let j=0;j<taille;j++){
-  for (let i =0;i<taille;i++){
-    tmp.push(getRandomInt(3));
+  for (let j = 0; j < taille; j++) {
+    for (let i = 0; i < taille; i++) {
+      tmp.push(getRandomInt(3));
+    }
+    res.push(tmp);
+    tmp = [];
   }
-  res.push(tmp);
-  tmp = [];
-  }
- 
- return res;
+
+  return res;
 }
 
 
