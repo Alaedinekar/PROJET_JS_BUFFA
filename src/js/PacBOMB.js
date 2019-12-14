@@ -62,14 +62,9 @@ class Player {
   }
 
   draw() {
-
-
     ctx.save();
     ctx.translate(this.posX, this.posY);
-
-
     ctx.translate(Map2.width / 2, Map2.height / 2);
-
 
     if (this.eAngle >= 0.4) {
       this.eAngle = -(Math.PI / 4);

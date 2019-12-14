@@ -1,4 +1,3 @@
-
 //var cptmouv = 0;
 
 /*function sleep(ms) { //stackoverflow
@@ -17,7 +16,6 @@ callbackExplode = bombe => {
           console.log(element);
           return element.id == bombe.id
      });
-
 
      if (index >= 0) P1.chargeur.splice(index, 1);
 }

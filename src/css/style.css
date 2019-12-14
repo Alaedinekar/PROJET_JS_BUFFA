@@ -1,15 +1,49 @@
+body, html {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+
+    line-height: 1.5em;
+    font-size: 22px;
+    margin: 0;
+}
+
+#contenu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#background {
+    background-image: url("../images/shrek.jpeg");
+    height: 100vh;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 #Canvas {
-    border: 3px solid #73AD21;    
+    border: 3px solid #73AD21;
     padding-left: 0;
     padding-right: 0;
     margin-left: auto;
     margin-right: auto;
     display: none;
-};
+}
 
-/*body {
-    color:black;
-    background-color:white;
-    background-image:url(images\shrek.jpeg);
-    background-repeat:no-repeat;
-    }*/
+#menu, #gameover {
+    position: relative;
+    text-align: center;
+}
+
+#menu > button, #gameover > button {
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 12px;
+    background-color: black;
+    border-radius: 6px;
+}

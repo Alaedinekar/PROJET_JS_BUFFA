@@ -1,8 +1,3 @@
-
-
-
-
-
 //window.onload = init;
 let canvas;
 //test modif
@@ -21,15 +16,9 @@ var canSpawnBonus = true;
 var canSpawnGhost = true;
 var GhostL = [];
 
-
-
-
-
 var player = document.querySelector('#audioPlayer');
 
 function init() {
-
-
   canvas = document.querySelector("#Canvas");
 
   addListeners(canvas);
@@ -55,14 +44,11 @@ function init() {
 }
 
 function anime60fps() {
-
-
   clearCanvas();
 
   drawMap();
   drawPlayer();
   drawBomb();
-
 
   //spawnFantome(score);
   if (canSpawnBonus) {
@@ -123,11 +109,9 @@ function clearCanvas() {
 
 function menu() {
   // player.play();
-
   document.getElementById("menu").setAttribute("hidden", true);
   document.getElementById("Canvas").style.display = "block";
   init();
-
 }
 
 /*function drawfantome(){
@@ -138,19 +122,14 @@ function menu() {
 */
 function drawMap() {
   Map2.draw(ctx);
-
 }
 
 function affscore() {
-
-
   ctx.strokeStyle = 'red';
   document.lineWidth = 1;
   document.font = '36px arial';
   ctx.strokeText('' + score, 50, 800);
-
 }
-
 
 function drawPlayer() {
   P1.draw();
@@ -163,6 +142,7 @@ function drawBomb() {
 }
 
 function deathPlayer() {
+  console.log("a");
   mort += 1;
   var mortsound = document.querySelector('#audioMortPlayer');
 
@@ -175,22 +155,19 @@ function deathPlayer() {
   cancelAnimationFrame(request);
 
   setTimeout(reset(), 6000);
+
+  document.getElementById("Canvas").remove();
 }
 
-
 function deathGhost(y, x) {
-
   for (let i = 0; i < GhostL.length; i++) {
     if (GhostL[i].posY == y && GhostL[i].posX == x) {
       (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
       GhostL[i] = undefined;
     }
   }
-
-
 }
 
 function reset() {
   clearCanvas();
-
 }
