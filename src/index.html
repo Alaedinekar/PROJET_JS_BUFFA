@@ -2,38 +2,38 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial">
 
-  <title>PROJET KAROUIA GARNIER</title>
-  <link href="css/style.css" rel="stylesheet">
+    <title>PROJET KAROUIA GARNIER</title>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-<div id="background">
-  <div id="contenu">
-    <div id="gameover" hidden>
-      <h1>Game over</h1>
-      <button onClick="window.location.reload();"> RESTART</button>
+    <div id="background">
+        <div id="contenu">
+            <div id="gameover" hidden>
+                <h1>Game over</h1>
+                <button onClick="window.location.reload();"> RESTART</button>
+            </div>
+            <div id="menu">
+                <h1>PacBomb</h1>
+                <button onClick="menu();"> JOUER</button>
+                <button onClick=""> CREDITS</button>
+            </div>
+            <canvas id="Canvas" width="650" height="650"></canvas>
+        </div>
     </div>
-    <div id="menu">
-      <h1>PacBomb</h1>
-      <button onClick="menu();"> JOUER</button>
-      <button onClick=""> CREDITS</button>
-    </div>
-    <canvas id="Canvas" width="500" height="500"></canvas>
-  </div>
-</div>
 
-<audio id="audioPlayer" src="sons\pacman-original-theme.mp3"></audio>
-<audio id="audioMortPlayer" src="sons\Pacman-death-sound.mp3"></audio>
-<script src="js/map.js"></script>
-<script src="js/PacBOMB.js"></script>
-<script src="js/Bonus.js"></script>
-<script src="js/Bomb.js"></script>
-<script src="js/listeners.js"></script>
-<script src="js/mainGame.js"></script>
-<script src="js/fantomes.js"></script>
+    <audio id="audioPlayer" src="sons\pacman-original-theme.mp3"></audio>
+    <audio id="audioMortPlayer" src="sons\Pacman-death-sound.mp3"></audio>
+    <script src="js/map.js"></script>
+    <script src="js/PacBOMB.js"></script>
+    <script src="js/Bonus.js"></script>
+    <script src="js/Bomb.js"></script>
+    <script src="js/listeners.js"></script>
+    <script src="js/mainGame.js"></script>
+    <script src="js/fantomes.js"></script>
 </body>
 
 </html>

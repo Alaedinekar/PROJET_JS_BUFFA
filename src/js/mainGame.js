@@ -19,155 +19,153 @@ var GhostL = [];
 var player = document.querySelector('#audioPlayer');
 
 function init() {
-  canvas = document.querySelector("#Canvas");
+    canvas = document.querySelector("#Canvas");
 
-  addListeners(canvas);
-
-  //context graphique
-  ctx = canvas.getContext("2d");
-  //Map1 = new Case(ctx, 50);
-  Map2 = new Map(map, 50, 50);
-  //Map2 = new Map(createMap(10), 50, 50);
-  P1 = new Player(25, ctx);
-  spawnJoueur(P1);
+    addListeners(canvas);
 
 
-  setInterval(() => {
-    canSpawnBonus = true;
-  }, 10000);
+    //context graphique
+    ctx = canvas.getContext("2d");
 
-  setInterval(() => {
-    canSpawnGhost = true;
-  }, 16000);
+    Map2 = new Map(50, 50);
 
-  request = requestAnimationFrame(anime60fps);
+
+    P1 = new Player(25, ctx);
+    spawnJoueur(P1);
+
+
+    setInterval(() => {
+        canSpawnBonus = true;
+    }, 1000);
+
+    setInterval(() => {
+        canSpawnGhost = true;
+    }, 5000);
+
+    request = requestAnimationFrame(anime60fps);
 }
 
 function anime60fps() {
-  clearCanvas();
+    clearCanvas();
 
-  drawMap();
-  drawPlayer();
-  drawBomb();
+    drawMap();
+    drawPlayer();
+    drawBomb();
 
-  //spawnFantome(score);
-  if (canSpawnBonus) {
-    canSpawnBonus = false;
-    spawnBonus();
 
-  }
+    //spawnFantome(score);
+    if (canSpawnBonus) {
+        canSpawnBonus = false;
+        spawnBonus();
 
-  if (canSpawnGhost) {
-    canSpawnGhost = false;
-    spawnFantome();
-  }
-
-  BonusL = BonusL.filter(b => b !== undefined);
-  GhostL = GhostL.filter(b => b !== undefined);
-
-  if (BonusL != []) {
-    for (let i = 0; i < BonusL.length; i++) {
-      if (BonusL[i] !== undefined)
-        BonusL[i].draw();
     }
-  }
 
-  if (GhostL != []) {
-    for (let i = 0; i < GhostL.length; i++) {
-      if (GhostL[i] !== undefined)
-        GhostL[i].draw();
+    if (canSpawnGhost) {
+        canSpawnGhost = false;
+        spawnFantome();
     }
-  }
 
-  extinction(posEnf);//posEnf liste des cases enflammés
+    BonusL = BonusL.filter(b => b !== undefined);
+    GhostL = GhostL.filter(b => b !== undefined);
 
-  //affscore();
-
-  if (abouge == 1 && GhostL != []) {
-    GhostL.forEach(element => {
-      if (element.cooldown == 0) {
-        element.move();
-        element.cooldown = 100;
-        if(element.posX == P1.posX && element.posY == P1.posY){
-          deathPlayer();
+    if (BonusL != []) {
+        for (let i = 0; i < BonusL.length; i++) {
+            if (BonusL[i] !== undefined)
+                BonusL[i].draw();
         }
-      } else {
-        element.cooldown -= 1;
-      }
-    });
-  }
+    }
+
+    if (GhostL != []) {
+        for (let i = 0; i < GhostL.length; i++) {
+            if (GhostL[i] !== undefined)
+                GhostL[i].draw();
+        }
+    }
+
+    extinction(posEnf); //posEnf liste des cases enflammés
+
+    //affscore();
+
+    if (abouge == 1 && GhostL != []) {
+        GhostL.forEach(element => {
+            if (element.cooldown == 0) {
+                element.move();
+                element.cooldown = 100;
+                if (element.posX == P1.posX && element.posY == P1.posY) {
+                    deathPlayer();
+                }
+            } else {
+                element.cooldown -= 1;
+            }
+        });
+    }
 
 
 
-  request = requestAnimationFrame(anime60fps);
+    request = requestAnimationFrame(anime60fps);
 }
 
 function clearCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 
 function menu() {
-  // player.play();
-  document.getElementById("menu").setAttribute("hidden", true);
-  document.getElementById("Canvas").style.display = "block";
-  init();
+    // player.play();
+    document.getElementById("menu").setAttribute("hidden", true);
+    document.getElementById("Canvas").style.display = "block";
+    init();
 }
 
-/*function drawfantome(){
-  GhostL.forEach(element => {
-    element.draw();
-  });
-}
-*/
+
 function drawMap() {
-  Map2.draw(ctx);
+    Map2.draw(ctx);
 }
 
 function affscore() {
-  ctx.strokeStyle = 'red';
-  document.lineWidth = 1;
-  document.font = '36px arial';
-  ctx.strokeText('' + score, 50, 800);
+    ctx.strokeStyle = 'red';
+    document.lineWidth = 1;
+    document.font = '36px arial';
+    ctx.strokeText('' + score, 50, 800);
 }
 
 function drawPlayer() {
-  P1.draw();
+    P1.draw();
 }
 
 function drawBomb() {
-  for (let i = 0; i < P1.chargeur.length; i++) {
-    if (P1.chargeur[i] != undefined) P1.chargeur[i].draw();
-  }
+    for (let i = 0; i < P1.chargeur.length; i++) {
+        if (P1.chargeur[i] != undefined) P1.chargeur[i].draw();
+    }
 }
 
 function deathPlayer() {
-  console.log("a");
-  mort += 1;
-  var mortsound = document.querySelector('#audioMortPlayer');
+    console.log("a");
+    mort += 1;
+    var mortsound = document.querySelector('#audioMortPlayer');
 
-  mortsound.play();
-  player.pause();
+    mortsound.play();
+    player.pause();
 
-  ctx.fillStyle = "white";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  document.getElementById("gameover").removeAttribute("hidden");
-  cancelAnimationFrame(request);
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("gameover").removeAttribute("hidden");
+    cancelAnimationFrame(request);
 
-  setTimeout(reset(), 6000);
+    setTimeout(reset(), 6000);
 
-  document.getElementById("Canvas").remove();
+    document.getElementById("Canvas").remove();
 }
 
 function deathGhost(y, x) {
-  for (let i = 0; i < GhostL.length; i++) {
-    if (GhostL[i].posY == y && GhostL[i].posX == x) {
-      (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
-      GhostL[i] = undefined;
+    for (let i = 0; i < GhostL.length; i++) {
+        if (GhostL[i].posY == y && GhostL[i].posX == x) {
+            (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
+            GhostL[i] = undefined;
+        }
     }
-  }
 }
 
 function reset() {
-  clearCanvas();
+    clearCanvas();
 }
