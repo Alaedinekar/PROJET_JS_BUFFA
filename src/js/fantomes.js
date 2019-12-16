@@ -76,51 +76,93 @@ class Ghosts {
 		this.canMoveL();
 		this.canMoveR();
 		this.canMoveUp();
-		if((distanceX = 1 && distanceY == 0) || (distanceX == 0 && distanceY == 1)){
-			Map2.map[this.posY][this.posX] = 2;
-			this.posX = P1.posX;
-			this.posY = P1.posY;
-		}
-		if (distanceX == 0 && this.movement[rand]) {
-			Map2.map[this.posY][this.posX] = 2;
-			this.posX = this.movement[rand][1];
-			this.posY = this.movement[rand][0];
-			this.movement = [];
-			Map2.map[this.posY][this.posX] = 5;
-		}
-		if (distanceY == 0 && this.movement[rand]) {
-			Map2.map[this.posY][this.posX] = 2;
-			this.posX = this.movement[rand][1];
-			this.posY = this.movement[rand][0];
-			this.movement = [];
-			Map2.map[this.posY][this.posX] = 5;
-		}
-		if (distanceX < 0 && this.canMoveL() && Map2.map[this.posY][this.posX + 1] == 2) {
-			Map2.map[this.posY][this.posX + 1] = 5;
-			this.posX += 1;
-			this.movement = [];
-		}
-		if (distanceX > 0 && this.canMoveR() && Map2.map[this.posY][this.posX - 1] == 2) {
-			Map2.map[this.posY][this.posX - 1] = 5;
-			this.posX -= 1;
-			this.movement = [];
-		}
-		if (distanceY < 0 && this.canMoveD() && Map2.map[this.posY + 1][this.posX] == 2) {
-			Map2.map[this.posY + 1][this.posX] = 5;
-			this.posY += 1;
-			this.movement = [];
-		}
-		if (distanceY > 0 && this.canMoveUp() && Map2.map[this.posY - 1][this.posX] == 2) {
-			Map2.map[this.posY - 1][this.posX] = 5;
-			this.posY -= 1;
-			this.movement = [];
-		} else {
-			if (this.movement[rand]) {
+		if (P1.immortal == 0) {
+			if ((Math.abs(distanceX) == 1 && distanceY == 0) || (distanceX == 0 && Math.abs(distanceY == 1))) {
+				deathPlayer();
+			}
+			if (distanceX == 0 && this.movement[rand]) {
+				Map2.map[this.posY][this.posX] = 2;
 				this.posX = this.movement[rand][1];
 				this.posY = this.movement[rand][0];
 				this.movement = [];
+				Map2.map[this.posY][this.posX] = 5;
 			}
-			Map2.map[this.posY][this.posX] = 5;
+			if (distanceY == 0 && this.movement[rand]) {
+				Map2.map[this.posY][this.posX] = 2;
+				this.posX = this.movement[rand][1];
+				this.posY = this.movement[rand][0];
+				this.movement = [];
+				Map2.map[this.posY][this.posX] = 5;
+			}
+			if (distanceX < 0 && this.canMoveL() && Map2.map[this.posY][this.posX + 1] == 2) {
+				Map2.map[this.posY][this.posX + 1] = 5;
+				this.posX += 1;
+				this.movement = [];
+			}
+			if (distanceX > 0 && this.canMoveR() && Map2.map[this.posY][this.posX - 1] == 2) {
+				Map2.map[this.posY][this.posX - 1] = 5;
+				this.posX -= 1;
+				this.movement = [];
+			}
+			if (distanceY < 0 && this.canMoveD() && Map2.map[this.posY + 1][this.posX] == 2) {
+				Map2.map[this.posY + 1][this.posX] = 5;
+				this.posY += 1;
+				this.movement = [];
+			}
+			if (distanceY > 0 && this.canMoveUp() && Map2.map[this.posY - 1][this.posX] == 2) {
+				Map2.map[this.posY - 1][this.posX] = 5;
+				this.posY -= 1;
+				this.movement = [];
+			} else {
+				if (this.movement[rand]) {
+					this.posX = this.movement[rand][1];
+					this.posY = this.movement[rand][0];
+					this.movement = [];
+				}
+				Map2.map[this.posY][this.posX] = 5;
+			}
+		}else{
+			if (distanceX == 0 && this.movement[rand]) {
+				Map2.map[this.posY][this.posX] = 2;
+				this.posX = this.movement[rand][1];
+				this.posY = this.movement[rand][0];
+				this.movement = [];
+				Map2.map[this.posY][this.posX] = 5;
+			}
+			if (distanceY == 0 && this.movement[rand]) {
+				Map2.map[this.posY][this.posX] = 2;
+				this.posX = this.movement[rand][1];
+				this.posY = this.movement[rand][0];
+				this.movement = [];
+				Map2.map[this.posY][this.posX] = 5;
+			}
+			if (distanceX < 0 && this.canMoveR() && Map2.map[this.posY][this.posX - 1] == 2) {
+				Map2.map[this.posY][this.posX - 1] = 5;
+				this.posX -= 1;
+				this.movement = [];
+			}
+			if (distanceX > 0 && this.canMoveL() && Map2.map[this.posY][this.posX + 1] == 2) {
+				Map2.map[this.posY][this.posX + 1] = 5;
+				this.posX += 1;
+				this.movement = [];
+			}
+			if (distanceY < 0 && this.canMoveUp() && Map2.map[this.posY - 1][this.posX] == 2) {
+				Map2.map[this.posY - 1][this.posX] = 5;
+				this.posY -= 1;
+				this.movement = [];
+			}
+			if (distanceY > 0 && this.canMoveD() && Map2.map[this.posY + 1][this.posX] == 2) {
+				Map2.map[this.posY + 1][this.posX] = 5;
+				this.posY += 1;
+				this.movement = [];
+			} else {
+				if (this.movement[rand]) {
+					this.posX = this.movement[rand][1];
+					this.posY = this.movement[rand][0];
+					this.movement = [];
+				}
+				Map2.map[this.posY][this.posX] = 5;
+			}
 		}
 	}
 
