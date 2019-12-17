@@ -85,23 +85,24 @@ function anime60fps() {
     extinction(posEnf); //posEnf liste des cases enflammés
 
     //affscore();
-
-    if (abouge == 1 && GhostL != []) {
-        GhostL.forEach(element => {
-            if (element.cooldown == 0) {
-                element.move();
-                element.cooldown = 100;
-                if (element.posX == P1.posX && element.posY == P1.posY) {
-                    deathPlayer();
+    /*
+        if (abouge == 1 && GhostL != []) {
+            GhostL.forEach(element => {
+                if (element.cooldown == 0) {
+                    element.move();
+                    element.cooldown = 100;
+                    if (element.posX == P1.posX && element.posY == P1.posY) {
+                        deathPlayer();
+                    }
+                } else {
+                    element.cooldown -= 1;
                 }
-            } else {
-                element.cooldown -= 1;
-            }
-        });
-    }
+            });
+        }*/
 
 
-
+    //document.getElementById("SCORE").innerText = "";
+    document.getElementById("SCORE").innerText = score;
     request = requestAnimationFrame(anime60fps);
 }
 
@@ -158,12 +159,15 @@ function deathPlayer() {
 }
 
 function deathGhost(y, x) {
+    console.log("score +10")
+    score += 10;
     for (let i = 0; i < GhostL.length; i++) {
         if (GhostL[i].posY == y && GhostL[i].posX == x) {
             (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
             GhostL[i] = undefined;
         }
     }
+    GhostL = GhostL.filter(g => g !== undefined);
 }
 
 function reset() {

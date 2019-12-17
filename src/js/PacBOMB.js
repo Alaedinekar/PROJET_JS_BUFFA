@@ -20,7 +20,7 @@ class Player {
     }
     canMoveR() {
 
-        if (this.posX == Map2.map[0].length - 1 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1) {
+        if (this.posX == Map2.map.length - 1 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1) {
             return false;
         } else {
             return true;
