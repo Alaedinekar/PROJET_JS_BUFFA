@@ -85,20 +85,20 @@ function anime60fps() {
     extinction(posEnf); //posEnf liste des cases enflammés
 
     //affscore();
-    /*
-        if (abouge == 1 && GhostL != []) {
-            GhostL.forEach(element => {
-                if (element.cooldown == 0) {
-                    element.move();
-                    element.cooldown = 100;
-                    if (element.posX == P1.posX && element.posY == P1.posY) {
-                        deathPlayer();
-                    }
-                } else {
-                    element.cooldown -= 1;
+
+    if (abouge == 1 && GhostL != []) {
+        GhostL.forEach(element => {
+            if (element.cooldown == 0) {
+                element.move();
+                element.cooldown = 100;
+                if (element.posX == P1.posX && element.posY == P1.posY) {
+                    deathPlayer();
                 }
-            });
-        }*/
+            } else {
+                element.cooldown -= 1;
+            }
+        });
+    }
 
 
     //document.getElementById("SCORE").innerText = "";
