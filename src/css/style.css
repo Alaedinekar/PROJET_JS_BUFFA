@@ -1,9 +1,9 @@
-body, html {
+body,
+html {
     font-family: Arial, sans-serif;
     justify-content: center;
     align-items: center;
     min-height: 100%;
-
     line-height: 1.5em;
     font-size: 22px;
     margin: 0;
@@ -19,7 +19,6 @@ body, html {
 #background {
     background-image: url("../images/shrek.jpeg");
     height: 100vh;
-
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,12 +33,25 @@ body, html {
     display: none;
 }
 
-#menu, #gameover {
+#SCORE {
+    left: 30px;
+    top: 500px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 24px;
+    position: absolute;
+    border-radius: 6px;
+}
+
+#menu,
+#gameover {
     position: relative;
     text-align: center;
 }
 
-#menu > button, #gameover > button {
+#menu>button,
+#gameover>button {
     font-size: 16px;
     border: none;
     color: white;

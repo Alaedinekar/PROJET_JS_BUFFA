@@ -101,7 +101,8 @@ function anime60fps() {
         }*/
 
 
-
+    //document.getElementById("SCORE").innerText = "";
+    document.getElementById("SCORE").innerText = score;
     request = requestAnimationFrame(anime60fps);
 }
 
@@ -158,6 +159,8 @@ function deathPlayer() {
 }
 
 function deathGhost(y, x) {
+    console.log("score +10")
+    score += 10;
     for (let i = 0; i < GhostL.length; i++) {
         if (GhostL[i].posY == y && GhostL[i].posX == x) {
             (Map2.map[GhostL[i].posY][GhostL[i].posX] = 2);
