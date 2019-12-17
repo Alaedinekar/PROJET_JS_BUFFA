@@ -85,20 +85,20 @@ function anime60fps() {
     extinction(posEnf); //posEnf liste des cases enflammés
 
     //affscore();
-
-    if (abouge == 1 && GhostL != []) {
-        GhostL.forEach(element => {
-            if (element.cooldown == 0) {
-                element.move();
-                element.cooldown = 100;
-                if (element.posX == P1.posX && element.posY == P1.posY) {
-                    deathPlayer();
+    /*
+        if (abouge == 1 && GhostL != []) {
+            GhostL.forEach(element => {
+                if (element.cooldown == 0) {
+                    element.move();
+                    element.cooldown = 100;
+                    if (element.posX == P1.posX && element.posY == P1.posY) {
+                        deathPlayer();
+                    }
+                } else {
+                    element.cooldown -= 1;
                 }
-            } else {
-                element.cooldown -= 1;
-            }
-        });
-    }
+            });
+        }*/
 
 
 
@@ -164,6 +164,7 @@ function deathGhost(y, x) {
             GhostL[i] = undefined;
         }
     }
+    GhostL = GhostL.filter(g => g !== undefined);
 }
 
 function reset() {

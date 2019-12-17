@@ -14,7 +14,7 @@ var maptest = [
 
 function createMap() {
 
-    let taille = 20;
+    let taille = 13;
     let murIncassable = 0;
     let maxmurIncassable = 100
     let murCassable = 0;
