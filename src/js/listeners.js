@@ -25,12 +25,10 @@ document.onkeydown = function (event) {
 
 
      switch (event.keyCode) {
-
           case 37:
-
                if (P1.canMoveL()) {
-
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 0) {
+                         console.log("Ghosted");
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 1) {
@@ -50,6 +48,7 @@ document.onkeydown = function (event) {
           case 38:
                if (P1.canMoveUp()) {
                     if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 0) {
+                         console.log("GHosted");
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 1) {
@@ -72,6 +71,7 @@ document.onkeydown = function (event) {
                if (P1.canMoveR()) {
 
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 0) {
+                         console.log("GHOSted");
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 1) {
@@ -93,6 +93,7 @@ document.onkeydown = function (event) {
           case 40:
                if (P1.canMoveD()) {
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 0) {
+                         console.log("noobi");
                          deathPlayer();
                     }
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 1) {

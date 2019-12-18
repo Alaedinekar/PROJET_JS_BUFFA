@@ -52,6 +52,7 @@ class Map {
 
         this.width = largeurPixels;
         this.height = hauteurPixels;
+        //this.map = maptest;
         this.map = createMap();
         this.colors = ["blue", "grey", "green", "red", "green", "green", "green"];
         // incassable,cassable,chemin

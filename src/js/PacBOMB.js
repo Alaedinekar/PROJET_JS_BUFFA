@@ -54,14 +54,18 @@ class Player {
 
     mort() {
 
-        if (Map2.map[this.posY][this.posX] == 3 && Map2.map[this.posY][this.posX] == 5) {
+        if (Map2.map[this.posY][this.posX] == 3) {
+            console.log("BURNED");
+            return true;
+        }else if(Map2.map[this.posY][this.posX] == 5){
+            console.log("GHOSTED");
             return true;
         }
     }
 
     draw() {
         ctx.save();
-        ctx.translate(this.posX, this.posY);
+        ctx.translate(this.posX *Map2.width, this.posY*Map2.height);
         ctx.translate(Map2.width / 2, Map2.height / 2);
 
         if (this.eAngle >= 0.4) {
@@ -70,27 +74,27 @@ class Player {
             this.eAngle += 0.09;
         }
 
-        let x1 = this.posX * Map2.width + this.taille * Math.cos(Math.PI / 4);
-        let y1 = this.posY * Map2.height + this.taille * Math.sin(Math.PI / 4);
+        let x1 = this.taille * Math.cos(Math.PI / 4);
+        let y1 = this.taille * Math.sin(Math.PI / 4);
 
         ctx.fillStyle = this.color;
-        switch (P1.face) {
+        switch (this.face) {
 
             case "north":
-                this.ctx.rotate(-Math.Pi / 2);
-                this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
+                this.ctx.rotate(-Math.PI / 2);
+               // this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
                 break;
             case "south":
-                this.ctx.rotate(Math.Pi / 2);
-                this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
+                this.ctx.rotate(Math.PI / 2);
+               // this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
                 break;
             case "east":
-                this.ctx.rotate(2 * Math.Pi);
-                this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
+               // this.ctx.rotate(-Math.PI);
+               // this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
                 break;
             case "west":
-                this.ctx.rotate(Math.Pi);
-                this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
+                this.ctx.rotate(Math.PI);
+                //this.ctx.moveTo(this.posY * Map2.width, this.posX * Map2.height);
                 break;
         }
         fragile(this);
@@ -99,14 +103,14 @@ class Player {
 
 
         ctx.arc(
-            this.posX * Map2.width,
-            this.posY * Map2.width,
+            0 * Map2.width,
+             0 * Map2.width,
             this.taille,
             this.sAngle,
             this.eAngle
         );
 
-        ctx.lineTo(this.posX * Map2.width, this.posY * Map2.width);
+        ctx.lineTo(0, 0);
         ctx.lineTo(x1, y1);
         ctx.stroke();
         ctx.fill();

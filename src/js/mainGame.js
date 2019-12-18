@@ -91,7 +91,7 @@ function anime60fps() {
             if (element.cooldown == 0) {
                 element.move();
                 element.cooldown = 100;
-                if (element.posX == P1.posX && element.posY == P1.posY) {
+                if (element.posX == P1.posX && element.posY == P1.posY && element.cantkill == 0) {
                     deathPlayer();
                 }
             } else {
@@ -123,12 +123,7 @@ function drawMap() {
     Map2.draw(ctx);
 }
 
-function affscore() {
-    ctx.strokeStyle = 'red';
-    document.lineWidth = 1;
-    document.font = '36px arial';
-    ctx.strokeText('' + score, 50, 800);
-}
+
 
 function drawPlayer() {
     P1.draw();
@@ -159,7 +154,7 @@ function deathPlayer() {
 }
 
 function deathGhost(y, x) {
-    console.log("score +10")
+    console.log("score + 10");
     score += 10;
     for (let i = 0; i < GhostL.length; i++) {
         if (GhostL[i].posY == y && GhostL[i].posX == x) {
