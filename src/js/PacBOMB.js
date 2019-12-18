@@ -151,4 +151,20 @@ function fragile(joueur) {
     if (joueur.color == "black" && timerinvincible < 200) {
         timerinvincible++;
     }
+    if (joueur.color == "turquoise" && timerinvincible == 200) {
+        joueur.color = "yellow";
+        joueur.immortal = 0;
+        timerinvincible = 0;
+    }
+    if (joueur.color == "turquoise" && timerinvincible < 200) {
+        timerinvincible++;
+    }
+    if (joueur.color == "red" && timerinvincible == 200) {
+        joueur.color = "yellow";
+        joueur.immortal = 0;
+        timerinvincible = 0;
+    }
+    if (joueur.color == "red" && timerinvincible < 200) {
+        timerinvincible++;
+    }
 }
