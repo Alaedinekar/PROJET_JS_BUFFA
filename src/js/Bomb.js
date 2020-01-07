@@ -8,8 +8,13 @@ class Bomb {
         this.color = "black";
         this.cligno = 1;
         this.ctpcolor = 0;
-
+        this.bomb = new Image();
+        this.bomb.src = "./images/bomb.png";
         this.callbackE = callback;
+        this.totalNumberOfFrames = 6;
+        this.widthOfImage = this.bomb.width;
+        this.heightOfImage = this.bomb.height;
+        this.widthOfSingleImage = this.widthOfImage / this.totalNumberOfFrames;
         setTimeout(this.explode, 3000);
 
 
@@ -20,40 +25,23 @@ class Bomb {
     }
 
     draw() {
-
         ctx.save();
-        this.changecolor();
-
-        ctx.translate(Map2.width / 2, Map2.height / 2);
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x * Map2.width, this.y * Map2.height, 25, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.fill();
+        ctx.drawImage(this.bomb, 0, 0, this.widthOfSingleImage, this.heightOfImage, this.x * Map2.width, this.y * Map2.height, 50, 50);
         ctx.restore();
     }
 
-
-
     changecolor = () => {
-
         if (this.ctpcolor == 30) {
             if (this.cligno == 1) {
-
                 this.color = "red";
                 this.cligno = 0;
             } else {
-
                 this.color = "orange";
                 this.cligno = 1;
             }
             this.ctpcolor = 0;
         } else this.ctpcolor++;
-    }
-
-
-
-
+    };
 
     explode = () => {
         if (Map2.map[this.y][this.x] == 4 && P1.immortal == 0) {
@@ -80,9 +68,6 @@ class Bomb {
         P1.cpt--;
         console.log(P1.cpt);
     }
-
-
-
 
     searchRecurs(x, y, i, tab) {
         Map2.map[y][x] = 3;

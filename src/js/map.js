@@ -55,25 +55,39 @@ class Map {
         //this.map = maptest;
         this.map = createMap();
         this.colors = ["blue", "grey", "green", "red", "green", "green", "green"];
-        // incassable,cassable,chemin
+        this.murGris = new Image();
+        this.arbres = new Image();
+        this.sol = new Image();
+        this.murGris.src = "./images/wall_strong.png";
+        this.arbres.src = "./images/arbre.png";
+        this.sol.src = "./images/sol.png";
+        // incassable, cassable, chemin
     }
 
     draw() {
         //dessin de la map en fonction de la matrice
         let x = 0;
         let y = 0;
-
         for (let i = 0; i < this.map.length; i++) {
             x = 0; //Quand on fini une colone on repart de 0
             y = this.height * i; //A chaque fois qu'on fini une colonne on se décale de la longueur de la case
-
             for (let j = 0; j < this.map.length; j++) {
                 x = j * this.width;
-
-                ctx.fillStyle = this.colors[this.map[i][j]];
-
-                ctx.fillRect(x, y, this.width, this.height);
-
+                switch (this.colors[this.map[i][j]]) {
+                    case "blue":
+                        ctx.drawImage(this.murGris, x, y, this.width, this.height);
+                        break;
+                    case "grey":
+                        ctx.drawImage(this.arbres, x, y, this.width, this.height);
+                        break;
+                    case "green":
+                        ctx.drawImage(this.sol, x, y, this.width, this.height);
+                        break;
+                    default:
+                        ctx.fillStyle = this.colors[this.map[i][j]];
+                        ctx.fillRect(x, y, this.width, this.height);
+                        break;
+                }
             }
         }
     }

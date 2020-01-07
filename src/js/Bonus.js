@@ -2,29 +2,29 @@ var BonusL = [];
 var timerinvincible = 0;
 class Bonus {
     constructor() {
-
         this.type = getRandomInt(3);
         this.color = ["red", "black", "blue"]; //la rouge augmente le nb de bombe,
         //la noir permet de manger les fantomes et la bleu permet de les ralentir
-
+        this.bonuses = new Image();
+        this.bonuses.src = "./images/bonuses.png";
         this.x = undefined;
         this.y = undefined;
-
-
-
     }
 
     draw() {
-
         ctx.save();
-        ctx.translate(Map2.width / 2, Map2.height / 2);
-        ctx.fillStyle = this.color[this.type];
-        ctx.beginPath();
-        ctx.arc(this.x * Map2.width, this.y * Map2.width, 25, 0, 2 * Math.PI);
-        ctx.stroke();
-        ctx.fill();
+        switch(this.color[this.type]) {
+            case "red":
+                ctx.drawImage(this.bonuses, 0, 0, 56, this.bonuses.height, this.x * Map2.width, this.y * Map2.width, 50, 50);
+                break;
+            case "black":
+                ctx.drawImage(this.bonuses, 56, 0, 48, this.bonuses.height, this.x * Map2.width, this.y * Map2.width, 50, 50);
+                break;
+            case "blue":
+                ctx.drawImage(this.bonuses, 105, 0, 48, this.bonuses.height, this.x * Map2.width, this.y * Map2.width, 50, 50);
+                break;
+        }
         ctx.restore();
-
     }
 }
 
@@ -66,7 +66,6 @@ function effetBonus(listeBonus, a, b) {
 
 
 function spawnBonus() {
-
     let x, y;
     BonusL.push(new Bonus());
     var pos = getRandomInt(Map2.map.length * Map2.map.length);
@@ -74,7 +73,6 @@ function spawnBonus() {
     x = Math.trunc(pos % Map2.map.length);
 
     while (Map2.map[y][x] != 2) {
-
         if ((y == Map2.map.length) && (x == Map2.map.length)) {
             y = 0;
             x = 0;
@@ -83,16 +81,10 @@ function spawnBonus() {
         if (x == Map2.map.length && y < Map2.map.length) {
             y += 1;
             x = 0;
-
         }
         x++;
     }
     BonusL[BonusL.length - 1].x = x;
     BonusL[BonusL.length - 1].y = y;
     Map2.map[y][x] = 6;
-
-
-
-
-
 }
