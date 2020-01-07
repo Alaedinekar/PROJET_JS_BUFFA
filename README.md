@@ -9,6 +9,9 @@ Notre projet consiste à réaliser un jeu video s'inspirant à la fois de pac ma
 Notre jeu consiste à survivre dans des labyrinthes aleatoire et definis face à des fantomes qui nous poursuive.
 Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certain portion de mur de celui ci sont cassables.
 
+CONCEPTE DU JEU:
+Vous etes un pacman et des fantomes vous attaquent vous avez comme seul moyen de défense des bombes, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes, vous n'avez qu'une seule chance.
+
 EVENEMENTS:
 Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinthe.
 
