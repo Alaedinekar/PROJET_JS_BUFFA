@@ -30,21 +30,11 @@ class Bomb {
         ctx.restore();
     }
 
-    changecolor = () => {
-        if (this.ctpcolor == 30) {
-            if (this.cligno == 1) {
-                this.color = "red";
-                this.cligno = 0;
-            } else {
-                this.color = "orange";
-                this.cligno = 1;
-            }
-            this.ctpcolor = 0;
-        } else this.ctpcolor++;
-    };
-
+    
     explode = () => {
+        console.log(P1.immortal)
         if (Map2.map[this.y][this.x] == 4 && P1.immortal == 0) {
+            console.log(P1.immortal)
             deathPlayer();
         }
 

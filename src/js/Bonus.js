@@ -1,5 +1,7 @@
 var BonusL = [];
 var timerinvincible = 0;
+var freeze = 0;
+var timerfreeze = 0;
 class Bonus {
     constructor() {
         this.type = getRandomInt(3);
@@ -44,11 +46,13 @@ function effetBonus(listeBonus, a, b) {
                     P1.cptbomb = 5;
                     P1.color = "red";
                     P1.immortal = 0;
+                    freeze = 0;
                     break;
 
                 case 2:
                     console.log("freeze");
                     P1.color = "turquoise";
+                    freeze = 1;
                     P1.cptbomb = 3;
                     P1.immortal = 0;
                     break;
@@ -57,6 +61,7 @@ function effetBonus(listeBonus, a, b) {
                     P1.immortal = 1;
                     P1.color = "black";
                     P1.cptbomb = 3;
+                    freeze = 0;
             }
             listeBonus[i] = undefined;
         }

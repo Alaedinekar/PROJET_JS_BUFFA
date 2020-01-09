@@ -35,12 +35,13 @@ function init() {
 
 
     setInterval(() => {
+        if (abouge == 1)
         canSpawnBonus = true;
-    }, 1000);
+    }, 5000);
 
     setInterval(() => {
         canSpawnGhost = true;
-    }, 5000);
+    }, 3500);
 
     request = requestAnimationFrame(anime60fps);
 }
@@ -88,7 +89,7 @@ function anime60fps() {
 
     if (abouge == 1 && GhostL != []) {
         GhostL.forEach(element => {
-            if (element.cooldown == 0) {
+            if (element.cooldown == 0 && freeze == 0) {
                 element.move();
                 element.cooldown = 100;
                 if (element.posX == P1.posX && element.posY == P1.posY && element.cantkill == 0) {
@@ -112,9 +113,11 @@ function clearCanvas() {
 
 
 function menu() {
-    // player.play();
+     player.play();
     document.getElementById("menu").setAttribute("hidden", true);
     document.getElementById("Canvas").style.display = "block";
+    document.getElementById("SCORE").style.display = "block";
+    document.getElementById("credit").style.display = "none";
     init();
 }
 
@@ -167,4 +170,23 @@ function deathGhost(y, x) {
 
 function reset() {
     clearCanvas();
+}
+
+/*
+function abc(score){
+    var
+    if score >
+}*/
+
+var cred = 0;
+function credit(){
+    
+    if (cred == 0){
+    document.getElementById("credit").style.display = "block";
+    cred = 1;
+    }
+    else {
+        document.getElementById("credit").style.display = "none";
+        cred = 0;
+    }
 }

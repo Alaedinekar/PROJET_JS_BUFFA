@@ -33,6 +33,17 @@ html {
     display: none;
 }
 
+#credit {
+    left:600px;
+    top: 200px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    position: absolute;
+    display: none;
+}
+
 #SCORE {
     left: 30px;
     top: 500px;
@@ -42,6 +53,7 @@ html {
     font-size: 24px;
     position: absolute;
     border-radius: 6px;
+    display: none;
 }
 
 #menu,
