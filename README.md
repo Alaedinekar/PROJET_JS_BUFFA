@@ -6,8 +6,8 @@ KAROUIA Alaedine et GARNIER Corentin
 DESCRIPTION:
 
 Notre projet consiste à réaliser un jeu video s'inspirant à la fois de pac man et de Bomber-man.
-Notre jeu consiste à survivre dans des labyrinthes aleatoire et definis face à des fantomes qui nous poursuive.
-Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certain portion de mur de celui ci sont cassables.
+Notre jeu consiste à survivre dans des labyrinthes differents d'une partie à l'autre et de faire face à des fantomes qui nous poursuive.
+Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certain portion de celui-ci de sont destructibles.
 
 CONCEPTE DU JEU:
 Vous etes un pacman et des fantomes vous attaquent vous avez comme seul moyen de défense des bombes, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes, vous avez qu'une seule chance.
@@ -18,13 +18,13 @@ Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinthe.
 Des Bonus apparaissent dans le labyrinthe de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3:
 -rouge -> augmentation du nombre de bombe posé 3->5;
 -noir -> invincibilité durant une courte periode;
--bleu -> fantome qui sont ralenti dans leur deplacement.
+-bleu -> fantome qui sont gelé (plus apte à se deplacer deplacement).
 
 
 CONTROLES:
 
-Le joueur se deplace a l'aide des fleche directionnelles.
-La bombe se pose avec la touche espace.
+Le joueur se deplace à l'aide des flèches directionnelles.
+Les bombes se posent avec la touche espace du clavier.
 
 
 
