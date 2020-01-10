@@ -181,12 +181,29 @@ function abc(score){
 var cred = 0;
 function credit(){
     
-    if (cred == 0){
-    document.getElementById("credit").style.display = "block";
-    cred = 1;
+    if (cred == 0 || rule == 1){
+        document.getElementById("rules").style.display = "none";
+        rule= 0;
+        document.getElementById("credit").style.display = "block";
+        cred = 1;
     }
     else {
         document.getElementById("credit").style.display = "none";
         cred = 0;
+    }
+}
+
+var rule = 0;
+function rules(){
+    
+    if (rule == 0 || cred == 1){
+        document.getElementById("credit").style.display = "none";
+        cred = 0;
+        document.getElementById("rules").style.display = "block";
+        rule = 1;
+    }
+    else {
+        document.getElementById("rules").style.display = "none";
+        rule = 0;
     }
 }
