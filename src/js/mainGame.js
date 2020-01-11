@@ -17,6 +17,7 @@ var canSpawnGhost = true;
 var GhostL = [];
 
 var player = document.querySelector('#audioPlayer');
+var audiomanger = document.querySelector('#audiomanger');
 
 function init() {
     canvas = document.querySelector("#Canvas");

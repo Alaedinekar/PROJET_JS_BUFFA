@@ -32,6 +32,10 @@ class Bomb {
 
     
     explode = () => {
+        var audioExp = document.querySelector('#audioExplo');
+
+        audioExp.play();
+        audioExp.currentTime = 0
         console.log(P1.immortal)
         if (Map2.map[this.y][this.x] == 4 && P1.immortal == 0) {
             console.log(P1.immortal)

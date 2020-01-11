@@ -35,6 +35,9 @@ class Bonus {
 
 function effetBonus(listeBonus, a, b) {
     score += 2;
+    var audioBon = document.querySelector('#audioBonus');
+    audioBon.play();
+    audioBon.currentTime = 0
 
     for (let i = 0; i < listeBonus.length; i++) {
         console.log(listeBonus[i].x, listeBonus[i].y, P1.posX, P1.posY)

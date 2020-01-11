@@ -22,6 +22,8 @@ callbackExplode = bombe => {
 
 
 document.onkeydown = function (event) {
+    
+
 
 
      switch (event.keyCode) {
@@ -33,6 +35,9 @@ document.onkeydown = function (event) {
                     }
                     if (Map2.map[P1.posY][P1.posX - 1] == 5 && P1.immortal == 1) {
                          deathGhost(P1.posY, P1.posX - 1);
+                         audiomanger.play();
+                         audiomanger.currentTime = 0
+
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX -= 1;
@@ -53,6 +58,8 @@ document.onkeydown = function (event) {
                     }
                     if (Map2.map[P1.posY - 1][P1.posX] == 5 && P1.immortal == 1) {
                          deathGhost(P1.posY - 1, P1.posX);
+                         audiomanger.play();
+                         audiomanger.currentTime = 0
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posY -= 1;
@@ -76,6 +83,8 @@ document.onkeydown = function (event) {
                     }
                     if (Map2.map[P1.posY][P1.posX + 1] == 5 && P1.immortal == 1) {
                          deathGhost(P1.posY, P1.posX + 1);
+                         audiomanger.play();
+                         audiomanger.currentTime = 0
                     }
                     Map2.map[P1.posY][P1.posX] = 2;
                     P1.posX += 1;
@@ -98,6 +107,8 @@ document.onkeydown = function (event) {
                     }
                     if (Map2.map[P1.posY + 1][P1.posX] == 5 && P1.immortal == 1) {
                          deathGhost(P1.posY + 1, P1.posX);
+                         audiomanger.play();
+                         audiomanger.currentTime = 0
                     }
 
                     Map2.map[P1.posY][P1.posX] = 2;
