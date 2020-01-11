@@ -59,7 +59,6 @@ function anime60fps() {
     if (canSpawnBonus) {
         canSpawnBonus = false;
         spawnBonus();
-
     }
 
     if (canSpawnGhost) {
@@ -102,7 +101,6 @@ function anime60fps() {
         });
     }
 
-
     //document.getElementById("SCORE").innerText = "";
     document.getElementById("SCORE").innerText = score;
     request = requestAnimationFrame(anime60fps);
@@ -122,12 +120,9 @@ function menu() {
     init();
 }
 
-
 function drawMap() {
     Map2.draw(ctx);
 }
-
-
 
 function drawPlayer() {
     P1.draw();
@@ -155,6 +150,9 @@ function deathPlayer() {
     setTimeout(reset(), 6000);
 
     document.getElementById("Canvas").remove();
+    document.getElementById("finalScore").innerText = "votre score final est de " + score;
+    document.getElementById("SCORE").style.display = "none" 
+    document.getElementById("finalScore").style.display = "block" 
 }
 
 function deathGhost(y, x) {
@@ -173,11 +171,6 @@ function reset() {
     clearCanvas();
 }
 
-/*
-function abc(score){
-    var
-    if score >
-}*/
 
 var cred = 0;
 function credit(){

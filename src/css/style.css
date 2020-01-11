@@ -17,7 +17,7 @@ html {
 }
 
 #background {
-    background-image: url("../images/shrek.jpeg");
+    background-image: url("../images/trueSHREKOS.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,9 +25,9 @@ html {
 }
 
 #Canvas {
+    
     border: 3px solid #73AD21;
-    padding-left: 0;
-    padding-right: 0;
+    position: relative;
     margin-left: auto;
     margin-right: auto;
     display: none;
@@ -43,7 +43,19 @@ html {
     position: absolute;
     display: none;
 }
+#finalScore{
+    left:800px;
+    top: 200px;
+    border: none;
+    color: white;
+    background-color: black;
+    font-size: 30px;
+    position: absolute;
+    display: none;
 
+
+
+}
 #rules {
     left:170px;
     top: 200px;
