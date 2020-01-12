@@ -39,7 +39,7 @@ class Player {
     
     thereisBombU(){
         this.chargeur.forEach(element => {
-            if(this.posX - 1 == element.x){
+            if(this.posX - 1 == element.y){
                 return true;
             }
         });
@@ -48,7 +48,7 @@ class Player {
     
     thereisBombD(){
         this.chargeur.forEach(element => {
-            if(this.posX + 1 == element.x){
+            if(this.posX + 1 == element.y){
                 return true;
             }
         });
