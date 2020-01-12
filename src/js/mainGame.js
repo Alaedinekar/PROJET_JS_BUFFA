@@ -18,6 +18,7 @@ var GhostL = [];
 
 var player = document.querySelector('#audioPlayer');
 var audiomanger = document.querySelector('#audiomanger');
+var soundactif = 0;
 
 function init() {
     canvas = document.querySelector("#Canvas");
@@ -101,7 +102,7 @@ function anime60fps() {
     }
 
     //document.getElementById("SCORE").innerText = "";
-    document.getElementById("SCORE").innerText = score;
+    document.getElementById("SCORE").innerText = "score : " + score;
     request = requestAnimationFrame(anime60fps);
 }
 
@@ -112,10 +113,13 @@ function clearCanvas() {
 
 function menu() {
      player.play();
+     soundactif = 1;
+     document.getElementById("sons").style.display = "block";
     document.getElementById("menu").setAttribute("hidden", true);
     document.getElementById("Canvas").style.display = "block";
     document.getElementById("SCORE").style.display = "block";
     document.getElementById("credit").style.display = "none";
+    document.getElementById("rules").style.display = "none";
     init();
 }
 
@@ -134,10 +138,10 @@ function drawBomb() {
 }
 
 function deathPlayer() {
-    console.log("a");
+    
     mort += 1;
     var mortsound = document.querySelector('#audioMortPlayer');
-
+    mortsound.volume = 0.3;
     mortsound.play();
     player.pause();
 
@@ -199,4 +203,16 @@ function rules(){
         document.getElementById("rules").style.display = "none";
         rule = 0;
     }
+}
+
+
+function gerersons(){
+
+    if (soundactif == 1){
+        player.volume = 0;
+    }
+    if (soundactif == 0) {
+        player.volume = 1;
+    }
+
 }

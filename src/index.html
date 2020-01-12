@@ -21,22 +21,41 @@
                 <button onClick="menu();"> JOUER</button>
                 <button onClick="credit();"> CREDITS</button>
                 <button onClick="rules();"> REGLES</button>
+                
             </div>
             <p id="credit"> KAROUIA ALAEDINE & GARNIER CORENTIN </p>
             <div id="rules">
-                <p>CONCEPTE DU JEU: Vous etes un pacman et des fantomes vous attaquent vous avez comme seul moyen de défense des bombes, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes, vous n'avez qu'une seule chance.</p>
-            </br>
-                <p>EVENEMENTS: Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinthe.
+                <p>CONCEPTE DU JEU: Vous etes un pacman et des fantomes vous poursuivent, vous avez comme seul moyen de défense des bombes et des bonus, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes ni par vos bombes, vous n'avez qu'une seule chance.</p>
+           
+                <p>EVENEMENTS: Les fantomes apparaitront a un certain rythme aleatoire dans le labyrinthe. <br>            
+                Le labyrinthe est composé de 3 differents elements.
+
+                <ul>
                 
-                Des Bonus apparaissent dans le labyrinthe de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3: -rouge -> augmentation du nombre de bombe posé 3->5; -noir -> invincibilité durant une courte periode; -bleu -> fantome qui sont gelé (plus apte à se deplacer deplacement).</p>
-                </br>
-                <p>CONTROLES:
+                    <li>il y a le chemin de base ou le joueur se deplace </li>
+                    <li> les arbres qui sont destructibles </li>
+                    <li>les blocs de pierres qui sont indestructibles</li>
+            </ul>
+            Des Bonus apparaissent dans le labyrinthe de maniere aleatoirement.
+                Ils en existent  3 avec leur effet associé: 
+                <ul>
                 
-                Le joueur se deplace à l'aide des flèches directionnelles. Les bombes se posent avec la touche espace du clavier.</p></div>
+                    <li>rouge -> augmentation du nombre de bombe posable 3 à 5; </li>
+                    <li>noir -> invincibilité durant une courte periode; </li>
+                    <li>bleu -> les fantomes sont gelés </li>
+            </ul>
+
+
+        </p>
+                
+                <p>Les CONTROLES:
+                
+                Le joueur se déplace à l'aide des flèches directionnelles. Les bombes se posent avec la touche espace du clavier.</p></div>
             <canvas id="Canvas" width="650" height="650"></canvas>
             <p id="SCORE"> score </p>
             <p id="finalScore"> Votre score final est : </p>
         </div>
+        <button id ="sons" onClick="gerersons();"> MUTE </button>
     </div> 
 
     <audio id="audioPlayer" src="sons\power-maze-electronic-beat-game-music-by-forhirmusic-ggj19.mp3"></audio>

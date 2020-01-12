@@ -181,22 +181,22 @@ function spawnJoueur(joueur) {
 
 function fragile(joueur) {
 
-    if (joueur.color == "black" && timerinvincible == 200) {
+    if (joueur.color == "black" && timerinvincible == 500) {
         joueur.color = "yellow";
         joueur.immortal = 0;
         timerinvincible = 0;
     }
-    if (joueur.color == "black" && timerinvincible < 200) {
+    if (joueur.color == "black" && timerinvincible < 500) {
         timerinvincible++;
     }
-    if (joueur.color == "turquoise" && timerinvincible == 200) {
+    if (joueur.color == "turquoise" && timerinvincible == 500) {
         joueur.color = "yellow";
         joueur.immortal = 0;
         timerinvincible = 0;
         timerfreeze = 0;
         freeze = 0;
     }
-    if (joueur.color == "turquoise" && timerinvincible < 200) {
+    if (joueur.color == "turquoise" && timerinvincible < 500) {
         timerinvincible++;
     }
 
@@ -204,12 +204,12 @@ function fragile(joueur) {
         timerfreeze++;
     }
 
-    if (joueur.color == "red" && timerinvincible == 200) {
+    if (joueur.color == "red" && timerinvincible == 500) {
         joueur.color = "yellow";
         joueur.immortal = 0;
         timerinvincible = 0;
     }
-    if (joueur.color == "red" && timerinvincible < 200) {
+    if (joueur.color == "red" && timerinvincible < 500) {
         timerinvincible++;
     }
 }
