@@ -49,7 +49,6 @@ function init() {
 
 function anime60fps() {
     clearCanvas();
-
     drawMap();
     drawPlayer();
     drawBomb();
