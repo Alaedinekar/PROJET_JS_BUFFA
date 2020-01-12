@@ -18,9 +18,46 @@ class Player {
         this.cpt = 0;
         this.face = "east";
     }
+
+    thereisBombL(){
+        this.chargeur.forEach(element => {
+            if(this.posX - 1== element.y){
+                return true;
+            }
+        });
+        return false;
+    }
+
+    thereisBombR(){
+        this.chargeur.forEach(element => {
+            if(this.posX + 1== element.y){
+                return true;
+            }
+        });
+        return false;
+    }
+
+    thereisBombU(){
+        this.chargeur.forEach(element => {
+            if(this.posY - 1== element.x){
+                return true;
+            }
+        });
+        return false;
+    }
+
+    thereisBombD(){
+        this.chargeur.forEach(element => {
+            if(this.posY + 1== element.x){
+                return true;
+            }
+        });
+        return false;
+    }
+
     canMoveR() {
 
-        if (this.posX == Map2.map.length - 1 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1) {
+        if (this.posX == Map2.map.length - 1 || Map2.map[this.posY][this.posX + 1] == 0 || Map2.map[this.posY][this.posX + 1] == 1 || this.thereisBombR()) {
             return false;
         } else {
             return true;
@@ -28,7 +65,7 @@ class Player {
     }
     canMoveL() {
 
-        if (this.posX == 0 || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1) {
+        if (this.posX == 0 || Map2.map[this.posY][this.posX - 1] == 0 || Map2.map[this.posY][this.posX - 1] == 1|| this.thereisBombL()) {
             return false;
         } else {
             return true;
@@ -36,7 +73,7 @@ class Player {
     }
     canMoveUp() {
 
-        if (this.PosY == 0 || Map2.map[this.posY - 1][this.posX] == 0 || Map2.map[this.posY - 1][this.posX] == 1) {
+        if (this.PosY == 0 || Map2.map[this.posY - 1][this.posX] == 0 || Map2.map[this.posY - 1][this.posX] == 1||this.thereisBombU()) {
             return false;
         } else {
             return true;
@@ -44,7 +81,7 @@ class Player {
     }
     canMoveD() {
 
-        if (this.posY == Map2.map.length - 1 || Map2.map[this.posY + 1][this.posX] == 0 || Map2.map[this.posY + 1][this.posX] == 1) {
+        if (this.posY == Map2.map.length - 1 || Map2.map[this.posY + 1][this.posX] == 0 || Map2.map[this.posY + 1][this.posX] == 1||this.thereisBombD()) {
             return false;
         } else {
             return true;
