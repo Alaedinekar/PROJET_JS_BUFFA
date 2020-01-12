@@ -105,6 +105,7 @@ html {
     background-color: black;
     font-size: 30px;
     position: absolute;
+    border-radius: 6px;
     display: none;
 
 }
