@@ -123,7 +123,7 @@ document.onkeydown = function (event) {
                break;
           case 32:
 
-               if ((P1.chargeur.length < P1.cptbomb)) {
+               if ((P1.chargeur.length < P1.cptbomb) && (fin == 0)) {
 
                     let beubon = new Bomb(P1.posX, P1.posY, callbackExplode);
 
@@ -138,13 +138,7 @@ document.onkeydown = function (event) {
 
                }
 
-
-
                break;
-
-
-
-
      }
 
 }

@@ -20,6 +20,7 @@ var player = document.querySelector('#audioPlayer');
 var audiomanger = document.querySelector('#audiomanger');
 var audioExp = document.querySelector('#audioExplo');
 var soundactif = true;
+var fin = 0;
 
 function init() {
     canvas = document.querySelector("#Canvas");
@@ -141,6 +142,7 @@ function drawBomb() {
 }
 
 function deathPlayer() {
+    fin = 1;
     document.getElementById("quote").style.display = "none";
     mort += 1;
     
