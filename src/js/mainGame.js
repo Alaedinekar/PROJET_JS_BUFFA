@@ -18,7 +18,7 @@ var GhostL = [];
 
 var player = document.querySelector('#audioPlayer');
 var audiomanger = document.querySelector('#audiomanger');
-var soundactif = 0;
+var soundactif = true;
 
 function init() {
     canvas = document.querySelector("#Canvas");
@@ -50,6 +50,7 @@ function init() {
 
 function anime60fps() {
     clearCanvas();
+
     drawMap();
     drawPlayer();
     drawBomb();
@@ -102,7 +103,7 @@ function anime60fps() {
     }
 
     //document.getElementById("SCORE").innerText = "";
-    document.getElementById("SCORE").innerText = "score : " + score;
+    document.getElementById("SCORE").innerText = "SCORE : " + score;
     request = requestAnimationFrame(anime60fps);
 }
 
@@ -113,7 +114,7 @@ function clearCanvas() {
 
 function menu() {
      player.play();
-     soundactif = 1;
+     soundactif = true;
      document.getElementById("sons").style.display = "block";
     document.getElementById("menu").setAttribute("hidden", true);
     document.getElementById("Canvas").style.display = "block";
@@ -138,7 +139,7 @@ function drawBomb() {
 }
 
 function deathPlayer() {
-    
+
     mort += 1;
     var mortsound = document.querySelector('#audioMortPlayer');
     mortsound.volume = 0.3;
@@ -154,8 +155,9 @@ function deathPlayer() {
 
     document.getElementById("Canvas").remove();
     document.getElementById("finalScore").innerText = "votre score final est de " + score;
-    document.getElementById("SCORE").style.display = "none" 
-    document.getElementById("finalScore").style.display = "block" 
+    document.getElementById("SCORE").style.display = "none"
+    document.getElementById("finalScore").style.display = "block"
+    document.getElementById("sons").style.display = "none"
 }
 
 function deathGhost(y, x) {
@@ -177,7 +179,7 @@ function reset() {
 
 var cred = 0;
 function credit(){
-    
+
     if (cred == 0 || rule == 1){
         document.getElementById("rules").style.display = "none";
         rule= 0;
@@ -192,7 +194,7 @@ function credit(){
 
 var rule = 0;
 function rules(){
-    
+
     if (rule == 0 || cred == 1){
         document.getElementById("credit").style.display = "none";
         cred = 0;
@@ -207,12 +209,21 @@ function rules(){
 
 
 function gerersons(){
-
-    if (soundactif == 1){
+    if (soundactif === true){
         player.volume = 0;
+         mortsound.volume = 0;
+         audiomanger.volume = 0;
+         audioBon.volume= 0;
+         audioExp.volume = 0;
+         
     }
-    if (soundactif == 0) {
+    if (soundactif === false) {
         player.volume = 1;
+        mortsound.volume = 1;
+        audiomanger.volume = 1;
+        audioBon.volume = 1;
+        audioExp.volume = 1;
     }
 
+    soundactif = !soundactif;
 }

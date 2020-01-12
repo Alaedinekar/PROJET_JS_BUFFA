@@ -11,10 +11,6 @@ class Bomb {
         this.bomb = new Image();
         this.bomb.src = "./images/bomb.png";
         this.callbackE = callback;
-        this.totalNumberOfFrames = 6;
-        this.widthOfImage = this.bomb.width;
-        this.heightOfImage = this.bomb.height;
-        this.widthOfSingleImage = this.widthOfImage / this.totalNumberOfFrames;
         setTimeout(this.explode, 3000);
 
 
@@ -26,11 +22,11 @@ class Bomb {
 
     draw() {
         ctx.save();
-        ctx.drawImage(this.bomb, 0, 0, this.widthOfSingleImage, this.heightOfImage, this.x * Map2.width, this.y * Map2.height, 50, 50);
+        ctx.drawImage(this.bomb, this.x * Map2.width, this.y * Map2.height, 50, 50);
         ctx.restore();
     }
 
-    
+
     explode = () => {
         var audioExp = document.querySelector('#audioExplo');
         audioExp.volume = 0.2;
