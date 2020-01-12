@@ -42,7 +42,6 @@ function createMap() {
         tmp = [];
     }
 
-
     return res;
 }
 

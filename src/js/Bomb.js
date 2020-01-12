@@ -28,8 +28,8 @@ class Bomb {
 
 
     explode = () => {
-        var audioExp = document.querySelector('#audioExplo');
-        audioExp.volume = 0.2;
+        
+        
         audioExp.play();
         audioExp.currentTime = 0
         console.log(P1.immortal)

@@ -1,6 +1,5 @@
 //window.onload = init;
 let canvas;
-//test modif
 
 let ctx = this.ctx;
 
@@ -15,9 +14,11 @@ var score = 0;
 var canSpawnBonus = true;
 var canSpawnGhost = true;
 var GhostL = [];
-
+var audioBon = document.querySelector('#audioBonus');
+var mortsound = document.querySelector('#audioMortPlayer');
 var player = document.querySelector('#audioPlayer');
 var audiomanger = document.querySelector('#audiomanger');
+var audioExp = document.querySelector('#audioExplo');
 var soundactif = true;
 
 function init() {
@@ -102,7 +103,7 @@ function anime60fps() {
         });
     }
 
-    //document.getElementById("SCORE").innerText = "";
+    
     document.getElementById("SCORE").innerText = "SCORE : " + score;
     request = requestAnimationFrame(anime60fps);
 }
@@ -115,6 +116,7 @@ function clearCanvas() {
 function menu() {
      player.play();
      soundactif = true;
+     citation();
      document.getElementById("sons").style.display = "block";
     document.getElementById("menu").setAttribute("hidden", true);
     document.getElementById("Canvas").style.display = "block";
@@ -139,9 +141,9 @@ function drawBomb() {
 }
 
 function deathPlayer() {
-
+    document.getElementById("quote").style.display = "none";
     mort += 1;
-    var mortsound = document.querySelector('#audioMortPlayer');
+    
     mortsound.volume = 0.3;
     mortsound.play();
     player.pause();
@@ -226,4 +228,12 @@ function gerersons(){
     }
 
     soundactif = !soundactif;
+}
+
+
+function citation(){
+    
+    listCitation = ["GET OUT OF MY SWAMP", "THE SHREKMAZE", "Do the roar", "Les ogres c'est comme les oignons", "T’es pas mouru l’âne, t’es pas mouru","Vaut mieux dehors que dedans", "lets get together and have some shrex"]
+    document.getElementById("quote").innerText = listCitation[getRandomInt(listCitation.length + 1)];
+    document.getElementById("quote").style.display = "block";
 }

@@ -46,6 +46,7 @@ html {
 #finalScore{
     left:800px;
     top: 200px;
+    text-align: center;
     border: none;
     color: white;
     background-color: black;
@@ -59,6 +60,7 @@ html {
 #rules {
     left:170px;
     top: 200px;
+    
     border: none;
     color: white;
     background-color: black;
@@ -105,4 +107,14 @@ html {
     position: absolute;
     display: none;
 
+}
+
+#quote{
+    left: 900px;
+    top: 900px;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: black;
+    display: none;
 }
