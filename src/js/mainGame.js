@@ -236,6 +236,6 @@ function gerersons(){
 function citation(){
     
     listCitation = ["GET OUT OF MY SWAMP", "THE SHREKMAZE", "Do the roar", "Les ogres c'est comme les oignons", "T’es pas mouru l’âne, t’es pas mouru","Vaut mieux dehors que dedans", "lets get together and have some shrex"]
-    document.getElementById("quote").innerText = listCitation[getRandomInt(listCitation.length + 1)];
+    document.getElementById("quote").innerText = listCitation[getRandomInt(listCitation.length )];
     document.getElementById("quote").style.display = "block";
 }
