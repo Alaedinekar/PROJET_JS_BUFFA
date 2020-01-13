@@ -6,19 +6,20 @@ KAROUIA Alaedine et GARNIER Corentin
 DESCRIPTION:
 
 Notre projet consiste à réaliser un jeu video s'inspirant à la fois de pac man et de Bomber-man.
-Notre jeu consiste à survivre dans des labyrinthes differents d'une partie à l'autre et de faire face à des fantomes qui nous poursuive.
-Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certain portion de celui-ci de sont destructibles.
+Notre jeu consiste à survivre dans des labyrinthes differents d'une partie à l'autre et de faire face à des fantomes qui nous poursuivent.
+Pour se defendre, le joueur peut poser des bombes pour tuer les fantomes, et se frayer des chemins dans le labyrinthe car certaines portions de celui-ci sont destructibles.
 
-CONCEPTE DU JEU:
-Vous etes un pacman et des fantomes vous attaquent vous avez comme seul moyen de défense des bombes, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes, vous n'avez qu'une seule chance.
+CONCEPT DU JEU:
+Vous êtes un pacman et des fantomes vous attaquent, vous avez comme seul moyen de défense la capacité de poser des bombes, votre but est de survivre le plus longtemps possible sans vous faire toucher par les fantomes et vous n'avez qu'une seule chance.
 
 EVENEMENTS:
-Les fantomes apparaitront a un certain rythme aleatoirement dans le labyrinthe.
+Les fantomes apparaitront à un certain rythme aléatoire dans le labyrinthe.
 
-Des Bonus apparaissent dans le labyrinthe de maniere aleatoirement. Ceux-ci donnent des ameliorations dont 3:
+Des Bonus apparaissent dans le labyrinthe de maniere aleatoire. Ceux-ci donnent des ameliorations dont 3:
+
 -rouge -> augmentation du nombre de bombe posé 3->5;
 -noir -> invincibilité durant une courte periode;
--bleu -> fantome qui sont gelé (plus apte à se deplacer deplacement).
+-bleu -> fantome qui sont gelé (plus apte à se deplacer).
 
 
 CONTROLES:
