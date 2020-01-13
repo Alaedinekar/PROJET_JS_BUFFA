@@ -16,6 +16,7 @@ EVENEMENTS:
 Les fantomes apparaitront à un certain rythme aléatoire dans le labyrinthe.
 
 Des Bonus apparaissent dans le labyrinthe de maniere aleatoire. Ceux-ci donnent des ameliorations dont 3:
+
 -rouge -> augmentation du nombre de bombe posé 3->5;
 -noir -> invincibilité durant une courte periode;
 -bleu -> fantome qui sont gelé (plus apte à se deplacer).
